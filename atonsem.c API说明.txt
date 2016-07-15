@@ -1,115 +1,20 @@
-atontimer.c
-所有api:
-uint8_t  	atomTimerRegister (ATOM_TIMER *timer_ptr);
-uint8_t  	atomTimerCancel (ATOM_TIMER *timer_ptr);
-uint32_t 	atomTimeGet(void);
-void     	atomTimeSet(uint32_t new_time);
-void     	atomTimerTick (void);
-uint8_t  	atomTimerDelay (uint32_t ticks);
-static void atomTimerCallbacks (void);
-static void atomTimerDelayCallback (POINTER cb_data);
-/*
- *定时器注册.
- *功能:注册一个定时回调函数.
- *参数:
- *typedef struct atom_timer
- *{
- *   TIMER_CB_FUNC      cb_func;    // 回调函数 
- *   POINTER	        cb_data;    // Pointer to callback parameter/data 
- *   uint32_t	        cb_ticks;   // 回调时间参数 单位ticks 必须大于0
+/** 
+ * \n <b> 使用说明</b> \n
+ * 所有信号量都必须在使用前被初始化,初始化函数为atomSemCreate().
+ * 初始化之后atomSemGet()和atomSemPut()分别用来减少和增加信号量的计数.
  *
- *	// 内部数据 
- *   struct atom_timer *next_timer;		// Next timer in doubly-linked list 
- *} ATOM_TIMER;
- *中断安全性:安全,但有可能和希望的时间不匹配
- *返回:
- * ATOM_OK Success
- * ATOM_ERR_PARAM Bad parameters
- */
-uint8_t atomTimerRegister (ATOM_TIMER *timer_ptr);
-
-/*
- *定时器取消
- *功能:取消由atomTimerRegister (ATOM_TIMER *timer_ptr)注册的回调函数
- *参数:
- *typedef struct atom_timer
- *{
- *   TIMER_CB_FUNC   cb_func;    // 回调函数 
- *   POINTER	        cb_data;    // Pointer to callback parameter/data 
- *   uint32_t	    cb_ticks;   // 回调时间参数 单位ticks 
+ * 一旦信号量计数为0,继续使用atomSemGet()将阻塞调用的线程(除非传入的参数不需要阻塞).
+ * 当线程被阻塞时若执行了atomSemPut(),则高优先级的线程将被唤醒.当多个相同优先级的线程
+ * 都被阻塞,则会被同时唤醒,并从他们进入阻塞的位置继续运行
  *
- *	// 内部数据 
- *   struct atom_timer *next_timer;		// Next timer in doubly-linked list 
- *} ATOM_TIMER;
- *中断安全性:安全,但有可能和希望的时间不匹配
- *返回:
- * ATOM_OK 成功
- * ATOM_ERR_PARAM 参数错误
- * ATOM_ERR_NOT_FOUND 未发现注册的回调
+ * 当一个信号量不再被需要的时候,可以使用atomSemDelete()来把其删除.该函数将智能的唤醒
+ * 任何被该信号量阻塞的任务.
+ *
+ *
+ * \n <b> 备注 </b> \n
+ * 注意
+ * Note that those considering using a semaphore initialised to 1 for mutual
+ * exclusion purposes may wish to investigate the mutex library available in
+ * Atomthreads.
+ *
  */
-uint8_t atomTimerCancel (ATOM_TIMER *timer_ptr);
-
-/*
- *获取时间
- *功能:获取system tick次数
- *参数:void
- *中断安全性:安全
- *返回:
- *system tick次数
- */
- uint32_t atomTimeGet(void);
- 
- /*
- *系统时间设定
- *功能:获取system tick次数
- *参数:设定的时间
- *中断安全性:安全
- *返回:
- *system tick次数
- */
- void atomTimeSet(uint32_t new_time);
- 
-  /*
- *系统tick处理函数
- *功能:
- *1.增加系统tick计时
- *2.回调每个注册的回调函数
- *参数:void
- *返回:
- *void
- *用户不需要调用此函数
- */
- void atomTimerTick (void);
- 
- /*
- *延时函数
- *功能:阻塞一个线程以给定的system tick数.
- *参数:
- *ticks数 必须大于0
- *中断安全性:只能在线程中使用
- *返回:
- * ATOM_OK 成功
- * ATOM_ERR_PARAM 参数错误
- * ATOM_ERR_CONTEXT 没有在线程中调用
- */
- uint8_t atomTimerDelay (uint32_t ticks);
- 
- /*
- *系统处理定时注册回调函数的位置
- *功能:
- *找到所有回调函数并调用他们
- *参数:void
- *返回:void
- *用户不需要调用此函数
- */
- static void atomTimerCallbacks (void);
- 
-  /*
- *系统处理定时注册回调函数的位置
- *功能:
- *找到所有回调函数并调用他们
- *参数:void
- *返回:void
- *用户不需要调用此函数
- */
- static void atomTimerDelayCallback (POINTER cb_data);

@@ -224,7 +224,7 @@ E:\projects\AirBox new\ports\stm8\stm8s-periphs
 -D__HAS_LOCATED_WITH_INIT__=1
 -D__IAR_COMPILERBASE__=593160
 -D__DATE__="Jul 15 2016"
--D__TIME__="14:30:26"
+-D__TIME__="18:36:47"
 -D__STDC__=1
 -D__STDC_VERSION__=199901L
 -D__STDC_HOSTED__=1

@@ -17,7 +17,7 @@
         <debug>1</debug>
         <option>
           <name>GenDeviceSelectMenu</name>
-          <state>STM8S007C8	STM8S007C8</state>
+          <state>STM8S003F3	STM8S003F3</state>
         </option>
         <option>
           <name>GenCodeModel</name>
@@ -472,15 +472,15 @@
         <option>
           <name>OOCOutputFormat</name>
           <version>2</version>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>OCOutputOverride</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state></state>
+          <state>atomthreads-sample-iar.hex</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -488,7 +488,7 @@
         </option>
         <option>
           <name>OOCObjCopyEnable</name>
-          <state>0</state>
+          <state>1</state>
         </option>
       </data>
     </settings>
@@ -570,11 +570,11 @@
         </option>
         <option>
           <name>IlinkMapFile</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IlinkLogFile</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IlinkLogInitialization</name>
@@ -598,7 +598,7 @@
         </option>
         <option>
           <name>IlinkIcfFile</name>
-          <state>$TOOLKIT_DIR$\config\lnkstm8s105c6.icf</state>
+          <state>$TOOLKIT_DIR$\config\lnkstm8s007c8.icf</state>
         </option>
         <option>
           <name>IlinkIcfFileSlave</name>
@@ -755,7 +755,7 @@
         </option>
         <option>
           <name>IlinkOptMergeDuplSections</name>
-          <state>0</state>
+          <state>1</state>
         </option>
       </data>
     </settings>
