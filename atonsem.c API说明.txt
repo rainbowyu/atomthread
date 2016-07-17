@@ -9,12 +9,121 @@
  *
  * 当一个信号量不再被需要的时候,可以使用atomSemDelete()来把其删除.该函数将智能的唤醒
  * 任何被该信号量阻塞的任务.
- *
- *
- * \n <b> 备注 </b> \n
- * 注意
- * Note that those considering using a semaphore initialised to 1 for mutual
- * exclusion purposes may wish to investigate the mutex library available in
- * Atomthreads.
- *
  */
+
+uint8_t atomSemCreate (ATOM_SEM *sem, uint8_t initial_count); 
+uint8_t atomSemDelete (ATOM_SEM *sem); 
+uint8_t atomSemGet (ATOM_SEM *sem, int32_t timeout);
+uint8_t atomSemPut (ATOM_SEM * sem);
+uint8_t atomSemResetCount (ATOM_SEM *sem, uint8_t count);
+static void atomSemTimerCallback (POINTER cb_data);
+
+/*
+ * 建立信号量.
+ * 功能:创建一个信号量.
+ * 说明:必须在使用之前创建,创建之后可以使用atomSemDelete()删除
+ * 参数:
+ * typedef struct atom_sem
+ * {
+ *    ATOM_TCB *  suspQ;  // 被该信号量阻塞的线程队列
+ *    uint8_t     count;  // 信号量计数 
+ * }ATOM_SEM;
+ * uint8_t initial_count  //初始数量
+ * 中断安全性:安全
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_ERR_PARAM 错误的参数
+ */
+ uint8_t atomSemCreate (ATOM_SEM *sem, uint8_t initial_count);
+ 
+/*
+ * 删除信号量.
+ * 功能:删除一个信号量.
+ * 说明:任何正被该信号量阻塞的线程会被唤醒并返回ATOM_ERR_DELETED,
+ * 如果在线程中使用,调度器将根据优先级决定是否唤醒阻塞的线程.
+ * 参数:
+ * ATOM_SEM *sem
+ * 中断安全性:安全
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_ERR_QUEUE 将唤醒的线程载入准备队列失败
+ * ATOM_ERR_TIMER 取消一个已被唤醒的线程timeout失败
+ */
+ uint8_t atomSemDelete (ATOM_SEM *sem);
+ 
+/*
+ * 获取(get)信号量.
+ * 功能:获取一个信号量.
+ * 说明:此函数会减少信号量的计数,并返回.若计数已经为零,则本次调用会阻塞
+ * 线程直到信号量计数被其他线程增加.或者持续到timeout到来.
+ 
+ * 根据timeout的不同值,当信号量为零的时候会有如下结果:
+ * timeout == 0 线程会被阻塞直到信号量不再为0.
+ * timeout >0 线程将被阻塞直到信号量不再为0或者超时.
+ * timeout == -1 当计数为0的时候立刻返回.
+ 
+ * 若线程被阻塞且timeout为0,其会被无限期的阻塞直到atomSemPut()或者atomSemDelete()
+ * 被其他线程调用.
+
+ * 参数:
+ * ATOM_SEM *sem
+ * int32_t timeout 阻塞的最长时间 (0 = 永远)
+ * 中断安全性:只有当timeout=-1时才能在中断中使用
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_TIMEOUT 在被唤醒前 timeout已到时间
+ * ATOM_WOULDBLOCK 在信号量为0的时候,timeout=-1
+ * ATOM_ERR_DELETED 阻塞时,信号量被删除了
+ * ATOM_ERR_CONTEXT 不是在线程中被调用
+ * ATOM_ERR_PARAM 错误的参数
+ * ATOM_ERR_QUEUE 将线程放在阻塞队列时发生错误
+ * ATOM_ERR_TIMER 注册timeout错误
+ */
+ uint8_t atomSemGet (ATOM_SEM *sem, int32_t timeout);
+ 
+/*
+ * 给出一个信号量.
+ * 功能:给出一个信号量.
+ * 说明:调用该函数会增加信号量的计数1,然后返回.
+ 
+ * 如果信号量之前为0,且有一个线程被该信号量阻塞,则该调用会唤醒优先级最高的线程.
+ * 每次调用该函数只会唤醒一个线程.如果有多个相同优先级的线程被阻塞,则遵循先入先出原则.
+ 
+ * 参数:
+ * ATOM_SEM *sem
+ * 中断安全性:安全
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_ERR_OVF 线程计数超过255
+ * ATOM_ERR_PARAM 错误的参数
+ * ATOM_ERR_QUEUE 唤醒线程错误
+ * ATOM_ERR_TIMER 取消一个被唤醒线程的timeout错误
+ */
+ uint8_t atomSemPut (ATOM_SEM * sem);
+ 
+/*
+ * 重新设置一个信号量的计数.
+ * 功能:设置一个信号量的计数.
+ * 说明:当信号量被使用的时候要小心使用该函数,事实上该函数只能在信号量
+ * 未被使用的情况下使用.
+ 
+ * 参数:
+ * ATOM_SEM *sem
+ * uint8_t count
+ * 中断安全性:安全
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_ERR_PARAM 错误的参数
+ */
+ uint8_t atomSemResetCount (ATOM_SEM *sem, uint8_t count);
+ 
+/*
+ * 信号量定时器回调函数.
+ * 功能:内部函数外部无需调用
+ * 说明:当阻塞线程timeout到的时候就会调用改函数
+ * 参数 POINTER cb_data将会得到更多细节.
+ 
+ * 参数:
+ * POINTER cb_data
+ */
+ static void atomSemTimerCallback (POINTER cb_data);

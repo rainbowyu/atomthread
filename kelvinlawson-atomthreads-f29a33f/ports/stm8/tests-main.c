@@ -245,14 +245,14 @@ static void main_thread_func (uint32_t param)
     sleep_ticks = (test_status == 0) ? SYSTEM_TICKS_PER_SEC : (SYSTEM_TICKS_PER_SEC/8);
 
     /* Configure GPIO for flashing the STM8S Discovery LED on GPIO D0 */
-    GPIO_DeInit(GPIOD);
-    GPIO_Init(GPIOD, GPIO_PIN_0, GPIO_MODE_OUT_PP_LOW_FAST);
+    GPIO_DeInit(GPIOC);
+    GPIO_Init(GPIOC, GPIO_PIN_1, GPIO_MODE_OUT_PP_LOW_FAST);
 
     /* Test finished, flash slowly for pass, fast for fail */
     while (1)
     {
         /* Toggle LED on pin D0 (Discovery-specific) */
-        GPIO_WriteReverse(GPIOD, GPIO_PIN_0);
+        GPIO_WriteReverse(GPIOC, GPIO_PIN_1);
 
         /* Sleep then toggle LED again */
         atomTimerDelay (sleep_ticks);

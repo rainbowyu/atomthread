@@ -1,4 +1,4 @@
-"E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\atomport.c"
+"E:\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\atomport.c"
 -std=c99
 -ferror-limit=100
 -I
@@ -8,17 +8,17 @@
 -I
 ./stm8s-periphs
 -I
-E:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\stm8\inc
+E:\Program Files (x86)\IAR Systems\Embedded Workbench 7.0\stm8\inc
 -I
-E:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\stm8\inc\c
+E:\Program Files (x86)\IAR Systems\Embedded Workbench 7.0\stm8\inc\c
 -I
-E:\projects\kernel
+../../kernel
 -I
-E:\projects\tests
+../../tests
 -I
-E:\projects\AirBox new\Myos_Public_STM8\stm8s-periphs
--DSTM8S105=0
--DATOM_STACK_CHECKING=0
+E:\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\stm8s-periphs
+-DSTM8S105=1
+-DATOM_STACK_CHECKING=1
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0
@@ -28,7 +28,7 @@ E:\projects\AirBox new\Myos_Public_STM8\stm8s-periphs
 -D__SIGNED_CHAR_MIN__=(-__SIGNED_CHAR_MAX__-1)
 -D__CHAR_ALIGN__=1
 -D__SHORT_SIZE__=2
--D__UNSIGNED_SHORT_MAX__=0xffff
+-D__UNSIGNED_SHORT_MAX__=0xffffU
 -D__SIGNED_SHORT_MAX__=32767
 -D__SIGNED_SHORT_MIN__=(-__SIGNED_SHORT_MAX__-1)
 -D__SHORT_ALIGN__=1
@@ -124,7 +124,7 @@ E:\projects\AirBox new\Myos_Public_STM8\stm8s-periphs
 -D__NAN_HAS_HIGH_MANTISSA_BIT_SET__=0
 -D__SUBNORMAL_FLOATING_POINTS__=1
 -D__SIZE_T_TYPE__=unsigned short int
--D__SIZE_T_MAX__=0xffff
+-D__SIZE_T_MAX__=0xffffU
 -D__PTRDIFF_T_TYPE__=signed short int
 -D__PTRDIFF_T_MAX__=32767
 -D__PTRDIFF_T_MIN__=(-__PTRDIFF_T_MAX__-1)
@@ -132,14 +132,14 @@ E:\projects\AirBox new\Myos_Public_STM8\stm8s-periphs
 -D__INTPTR_T_MAX__=32767
 -D__INTPTR_T_MIN__=(-__INTPTR_T_MAX__-1)
 -D__UINTPTR_T_TYPE__=unsigned short int
--D__UINTPTR_T_MAX__=0xffff
+-D__UINTPTR_T_MAX__=0xffffU
 -D__INTPTR_SIZE_PREFIX__="h"
 -D__JMP_BUF_ELEMENT_TYPE__=unsigned char
 -D__JMP_BUF_NUM_ELEMENTS__=28
 -D__TID__=0x3800
--D__VER__=140
--D__SUBVERSION__=1
--D__BUILD_NUMBER__=106
+-D__VER__=210
+-D__SUBVERSION__=2
+-D__BUILD_NUMBER__=149
 -D__IAR_SYSTEMS_ICC__=8
 -D__VA_STACK_DECREASING__=1
 -D__VA_STACK_ALIGN__=1
@@ -148,7 +148,7 @@ E:\projects\AirBox new\Myos_Public_STM8\stm8s-periphs
 -D__BOOL_TYPE__=unsigned char
 -D__WCHAR_T_TYPE__=unsigned short int
 -D__WCHAR_T_SIZE__=2
--D__WCHAR_T_MAX__=0xffff
+-D__WCHAR_T_MAX__=0xffffU
 -D__DEF_PTR_MEM__=__near
 -D__CODE_MEM0__=__near_func
 -D__CODE_MEM0_POINTER_OK__=1
@@ -198,7 +198,7 @@ E:\projects\AirBox new\Myos_Public_STM8\stm8s-periphs
 -D__DATA_MEM4__=__eeprom
 -D__DATA_MEM4_POINTER_OK__=1
 -D__DATA_MEM4_UNIQUE_POINTER__=1
--D__DATA_MEM4_VAR_OK__=0
+-D__DATA_MEM4_VAR_OK__=1
 -D__DATA_MEM4_INDEX_TYPE__=short
 -D__DATA_MEM4_SIZE_TYPE__=unsigned short
 -D__DATA_MEM4_INTPTR_TYPE__=short int
@@ -208,7 +208,6 @@ E:\projects\AirBox new\Myos_Public_STM8\stm8s-periphs
 -D__HEAP_MEM0__=1
 -D__MULTIPLE_HEAPS__=0
 -D__DEF_HEAP_MEM__=__near
--D__C99_BOOL__=1
 -D__MULTIPLE_INHERITANCE__=1
 -D_RTSL_COMPARE_T=unsigned char
 -D__CODE_MODEL__=__SMALL_CODE_MODEL__
@@ -226,18 +225,21 @@ E:\projects\AirBox new\Myos_Public_STM8\stm8s-periphs
 -D__HAS_WEAK__=1
 -D__HAS_LOCATED_DECLARATION__=1
 -D__HAS_LOCATED_WITH_INIT__=1
--D__IAR_COMPILERBASE__=593160
--D__DATE__="Jul 15 2016"
--D__TIME__="18:36:48"
+-D__IAR_COMPILERBASE__=594179
+-D_GOANNA=1
+-D__DATE__="Jul 16 2016"
+-D__TIME__="14:44:16"
 -D__STDC__=1
 -D__STDC_VERSION__=199901L
 -D__STDC_HOSTED__=1
+-D__STDC_NO_VLA__=1
+-D__STDC_NO_ATOMICS__=1
 -D__EDG_IA64_ABI=1
 -D__EDG_IA64_ABI_VARIANT_CTORS_AND_DTORS_RETURN_THIS=1
 -D__EDG_IA64_ABI_USE_INT_STATIC_INIT_GUARD=1
 -D__EDG_TYPE_TRAITS_ENABLED=1
 -D__EDG__=1
--D__EDG_VERSION__=403
+-D__EDG_VERSION__=409
 -D__EDG_SIZE_TYPE__=unsigned short
 -D__EDG_PTRDIFF_TYPE__=short
 -D__EDG_DELTA_TYPE=short
@@ -252,12 +254,10 @@ E:\projects\AirBox new\Myos_Public_STM8\stm8s-periphs
 -D__EDG_BSD=0
 -D__EDG_SYSV=0
 -D__EDG_ANSIC=1
--D__EDG_CPP0X_IL_EXTENSIONS_SUPPORTED=1
--DSTM8S105=1
--DATOM_STACK_CHECKING=1
--D_DLIB_CONFIG_FILE_HEADER_NAME="E:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\stm8\LIB\dlstm8smn.h"
--D_DLIB_CONFIG_FILE_STRING="E:\\Program Files (x86)\\IAR Systems\\Embedded Workbench 6.5\\stm8\\LIB\\dlstm8smn.h"
--D__VERSION__="IAR C/C++ Compiler V1.40.1.50106 for STM8"
+-D__EDG_CPP11_IL_EXTENSIONS_SUPPORTED=1
+-D_DLIB_CONFIG_FILE_HEADER_NAME="E:\Program Files (x86)\IAR Systems\Embedded Workbench 7.0\stm8\LIB\dlstm8smn.h"
+-D_DLIB_CONFIG_FILE_STRING="E:\\Program Files (x86)\\IAR Systems\\Embedded Workbench 7.0\\stm8\\LIB\\dlstm8smn.h"
+-D__VERSION__="IAR C/C++ Compiler V2.10.2.149 for STM8"
 -D__CODE_MEMORY_LIST1__()=__CODE_MEM_HELPER1__(__code, 0 )
 -D__CODE_MEMORY_LIST2__(_P1)=__CODE_MEM_HELPER2__(__code, 0 ,  _P1 )
 -D__CODE_MEMORY_LIST3__(_P1, _P2)=__CODE_MEM_HELPER3__(__code, 0 ,  _P1 ,  _P2 )

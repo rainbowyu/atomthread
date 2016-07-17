@@ -1,23 +1,21 @@
 ###############################################################################
-#                                                                             #
-# IAR Assembler V1.40.1.50106 for STM8                  15/Jul/2016  18:36:46 #
-# Copyright 2010-2013 IAR Systems AB.                                         #
-#                                                                             #
-#    Source file  =  E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ #
-#                    ports\stm8\atomport-asm-iar.s                            #
-#    Command line =  E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ #
-#                    ports\stm8\atomport-asm-iar.s -M<> -r -ld                #
-#                    E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ #
-#                    ports\stm8\Debug\List\ --diag_suppress Pa050             #
-#                    --code_model small --data_model medium -o                #
-#                    E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ #
-#                    ports\stm8\Debug\Obj\                                    #
-#    List file    =  E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ #
-#                    ports\stm8\Debug\List\atomport-asm-iar.lst               #
-#    Object file  =  E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ #
-#                    ports\stm8\Debug\Obj\atomport-asm-iar.o                  #
-#                                                                             #
-#                                                                             #
+#
+# IAR Assembler V2.10.2.149 for STM8                      16/Jul/2016  14:44:13
+# Copyright 2010-2014 IAR Systems AB.
+#
+#    Source file  =  
+#        E:\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\atomport-asm-iar.s
+#    Command line =  
+#        E:\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\atomport-asm-iar.s
+#        -M<> -r -ld
+#        E:\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\Debug\List\
+#        --diag_suppress Pa050 --code_model small --data_model medium -o
+#        E:\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\Debug\Obj\
+#    List file    =  
+#        E:\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\Debug\List\atomport-asm-iar.lst
+#    Object file  =  
+#        E:\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\Debug\Obj\atomport-asm-iar.o
+#
 ###############################################################################
 
 ##############################################################################
