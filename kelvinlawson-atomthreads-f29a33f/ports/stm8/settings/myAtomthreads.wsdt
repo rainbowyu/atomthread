@@ -33,7 +33,9 @@
             <Session>
               <NodeDict>
                 <ExpandedNode>atomthreads-sample-iar</ExpandedNode>
+                <ExpandedNode>atomthreads-sample-iar/Output</ExpandedNode>
                 <ExpandedNode>atomthreads-sample-iar/fatFs</ExpandedNode>
+                <ExpandedNode>atomthreads-sample-iar/stm8s-periphs</ExpandedNode>
               </NodeDict>
             </Session>
           </Tab>
@@ -66,11 +68,10 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>0</YPos2>
-          <SelStart2>1466</SelStart2>
-          <SelEnd2>1466</SelEnd2>
+          <YPos2>247</YPos2>
+          <SelStart2>6369</SelStart2>
+          <SelEnd2>6369</SelEnd2>
         </Tab>
-        <ActiveTab>1</ActiveTab>
         <Tab>
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\..\..\fatFS\diskio.h</Filename>
@@ -83,6 +84,67 @@
           <SelStart2>0</SelStart2>
           <SelEnd2>0</SelEnd2>
         </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\Debug\List\atomthreads.map</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>566</YPos2>
+          <SelStart2>2049</SelStart2>
+          <SelEnd2>2049</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\stm8s-periphs\stm8s_spi.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>66</YPos2>
+          <SelStart2>3312</SelStart2>
+          <SelEnd2>3312</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\fatFS\ff.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>1275</YPos2>
+          <SelStart2>0</SelStart2>
+          <SelEnd2>0</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\fatFS\ff.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>99</YPos2>
+          <SelStart2>3014</SelStart2>
+          <SelEnd2>3014</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\fatFS\ffconf.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>150</YPos2>
+          <SelStart2>5685</SelStart2>
+          <SelEnd2>5685</SelEnd2>
+        </Tab>
+        <ActiveTab>7</ActiveTab>
       </Pane>
       <ActivePane>0</ActivePane>
       <Sizes>

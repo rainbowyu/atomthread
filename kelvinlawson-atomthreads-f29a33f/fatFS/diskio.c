@@ -242,12 +242,25 @@ static int MMC_disk_status()
 {
   return 1;
 }
+/*
+ * 初始化SPI:
+ * 先发送MSB,
+ * 波特率2分频,
+ * 主模式,
+ * 空闲状态SCK保持低,
+ * 数据采样从第一个时钟边沿开始,
+ * 双线单项数据模式,
+ * 禁止软件从设备管理,
+ * crc校验0x00
+ */
 static int MMC_disk_initialize()
 {
+  SPI_Init(SPI_FIRSTBIT_MSB, SPI_BAUDRATEPRESCALER_2, SPI_MODE_MASTER, SPI_CLOCKPOLARITY_LOW, SPI_CLOCKPHASE_1EDGE, SPI_DATADIRECTION_2LINES_FULLDUPLEX, SPI_NSS_SOFT, 0x00);
   return 1;
 }
 static int MMC_disk_write(const BYTE *buff, DWORD sector, UINT count)
 {
+  
   return 1;
 }
 static int MMC_disk_read(BYTE *buff, DWORD sector, UINT count)

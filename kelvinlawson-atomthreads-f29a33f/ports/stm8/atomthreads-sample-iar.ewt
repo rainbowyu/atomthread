@@ -136,6 +136,12 @@
       <name>$PROJ_DIR$\stm8s-periphs\stm8s_itc.h</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\stm8s-periphs\stm8s_spi.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\stm8s-periphs\stm8s_spi.h</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\stm8s-periphs\stm8s_tim1.c</name>
     </file>
     <file>

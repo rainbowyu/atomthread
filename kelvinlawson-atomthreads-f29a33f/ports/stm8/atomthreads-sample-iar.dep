@@ -2,7 +2,7 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>1758927981</fileChecksum>
+  <fileChecksum>2355937926</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
@@ -100,6 +100,10 @@
       <file>$PROJ_DIR$\..\..\fatFS\ff.c</file>
       <file>$PROJ_DIR$\..\..\fatFS\ffconf.h</file>
       <file>$PROJ_DIR$\..\..\kernel\atomkernel.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm8s_spi.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm8s_spi.pbi</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_spi.c</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_spi.h</file>
     </outputs>
     <file>
       <name>$PROJ_DIR$\..\..\kernel\atommutex.c</name>
@@ -457,10 +461,6 @@
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 87 90</file>
-        </tool>
-        <tool>
           <name>ICCSTM8</name>
           <file> 87 90</file>
         </tool>
@@ -512,6 +512,29 @@
         </tool>
       </inputs>
     </file>
+    <file>
+      <name>$PROJ_DIR$\stm8s-periphs\stm8s_spi.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 95</file>
+        </tool>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 94</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 52 55 97 10 38</file>
+        </tool>
+      </inputs>
+    </file>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
   </configuration>
   <configuration>
     <name>Release</name>
