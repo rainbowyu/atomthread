@@ -39,10 +39,10 @@
   * Warning: element values correspond to BDM, BDOE, RXONLY bits position
   */
 typedef enum {
-  SPI_DATADIRECTION_2LINES_FULLDUPLEX = (uint8_t)0x00, /*!< 2-line uni-directional data mode enable */
-  SPI_DATADIRECTION_2LINES_RXONLY     = (uint8_t)0x04, /*!< Receiver only in 2 line uni-directional data mode */
-  SPI_DATADIRECTION_1LINE_RX          = (uint8_t)0x80, /*!< Receiver only in 1 line bi-directional data mode */
-  SPI_DATADIRECTION_1LINE_TX          = (uint8_t)0xC0  /*!< Transmit only in 1 line bi-directional data mode */
+  SPI_DATADIRECTION_2LINES_FULLDUPLEX = (u8)0x00, /*!< 2-line uni-directional data mode enable */
+  SPI_DATADIRECTION_2LINES_RXONLY     = (u8)0x04, /*!< Receiver only in 2 line uni-directional data mode */
+  SPI_DATADIRECTION_1LINE_RX          = (u8)0x80, /*!< Receiver only in 1 line bi-directional data mode */
+  SPI_DATADIRECTION_1LINE_TX          = (u8)0xC0  /*!< Transmit only in 1 line bi-directional data mode */
 } SPI_DataDirection_TypeDef;
 
 /**
@@ -51,8 +51,8 @@ typedef enum {
   */
 typedef enum
 {
-  SPI_NSS_SOFT  = (uint8_t)0x02, /*!< Software slave management disabled */
-  SPI_NSS_HARD  = (uint8_t)0x00  /*!< Software slave management enabled */
+  SPI_NSS_SOFT  = (u8)0x02, /*!< Software slave management disabled */
+  SPI_NSS_HARD  = (u8)0x00  /*!< Software slave management enabled */
 } SPI_NSS_TypeDef;
 
 
@@ -61,8 +61,8 @@ typedef enum
   */
 
 typedef enum {
-  SPI_DIRECTION_RX = (uint8_t)0x00, /*!< Selects Rx receive direction in bi-directional mode */
-  SPI_DIRECTION_TX = (uint8_t)0x01  /*!< Selects Tx transmission direction in bi-directional mode */
+  SPI_DIRECTION_RX = (u8)0x00, /*!< Selects Rx receive direction in bi-directional mode */
+  SPI_DIRECTION_TX = (u8)0x01  /*!< Selects Tx transmission direction in bi-directional mode */
 } SPI_Direction_TypeDef;
 
 /**
@@ -70,8 +70,8 @@ typedef enum {
   * Warning: element values correspond to MSTR bit position
   */
 typedef enum {
-  SPI_MODE_MASTER = (uint8_t)0x04, /*!< SPI Master configuration */
-  SPI_MODE_SLAVE  = (uint8_t)0x00  /*!< SPI Slave configuration */
+  SPI_MODE_MASTER = (u8)0x04, /*!< SPI Master configuration */
+  SPI_MODE_SLAVE  = (u8)0x00  /*!< SPI Slave configuration */
 } SPI_Mode_TypeDef;
 
 /**
@@ -79,14 +79,14 @@ typedef enum {
   * Warning: element values correspond to BR bits position
   */
 typedef enum {
-  SPI_BAUDRATEPRESCALER_2   = (uint8_t)0x00, /*!< SPI frequency = frequency(CPU)/2 */
-  SPI_BAUDRATEPRESCALER_4   = (uint8_t)0x08, /*!< SPI frequency = frequency(CPU)/4 */
-  SPI_BAUDRATEPRESCALER_8   = (uint8_t)0x10, /*!< SPI frequency = frequency(CPU)/8 */
-  SPI_BAUDRATEPRESCALER_16  = (uint8_t)0x18, /*!< SPI frequency = frequency(CPU)/16 */
-  SPI_BAUDRATEPRESCALER_32  = (uint8_t)0x20, /*!< SPI frequency = frequency(CPU)/32 */
-  SPI_BAUDRATEPRESCALER_64  = (uint8_t)0x28, /*!< SPI frequency = frequency(CPU)/64 */
-  SPI_BAUDRATEPRESCALER_128 = (uint8_t)0x30, /*!< SPI frequency = frequency(CPU)/128 */
-  SPI_BAUDRATEPRESCALER_256 = (uint8_t)0x38  /*!< SPI frequency = frequency(CPU)/256 */
+  SPI_BAUDRATEPRESCALER_2   = (u8)0x00, /*!< SPI frequency = frequency(CPU)/2 */
+  SPI_BAUDRATEPRESCALER_4   = (u8)0x08, /*!< SPI frequency = frequency(CPU)/4 */
+  SPI_BAUDRATEPRESCALER_8   = (u8)0x10, /*!< SPI frequency = frequency(CPU)/8 */
+  SPI_BAUDRATEPRESCALER_16  = (u8)0x18, /*!< SPI frequency = frequency(CPU)/16 */
+  SPI_BAUDRATEPRESCALER_32  = (u8)0x20, /*!< SPI frequency = frequency(CPU)/32 */
+  SPI_BAUDRATEPRESCALER_64  = (u8)0x28, /*!< SPI frequency = frequency(CPU)/64 */
+  SPI_BAUDRATEPRESCALER_128 = (u8)0x30, /*!< SPI frequency = frequency(CPU)/128 */
+  SPI_BAUDRATEPRESCALER_256 = (u8)0x38  /*!< SPI frequency = frequency(CPU)/256 */
 } SPI_BaudRatePrescaler_TypeDef;
 
 /**
@@ -94,8 +94,8 @@ typedef enum {
   * Warning: element values correspond to CPOL bit position
   */
 typedef enum {
-  SPI_CLOCKPOLARITY_LOW  = (uint8_t)0x00, /*!< Clock to 0 when idle */
-  SPI_CLOCKPOLARITY_HIGH = (uint8_t)0x02  /*!< Clock to 1 when idle */
+  SPI_CLOCKPOLARITY_LOW  = (u8)0x00, /*!< Clock to 0 when idle */
+  SPI_CLOCKPOLARITY_HIGH = (u8)0x02  /*!< Clock to 1 when idle */
 } SPI_ClockPolarity_TypeDef;
 
 /**
@@ -103,8 +103,8 @@ typedef enum {
   * Warning: element values correspond to CPHA bit position
   */
 typedef enum {
-  SPI_CLOCKPHASE_1EDGE = (uint8_t)0x00, /*!< The first clock transition is the first data capture edge */
-  SPI_CLOCKPHASE_2EDGE = (uint8_t)0x01  /*!< The second clock transition is the first data capture edge */
+  SPI_CLOCKPHASE_1EDGE = (u8)0x00, /*!< The first clock transition is the first data capture edge */
+  SPI_CLOCKPHASE_2EDGE = (u8)0x01  /*!< The second clock transition is the first data capture edge */
 } SPI_ClockPhase_TypeDef;
 
 /**
@@ -112,29 +112,29 @@ typedef enum {
   * Warning: element values correspond to LSBFIRST bit position
   */
 typedef enum {
-  SPI_FIRSTBIT_MSB = (uint8_t)0x00, /*!< MSB bit will be transmitted first */
-  SPI_FIRSTBIT_LSB = (uint8_t)0x80  /*!< LSB bit will be transmitted first */
+  SPI_FIRSTBIT_MSB = (u8)0x00, /*!< MSB bit will be transmitted first */
+  SPI_FIRSTBIT_LSB = (u8)0x80  /*!< LSB bit will be transmitted first */
 } SPI_FirstBit_TypeDef;
 
 /**
   * @brief  SPI CRC Transmit/Receive
   */
 typedef enum {
-  SPI_CRC_RX = (uint8_t)0x00, /*!< Select Tx CRC register */
-  SPI_CRC_TX = (uint8_t)0x01  /*!< Select Rx CRC register */
+  SPI_CRC_RX = (u8)0x00, /*!< Select Tx CRC register */
+  SPI_CRC_TX = (u8)0x01  /*!< Select Rx CRC register */
 } SPI_CRC_TypeDef;
 
 /**
   * @brief  SPI flags definition - Warning : FLAG value = mapping position register
   */
 typedef enum {
-  SPI_FLAG_BSY    = (uint8_t)0x80, /*!< Busy flag */
-  SPI_FLAG_OVR    = (uint8_t)0x40, /*!< Overrun flag */
-  SPI_FLAG_MODF   = (uint8_t)0x20, /*!< Mode fault */
-  SPI_FLAG_CRCERR = (uint8_t)0x10, /*!< CRC error flag */
-  SPI_FLAG_WKUP   = (uint8_t)0x08, /*!< Wake-up flag */
-  SPI_FLAG_TXE    = (uint8_t)0x02, /*!< Transmit buffer empty */
-  SPI_FLAG_RXNE   = (uint8_t)0x01  /*!< Receive buffer empty */
+  SPI_FLAG_BSY    = (u8)0x80, /*!< Busy flag */
+  SPI_FLAG_OVR    = (u8)0x40, /*!< Overrun flag */
+  SPI_FLAG_MODF   = (u8)0x20, /*!< Mode fault */
+  SPI_FLAG_CRCERR = (u8)0x10, /*!< CRC error flag */
+  SPI_FLAG_WKUP   = (u8)0x08, /*!< Wake-up flag */
+  SPI_FLAG_TXE    = (u8)0x02, /*!< Transmit buffer empty */
+  SPI_FLAG_RXNE   = (u8)0x01  /*!< Receive buffer empty */
 } SPI_Flag_TypeDef;
 
 /**
@@ -145,13 +145,13 @@ typedef enum {
   */
 typedef enum
 {
-  SPI_IT_WKUP   = (uint8_t)0x34,  /*!< Wake-up interrupt*/
-  SPI_IT_OVR   = (uint8_t)0x65,  /*!< Overrun interrupt*/
-  SPI_IT_MODF   = (uint8_t)0x55,  /*!< Mode fault interrupt*/
-  SPI_IT_CRCERR = (uint8_t)0x45,  /*!< CRC error interrupt*/
-  SPI_IT_TXE    = (uint8_t)0x17,  /*!< Transmit buffer empty interrupt*/
-  SPI_IT_RXNE   = (uint8_t)0x06,   /*!< Receive buffer not empty interrupt*/
-  SPI_IT_ERR    = (uint8_t)0x05   /*!< Error interrupt*/
+  SPI_IT_WKUP   = (u8)0x34,  /*!< Wake-up interrupt*/
+  SPI_IT_OVR   = (u8)0x65,  /*!< Overrun interrupt*/
+  SPI_IT_MODF   = (u8)0x55,  /*!< Mode fault interrupt*/
+  SPI_IT_CRCERR = (u8)0x45,  /*!< CRC error interrupt*/
+  SPI_IT_TXE    = (u8)0x17,  /*!< Transmit buffer empty interrupt*/
+  SPI_IT_RXNE   = (u8)0x06,   /*!< Receive buffer not empty interrupt*/
+  SPI_IT_ERR    = (u8)0x05   /*!< Error interrupt*/
 } SPI_IT_TypeDef;
 
 /**
@@ -192,7 +192,7 @@ typedef enum
   * @brief  Macro used by the assert_param function in order to check the different
   *         sensitivity values for the CRC polynomial
   */
-#define IS_SPI_CRC_POLYNOMIAL_OK(POLYNOMIAL) ((POLYNOMIAL) > (uint8_t)0x00)
+#define IS_SPI_CRC_POLYNOMIAL_OK(POLYNOMIAL) ((POLYNOMIAL) > (u8)0x00)
 
 /**
   * @brief  Macro used by the assert_param function in order to check the SPI Mode values
@@ -299,17 +299,17 @@ void SPI_Init(SPI_FirstBit_TypeDef FirstBit,
               SPI_Mode_TypeDef Mode, SPI_ClockPolarity_TypeDef ClockPolarity, 
               SPI_ClockPhase_TypeDef ClockPhase, 
               SPI_DataDirection_TypeDef Data_Direction, 
-              SPI_NSS_TypeDef Slave_Management, uint8_t CRCPolynomial);
+              SPI_NSS_TypeDef Slave_Management, u8 CRCPolynomial);
 void SPI_Cmd(FunctionalState NewState);
 void SPI_ITConfig(SPI_IT_TypeDef SPI_IT, FunctionalState NewState);
-void SPI_SendData(uint8_t Data);
-uint8_t SPI_ReceiveData(void);
+void SPI_SendData(u8 Data);
+u8 SPI_ReceiveData(void);
 void SPI_NSSInternalSoftwareCmd(FunctionalState NewState);
 void SPI_TransmitCRC(void);
 void SPI_CalculateCRCCmd(FunctionalState NewState);
-uint8_t SPI_GetCRC(SPI_CRC_TypeDef SPI_CRC);
+u8 SPI_GetCRC(SPI_CRC_TypeDef SPI_CRC);
 void SPI_ResetCRC(void);
-uint8_t SPI_GetCRCPolynomial(void);
+u8 SPI_GetCRCPolynomial(void);
 void SPI_BiDirectionalLineConfig(SPI_Direction_TypeDef SPI_Direction);
 FlagStatus SPI_GetFlagStatus(SPI_Flag_TypeDef SPI_FLAG);
 void SPI_ClearFlag(SPI_Flag_TypeDef SPI_FLAG);

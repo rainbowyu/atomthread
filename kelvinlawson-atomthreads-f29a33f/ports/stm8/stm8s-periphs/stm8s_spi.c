@@ -69,7 +69,7 @@ void SPI_DeInit(void)
   * @param  CRCPolynomial : Configures the CRC polynomial.
   * @retval None
   */
-void SPI_Init(SPI_FirstBit_TypeDef FirstBit, SPI_BaudRatePrescaler_TypeDef BaudRatePrescaler, SPI_Mode_TypeDef Mode, SPI_ClockPolarity_TypeDef ClockPolarity, SPI_ClockPhase_TypeDef ClockPhase, SPI_DataDirection_TypeDef Data_Direction, SPI_NSS_TypeDef Slave_Management, uint8_t CRCPolynomial)
+void SPI_Init(SPI_FirstBit_TypeDef FirstBit, SPI_BaudRatePrescaler_TypeDef BaudRatePrescaler, SPI_Mode_TypeDef Mode, SPI_ClockPolarity_TypeDef ClockPolarity, SPI_ClockPhase_TypeDef ClockPhase, SPI_DataDirection_TypeDef Data_Direction, SPI_NSS_TypeDef Slave_Management, u8 CRCPolynomial)
 {
     /* Check structure elements */
     assert_param(IS_SPI_FIRSTBIT_OK(FirstBit));
@@ -82,26 +82,26 @@ void SPI_Init(SPI_FirstBit_TypeDef FirstBit, SPI_BaudRatePrescaler_TypeDef BaudR
     assert_param(IS_SPI_CRC_POLYNOMIAL_OK(CRCPolynomial));
 
     /* Frame Format, BaudRate, Clock Polarity and Phase configuration */
-    SPI->CR1 = (uint8_t)((uint8_t)((uint8_t)FirstBit | BaudRatePrescaler) |
-                    (uint8_t)((uint8_t)ClockPolarity | ClockPhase));
+    SPI->CR1 = (u8)((u8)((u8)FirstBit | BaudRatePrescaler) |
+                    (u8)((u8)ClockPolarity | ClockPhase));
 
     /* Data direction configuration: BDM, BDOE and RXONLY bits */
-    SPI->CR2 = (uint8_t)((uint8_t)(Data_Direction) | (uint8_t)(Slave_Management));
+    SPI->CR2 = (u8)((u8)(Data_Direction) | (u8)(Slave_Management));
 
     if (Mode == SPI_MODE_MASTER)
     {
-        SPI->CR2 |= (uint8_t)SPI_CR2_SSI;
+        SPI->CR2 |= (u8)SPI_CR2_SSI;
     }
     else
     {
-        SPI->CR2 &= (uint8_t)~(SPI_CR2_SSI);
+        SPI->CR2 &= (u8)~(SPI_CR2_SSI);
     }
 
     /* Master/Slave mode configuration */
-    SPI->CR1 |= (uint8_t)(Mode);
+    SPI->CR1 |= (u8)(Mode);
 
     /* CRC configuration */
-    SPI->CRCPR = (uint8_t)CRCPolynomial;
+    SPI->CRCPR = (u8)CRCPolynomial;
 }
 
 /**
@@ -121,7 +121,7 @@ void SPI_Cmd(FunctionalState NewState)
     }
     else
     {
-        SPI->CR1 &= (uint8_t)(~SPI_CR1_SPE); /* Disable the SPI peripheral*/
+        SPI->CR1 &= (u8)(~SPI_CR1_SPE); /* Disable the SPI peripheral*/
     }
 }
 
@@ -134,13 +134,13 @@ void SPI_Cmd(FunctionalState NewState)
   */
 void SPI_ITConfig(SPI_IT_TypeDef SPI_IT, FunctionalState NewState)
 {
-    uint8_t itpos = 0;
+    u8 itpos = 0;
     /* Check function parameters */
     assert_param(IS_SPI_CONFIG_IT_OK(SPI_IT));
     assert_param(IS_FUNCTIONALSTATE_OK(NewState));
 
     /* Get the SPI IT index */
-    itpos = (uint8_t)((uint8_t)1 << (uint8_t)((uint8_t)SPI_IT & (uint8_t)0x0F));
+    itpos = (u8)((u8)1 << (u8)((u8)SPI_IT & (u8)0x0F));
 
     if (NewState != DISABLE)
     {
@@ -148,7 +148,7 @@ void SPI_ITConfig(SPI_IT_TypeDef SPI_IT, FunctionalState NewState)
     }
     else
     {
-        SPI->ICR &= (uint8_t)(~itpos); /* Disable interrupt*/
+        SPI->ICR &= (u8)(~itpos); /* Disable interrupt*/
     }
 }
 /**
@@ -156,7 +156,7 @@ void SPI_ITConfig(SPI_IT_TypeDef SPI_IT, FunctionalState NewState)
   * @param  Data : Byte to be transmitted.
   * @retval None
   */
-void SPI_SendData(uint8_t Data)
+void SPI_SendData(u8 Data)
 {
     SPI->DR = Data; /* Write in the DR register the data to be sent*/
 }
@@ -166,9 +166,9 @@ void SPI_SendData(uint8_t Data)
   * @param  None
   * @retval The value of the received data.
   */
-uint8_t SPI_ReceiveData(void)
+u8 SPI_ReceiveData(void)
 {
-    return ((uint8_t)SPI->DR); /* Return the data in the DR register*/
+    return ((u8)SPI->DR); /* Return the data in the DR register*/
 }
 
 /**
@@ -188,7 +188,7 @@ void SPI_NSSInternalSoftwareCmd(FunctionalState NewState)
     }
     else
     {
-        SPI->CR2 &= (uint8_t)(~SPI_CR2_SSI); /* Reset NSS pin internally by software*/
+        SPI->CR2 &= (u8)(~SPI_CR2_SSI); /* Reset NSS pin internally by software*/
     }
 }
 
@@ -219,7 +219,7 @@ void SPI_CalculateCRCCmd(FunctionalState NewState)
     }
     else
     {
-        SPI->CR2 &= (uint8_t)(~SPI_CR2_CRCEN); /* Disable the CRC calculation*/
+        SPI->CR2 &= (u8)(~SPI_CR2_CRCEN); /* Disable the CRC calculation*/
     }
 }
 
@@ -228,9 +228,9 @@ void SPI_CalculateCRCCmd(FunctionalState NewState)
   * @param  SPI_CRC Specifies the CRC register to be read.
   * @retval The selected CRC register value.
   */
-uint8_t SPI_GetCRC(SPI_CRC_TypeDef SPI_CRC)
+u8 SPI_GetCRC(SPI_CRC_TypeDef SPI_CRC)
 {
-    uint8_t crcreg = 0;
+    u8 crcreg = 0;
 
     /* Check function parameters */
     assert_param(IS_SPI_CRC_OK(SPI_CRC));
@@ -268,7 +268,7 @@ void SPI_ResetCRC(void)
   * @param  None
   * @retval The CRC Polynomial register value.
   */
-uint8_t SPI_GetCRCPolynomial(void)
+u8 SPI_GetCRCPolynomial(void)
 {
     return SPI->CRCPR; /* Return the CRC polynomial register */
 }
@@ -289,7 +289,7 @@ void SPI_BiDirectionalLineConfig(SPI_Direction_TypeDef SPI_Direction)
     }
     else
     {
-        SPI->CR2 &= (uint8_t)(~SPI_CR2_BDOE); /* Set the Rx only mode*/
+        SPI->CR2 &= (u8)(~SPI_CR2_BDOE); /* Set the Rx only mode*/
     }
 }
 
@@ -308,7 +308,7 @@ FlagStatus SPI_GetFlagStatus(SPI_Flag_TypeDef SPI_FLAG)
     assert_param(IS_SPI_FLAGS_OK(SPI_FLAG));
 
     /* Check the status of the specified SPI flag */
-    if ((SPI->SR & (uint8_t)SPI_FLAG) != (uint8_t)RESET)
+    if ((SPI->SR & (u8)SPI_FLAG) != (u8)RESET)
     {
         status = SET; /* SPI_FLAG is set */
     }
@@ -340,7 +340,7 @@ void SPI_ClearFlag(SPI_Flag_TypeDef SPI_FLAG)
 {
     assert_param(IS_SPI_CLEAR_FLAGS_OK(SPI_FLAG));
     /* Clear the flag bit */
-    SPI->SR = (uint8_t)(~SPI_FLAG);
+    SPI->SR = (u8)(~SPI_FLAG);
 }
 
 /**
@@ -359,20 +359,20 @@ void SPI_ClearFlag(SPI_Flag_TypeDef SPI_FLAG)
 ITStatus SPI_GetITStatus(SPI_IT_TypeDef SPI_IT)
 {
     ITStatus pendingbitstatus = RESET;
-    uint8_t itpos = 0;
-    uint8_t itmask1 = 0;
-    uint8_t itmask2 = 0;
-    uint8_t enablestatus = 0;
+    u8 itpos = 0;
+    u8 itmask1 = 0;
+    u8 itmask2 = 0;
+    u8 enablestatus = 0;
     assert_param(IS_SPI_GET_IT_OK(SPI_IT));
     /* Get the SPI IT index */
-    itpos = (uint8_t)((uint8_t)1 << ((uint8_t)SPI_IT & (uint8_t)0x0F));
+    itpos = (u8)((u8)1 << ((u8)SPI_IT & (u8)0x0F));
 
     /* Get the SPI IT mask */
-    itmask1 = (uint8_t)((uint8_t)SPI_IT >> (uint8_t)4);
+    itmask1 = (u8)((u8)SPI_IT >> (u8)4);
     /* Set the IT mask */
-    itmask2 = (uint8_t)((uint8_t)1 << itmask1);
+    itmask2 = (u8)((u8)1 << itmask1);
     /* Get the SPI_ITPENDINGBIT enable bit status */
-    enablestatus = (uint8_t)((uint8_t)SPI->SR & itmask2);
+    enablestatus = (u8)((u8)SPI->SR & itmask2);
     /* Check the status of the specified SPI interrupt */
     if (((SPI->ICR & itpos) != RESET) && enablestatus)
     {
@@ -403,15 +403,15 @@ ITStatus SPI_GetITStatus(SPI_IT_TypeDef SPI_IT)
   */
 void SPI_ClearITPendingBit(SPI_IT_TypeDef SPI_IT)
 {
-    uint8_t itpos = 0;
+    u8 itpos = 0;
     assert_param(IS_SPI_CLEAR_IT_OK(SPI_IT));
 
     /* Clear  SPI_IT_CRCERR or SPI_IT_WKUP interrupt pending bits */
 
     /* Get the SPI pending bit index */
-    itpos = (uint8_t)((uint8_t)1 << (uint8_t)((uint8_t)(SPI_IT & (uint8_t)0xF0) >> 4));
+    itpos = (u8)((u8)1 << (u8)((u8)(SPI_IT & (u8)0xF0) >> 4));
     /* Clear the pending bit */
-    SPI->SR = (uint8_t)(~itpos);
+    SPI->SR = (u8)(~itpos);
 
 }
 /**

@@ -44,7 +44,7 @@
 #endif
 
 
-/**
+/*
  * Compiler-specific modifiers for interrupt handler functions.
  *
  * COSMIC: Uses @interrupt modifier for interrupt handlers. We

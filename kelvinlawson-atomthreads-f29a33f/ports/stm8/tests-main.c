@@ -29,7 +29,7 @@
 
 
 #include <stdio.h>
-
+   
 #include "atom.h"
 #include "atomport-private.h"
 #include "atomport-tests.h"
@@ -37,7 +37,9 @@
 #include "atomtimer.h"
 #include "uart.h"
 #include "stm8s.h"
-
+#include "ff.h"
+#include "diskio.h"
+#include "spiflash.h"
 
 /* Constants */
 
@@ -78,7 +80,7 @@
  * future as the codebase changes but for the time being is enough to
  * cope with all of the automated tests.
  */
-#define MAIN_STACK_SIZE_BYTES       256
+#define MAIN_STACK_SIZE_BYTES       3000
 
 
 /*
@@ -186,16 +188,17 @@ NO_REG_SAVE void main ( void )
  *
  * @return None
  */
+const u8 hello[512]  = "hello!!";
 static void main_thread_func (uint32_t param)
 {
     uint32_t test_status;
     int sleep_ticks;
-
+    u8 hello1[512];
     /* Compiler warnings */
     param = param;
 
     /* Initialise UART (9600bps) */
-    if (uart_init(9600) != 0)
+    if (uart_init(115200) != 0)
     {
         /* Error initialising UART */
     }
@@ -247,7 +250,12 @@ static void main_thread_func (uint32_t param)
     /* Configure GPIO for flashing the STM8S Discovery LED on GPIO D0 */
     GPIO_DeInit(GPIOC);
     GPIO_Init(GPIOC, GPIO_PIN_1, GPIO_MODE_OUT_PP_LOW_FAST);
-
+    
+    disk_initialize ( 1 );
+    spiFlashTest();
+    disk_write(1,(BYTE*)hello,1,1);
+    disk_read(1,hello1,1,1);
+    printf("%s\n\n",hello1);
     /* Test finished, flash slowly for pass, fast for fail */
     while (1)
     {
