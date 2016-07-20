@@ -1,20 +1,20 @@
 #ifndef _SPIFLASH_
 #define _SPIFLASH_
 
-//spi控制引脚
-#define CS_PIN       GPIOG,GPIO_PIN_0
+//spi pin
+#define CS_PIN         GPIOG,GPIO_PIN_0
 #define SPI_SCK_PIN  GPIOC,GPIO_PIN_5
 #define SPI_MOSI_PIN GPIOC,GPIO_PIN_6
 #define SPI_MISO_PIN GPIOC,GPIO_PIN_7
 
-//Flash 状态标志
+//Flash busy
 #define STATUS_WIP   0x01
 
-//CS引脚控制
+//CS pin
 #define FILECS_HIGH     GPIO_WriteHigh(CS_PIN);
 #define FILECS_LOW      GPIO_WriteLow(CS_PIN);
 
-//Flash 命令
+//Flash command
 #define WRITE_EN_COM      0x06
 #define SECTOR_ERA_COM    0x20
 #define PAGE_PRO_COM      0x02
@@ -22,7 +22,7 @@
 #define READ_DATA_COM     0x03
 #define JEDEC_DEV_ID_COM  0x9F
 
-//FLASH命令
+//FLASH inf
 #define FLASH_PAGE_SIZE		      256
 #define FLASH_SECTOR_SIZE	      512
 #define FLASH_SECTOR_COUNT	    1024

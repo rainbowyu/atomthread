@@ -6,6 +6,7 @@ u8 spiSendByte( u8 byteValue );
 u8 spiSendByte( u8 byteValue )
 {
   u8 data_buf;
+  data_buf = SPI_ReceiveData(); 
   while(SPI_GetFlagStatus(SPI_FLAG_TXE) == RESET); 
   SPI_SendData(byteValue);
   while(SPI_GetFlagStatus(SPI_FLAG_RXNE) == RESET);  

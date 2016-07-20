@@ -2,9 +2,6 @@
 
 <workspace>
   <project>
-    <path>$WS_DIR$\Backup of atomthreads-sample-iar.ewp</path>
-  </project>
-  <project>
     <path>$WS_DIR$\comAtomthreads.ewp</path>
   </project>
   <batchBuild/>

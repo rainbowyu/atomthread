@@ -138,7 +138,7 @@
         </option>
         <option>
           <name>IccOptLevel</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>IccOptStrategy</name>
@@ -147,7 +147,7 @@
         </option>
         <option>
           <name>IccOptLevelSlave</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>IccOptAllowList</name>
@@ -1591,6 +1591,12 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\fatFS\ffconf.h</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\fatFS\filecommon.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\fatFS\filecommon.h</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\fatFS\integer.h</name>

@@ -1,35 +1,4 @@
-/*
- * Copyright (c) 2010, Kelvin Lawson. All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- * 3. No personal names or organizations' names associated with the
- *    Atomthreads project may be used to endorse or promote products
- *    derived from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE ATOMTHREADS PROJECT AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- * TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
- * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE PROJECT OR CONTRIBUTORS BE
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
- */
-
-
-#include <stdio.h>
-   
+#include "stdio.h"  
 #include "atom.h"
 #include "atomport-private.h"
 #include "atomport-tests.h"
@@ -40,7 +9,7 @@
 #include "ff.h"
 #include "diskio.h"
 #include "spiflash.h"
-
+#include "filecommon.h"
 /* Constants */
 
 /*
@@ -80,7 +49,7 @@
  * future as the codebase changes but for the time being is enough to
  * cope with all of the automated tests.
  */
-#define MAIN_STACK_SIZE_BYTES       3000
+#define MAIN_STACK_SIZE_BYTES       1000
 
 
 /*
@@ -111,7 +80,6 @@ NEAR static uint8_t idle_thread_stack[IDLE_STACK_SIZE_BYTES];
 
 /* Forward declarations */
 static void main_thread_func (uint32_t param);
-
 
 /**
  * \b main
@@ -176,94 +144,81 @@ NO_REG_SAVE void main ( void )
 
 }
 
-
-/**
- * \b main_thread_func
- *
- * Entry point for main application thread.
- *
- * This is the first thread that will be executed when the OS is started.
- *
- * @param[in] param Unused (optional thread entry parameter)
- *
- * @return None
- */
-const u8 hello[512]  = "hello!!";
+const BYTE writeByte[3]="OK";
 static void main_thread_func (uint32_t param)
 {
-    uint32_t test_status;
-    int sleep_ticks;
-    u8 hello1[512];
-    /* Compiler warnings */
-    param = param;
+  FATFS fs;           /* File system object */
+  FIL fil;            /* File object */
+  FRESULT res;        /* API result code */
+  UINT bw;            /* Bytes written */
+  //BYTE work[_MAX_SS]={0}; /* Work area (larger is better for process time) */
+  //BYTE readByte[20];
+  //BYTE writeByte[3]="OK";
+  /* Initialise UART (115200bps) */
+  if (uart_init(115200) != 0)
+  {
+      /* Error initialising UART */
+  }
+  printf("uart test\r\n");
+  /* Configure GPIO for flashing the STM8S Discovery LED on GPIO D0 */
+  GPIO_DeInit(GPIOC);
+  GPIO_Init(GPIOC, GPIO_PIN_1, GPIO_MODE_OUT_PP_LOW_FAST);
+  
+  disk_initialize (0);
+  /* Register work area */
+  res=f_mount(&fs, "", 1);
+  if (res)
+  {
+    printf("¹ÒÔØÊ§°Ü,Ê§°Ü´úÂë:%u\r\n",res);
+    atomTimerDelay (1);
+  }
+  /* Create a file as new */
+  
+  res = f_open(&fil, "hello.txt", FA_READ	| FA_WRITE);
+  if (res)
+  {
+    printf("´ò¿ªÎÄ¼þÊ§°Ü,Ê§°Ü´úÂë:%u\r\n",res);
+    atomTimerDelay (1);
+  }
+  printFile(&fil);
+  
+  f_lseek(&fil, f_size(&fil));
+  f_write(&fil, writeByte, sizeof writeByte, &bw);
+  if (bw != sizeof writeByte)
+  {
+    printf("Ð´ÈëÊ§°Ü\r\n");
+    atomTimerDelay (1);
+  }
+  printFile(&fil);
+  
+  FATFS *fs1;
+  DWORD fre_clust, fre_sect, tot_sect;
 
-    /* Initialise UART (9600bps) */
-    if (uart_init(115200) != 0)
-    {
-        /* Error initialising UART */
-    }
+  /* Get volume information and free clusters of drive 1 */
+  res = f_getfree("", &fre_clust, &fs1);
 
-    /* Put a message out on the UART */
-    printf ("Go\n");
+  /* Get total sectors and free sectors */
+  tot_sect = (fs1->n_fatent - 2) * fs1->csize;
+  fre_sect = fre_clust * fs1->csize;
 
-    /* Start test. All tests use the same start API. */
-    test_status = test_start();
+  /* Print the free space (assuming 512 bytes/sector) */
+  printf("%10lu KiB total drive space.\n%10lu KiB available.\n",
+         tot_sect / 2, fre_sect / 2);
+  
+  /* Close the file */
+  f_close(&fil);
+  
+  /* Unregister work area */
+  f_mount(0, "", 1);
 
-    /* Check main thread stack usage (if enabled) */
-#ifdef ATOM_STACK_CHECKING
-    if (test_status == 0)
-    {
-        uint32_t used_bytes, free_bytes;
+  /* Test finished, flash slowly for pass, fast for fail */
+  while (1)
+  {
+      /* Toggle LED on pin D0 (Discovery-specific) */
+      GPIO_WriteReverse(GPIOC, GPIO_PIN_1);
 
-        /* Check idle thread stack usage */
-        if (atomThreadStackCheck (&main_tcb, &used_bytes, &free_bytes) == ATOM_OK)
-        {
-            /* Check the thread did not use up to the end of stack */
-            if (free_bytes == 0)
-            {
-                printf ("Main stack overflow\n");
-                test_status++;
-            }
-
-            /* Log the stack usage */
-#ifdef TESTS_LOG_STACK_USAGE
-            printf ("MainUse:%d\n", (int)used_bytes);
-#endif
-        }
-
-    }
-#endif
-
-    /* Log final status */
-    if (test_status == 0)
-    {
-        printf ("Pass\n");
-    }
-    else
-    {
-        printf ("Fail(%d)\n", (int)test_status);
-    }
-
-    /* Flash LED once per second if passed, very quickly if failed */
-    sleep_ticks = (test_status == 0) ? SYSTEM_TICKS_PER_SEC : (SYSTEM_TICKS_PER_SEC/8);
-
-    /* Configure GPIO for flashing the STM8S Discovery LED on GPIO D0 */
-    GPIO_DeInit(GPIOC);
-    GPIO_Init(GPIOC, GPIO_PIN_1, GPIO_MODE_OUT_PP_LOW_FAST);
-    
-    disk_initialize ( 1 );
-    spiFlashTest();
-    disk_write(1,(BYTE*)hello,1,1);
-    disk_read(1,hello1,1,1);
-    printf("%s\n\n",hello1);
-    /* Test finished, flash slowly for pass, fast for fail */
-    while (1)
-    {
-        /* Toggle LED on pin D0 (Discovery-specific) */
-        GPIO_WriteReverse(GPIOC, GPIO_PIN_1);
-
-        /* Sleep then toggle LED again */
-        atomTimerDelay (sleep_ticks);
-    }
+      /* Sleep then toggle LED again */
+      atomTimerDelay (SYSTEM_TICKS_PER_SEC);
+  }
 }
 

@@ -8,7 +8,7 @@
 /*-----------------------------------------------------------------------*/
 
 #include "diskio.h"		/* FatFs lower layer API */
-#include <stdio.h>
+#include "stdio.h"
 #include "stm8s.h"
 #include "stm8s_gpio.h"
 #include "stm8s_spi.h"
@@ -17,11 +17,11 @@
 #include "spiflash.h"
 
 /* Definitions of physical drive number for each drive */
-#define DEV_RAM		0	/* Example: Map Ramdisk to physical drive 0     */
-#define DEV_MMC		1	/* Example: Map MMC/SD card to physical drive 1 */
+#define DEV_MMC		0	/* Example: Map Ramdisk to physical drive 0     */
+#define DEV_RAM		1	/* Example: Map MMC/SD card to physical drive 1 */
 #define DEV_USB		2	/* Example: Map USB MSD to physical drive 2     */
 
-/*private function*/
+/*内部函数*/
 static int MMC_disk_status();
 static int MMC_disk_initialize();
 static int MMC_disk_write(const BYTE *buff, DWORD sector, UINT count);
@@ -45,7 +45,7 @@ u8 spiSendByte( u8 byteValue );
 /*-----------------------------------------------------------------------*/
 
 DSTATUS disk_status (
-	BYTE pdrv		/* Physical drive nmuber to identify the drive */
+	BYTE pdrv		            /* Physical drive nmuber to identify the drive */
 )
 {
 	DSTATUS stat=RES_OK;
@@ -54,23 +54,14 @@ DSTATUS disk_status (
 	switch (pdrv) {
 	case DEV_RAM :
 		result = RAM_disk_status();
-
-		// translate the reslut code here
-
 		return stat;
 
 	case DEV_MMC :
 		result = MMC_disk_status();
-
-		// translate the reslut code here
-
 		return stat;
 
 	case DEV_USB :
 		result = USB_disk_status();
-
-		// translate the reslut code here
-
 		return stat;
 	}
 	return STA_NOINIT;
@@ -87,28 +78,17 @@ DSTATUS disk_initialize (
 )
 {
 	DSTATUS stat=RES_OK;
-	int result=0;
-
 	switch (pdrv) {
 	case DEV_RAM :
 		result = RAM_disk_initialize();
-
-		// translate the reslut code here
-
 		return stat;
 
 	case DEV_MMC :
 		result = MMC_disk_initialize();
-
-		// translate the reslut code here
-
 		return stat;
 
 	case DEV_USB :
 		result = USB_disk_initialize();
-
-		// translate the reslut code here
-
 		return stat;
 	}
 	return STA_NOINIT;
@@ -128,41 +108,22 @@ DRESULT disk_read (
 )
 {
 	DRESULT res=RES_OK;
-	int result=0;
-
 	switch (pdrv) {
 	case DEV_RAM :
-		// translate the arguments here
-
 		result = RAM_disk_read(buff, sector, count);
-
-		// translate the reslut code here
-
 		return res;
 
 	case DEV_MMC :
-		// translate the arguments here
-
 		result = MMC_disk_read(buff, sector, count);
-
-		// translate the reslut code here
-
 		return res;
 
 	case DEV_USB :
-		// translate the arguments here
-
 		result = USB_disk_read(buff, sector, count);
-
-		// translate the reslut code here
-
 		return res;
 	}
 
 	return RES_PARERR;
 }
-
-
 
 /*-----------------------------------------------------------------------*/
 /* Write Sector(s)                                                       */
@@ -177,40 +138,21 @@ DRESULT disk_write (
 {
 	DRESULT res =RES_OK;
 	int result=0;
-
 	switch (pdrv) {
 	case DEV_RAM :
-		// translate the arguments here
-
 		result = RAM_disk_write(buff, sector, count);
-
-		// translate the reslut code here
-
 		return res;
 
 	case DEV_MMC :
-		// translate the arguments here
-
 		result = MMC_disk_write(buff, sector, count);
-
-		// translate the reslut code here
-
 		return res;
 
 	case DEV_USB :
-		// translate the arguments here
-
 		result = USB_disk_write(buff, sector, count);
-
-		// translate the reslut code here
-
 		return res;
 	}
-
 	return RES_PARERR;
 }
-
-
 
 /*-----------------------------------------------------------------------*/
 /* Miscellaneous Functions                                               */
@@ -223,34 +165,13 @@ DRESULT disk_ioctl (
 )
 {
 	DRESULT res=RES_OK;
-	int result=0;
 
 	switch (pdrv) {
 	case DEV_RAM :
     switch (cmd)
     {
-//      case CTRL_ERASE_SECTOR:
-//        DWORD nFrom = *((DWORD*)buff);
-//        DWORD nTo = *(((DWORD*)buff)+1);
-//        for(DWORD i = nFrom;i <= nTo;i ++)
-//          flashEraseSector(i);
-//        break;
-      
-      case GET_BLOCK_SIZE:
-        *(DWORD*)buff = 8192;
-        break;
-      
-      case GET_SECTOR_SIZE:
-        *(DWORD*)buff = 512;
-        break;
-      
-      case GET_SECTOR_COUNT:
-        *(DWORD*)buff = 1024;
-        break;
+     
         
-        default:
-          res = RES_PARERR;
-        break;
     }
 		// Process of the command for the RAM drive
 
@@ -258,14 +179,25 @@ DRESULT disk_ioctl (
 
 	case DEV_MMC :
     
-		// Process of the command for the MMC/SD card
+    switch (cmd)
+    {
 
+      case GET_BLOCK_SIZE:
+        *(DWORD*)buff = 512;
+        break;
+      
+      case GET_SECTOR_SIZE:
+        *(DWORD*)buff = 512;
+        break;
+      
+      case GET_SECTOR_COUNT:
+        *(DWORD*)buff = 0x400;
+        break;
+        
+    }
 		return res;
 
 	case DEV_USB :
-
-		// Process of the command the USB drive
-
 		return res;
 	}
 
@@ -274,7 +206,7 @@ DRESULT disk_ioctl (
 
 static int MMC_disk_status()
 {
-  return 1;
+  return 0;
 }
 /*
  * 初始化SPI:
@@ -294,29 +226,27 @@ static int MMC_disk_initialize()
   GPIO_Init(SPI_SCK_PIN,GPIO_MODE_OUT_PP_LOW_FAST);  
   GPIO_Init(SPI_MOSI_PIN,GPIO_MODE_OUT_PP_HIGH_FAST);  
   GPIO_Init(SPI_MISO_PIN,GPIO_MODE_IN_PU_NO_IT);
+  
+  //打开flash电源 开发板独有
   GPIO_Init(GPIOE,GPIO_PIN_0,GPIO_MODE_OUT_PP_HIGH_FAST);
   GPIO_WriteHigh(GPIOE,GPIO_PIN_0);
+  
   //初始化SPI
   SPI_DeInit(); 
-  SPI_Init(SPI_FIRSTBIT_MSB, SPI_BAUDRATEPRESCALER_4, SPI_MODE_MASTER, SPI_CLOCKPOLARITY_LOW, SPI_CLOCKPHASE_1EDGE, SPI_DATADIRECTION_2LINES_FULLDUPLEX, SPI_NSS_HARD, 0x00);
+  SPI_Init(SPI_FIRSTBIT_MSB, SPI_BAUDRATEPRESCALER_4, SPI_MODE_MASTER, SPI_CLOCKPOLARITY_LOW, SPI_CLOCKPHASE_1EDGE, SPI_DATADIRECTION_2LINES_FULLDUPLEX, SPI_NSS_SOFT, 0x00);
   SPI_Cmd(ENABLE);
-  return 1;
+  return RES_OK;
 }
 
 static int MMC_disk_write(const BYTE *buff, DWORD sector, UINT count)
 {
-	//u32 sectorAddr=0;
-	//等待STATUS_WIP为0 busy判断
-	//发送写使能命令
-	//flashWriteEnable();
 	BYTE *buf = (BYTE*)buff;       
-	for(u16 i=0; i < count; i++){
+	for(UINT i=0; i < count; i++){
 		flashEraseSector(sector);
     spiFlashWriteSector(sector, buf);
     sector ++;
 		buf += FLASH_SECTOR_SIZE;
 	}
-	
   return RES_OK;
 }
 
@@ -328,34 +258,34 @@ static int MMC_disk_read(BYTE *buff, DWORD sector, UINT count)
 
 static int RAM_disk_status()
 {
-  return 1;
+  return RES_OK;
 }
 static int RAM_disk_initialize()
 {
-  return 1;
+  return RES_OK;
 }
 static int RAM_disk_write(const BYTE *buff, DWORD sector, UINT count)
 {
-  return 1;
+  return RES_OK;
 }
 static int RAM_disk_read(BYTE *buff, DWORD sector, UINT count)
 {
-  return 1;
+  return RES_OK;
 }
 
 static int USB_disk_status()
 {
-  return 1;
+  return RES_OK;
 }
 static int USB_disk_initialize()
 {
-  return 1;
+  return RES_OK;
 }
 static int USB_disk_write(const BYTE *buff, DWORD sector, UINT count)
 {
-  return 1;
+  return RES_OK;
 }
 static int USB_disk_read(BYTE *buff, DWORD sector, UINT count)
 {
-  return 1;
+  return RES_OK;
 }
