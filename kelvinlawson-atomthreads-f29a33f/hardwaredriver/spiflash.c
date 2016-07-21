@@ -6,9 +6,14 @@
 #include "atom.h"
 #include "spiflash.h"
 #include "spidriver.h"
+#ifdef USESPIFFS
+  #include "spiffs_config.h"
+  #include "spiffs.h"
+#endif
 
 const u8 Tx_Buffer[] = "\n\r first fatFS test!!";
 
+//common flash function 
 void spiFlashTest(void);
 u32  spiFlashReadID(void);
 u8   flashEraseSector(u32 sector);
@@ -18,6 +23,31 @@ void flashWriteEnable( void );
 void flashRead(u8 *buff, u32 addr, u32 readNum);
 void spiFlashBufferWrite(u8* pBuffer, u32 WriteAddr, u16 NumByteToWrite);
 void spiFlashWriteSector(u32 nSector, u8* pBuffer);
+void spiFlashInit();
+
+#ifdef SPIFFS
+//spifFs function
+void my_spi_read(int addr, int size, char *buf);
+void my_spi_write(int addr, int size, char *buf);
+void my_spi_erase(int addr, int size);
+#endif
+
+void spiFlashInit()
+{
+  GPIO_Init(FLASH_CS_PIN,GPIO_MODE_OUT_PP_HIGH_FAST);  
+  GPIO_Init(SPI_SCK_PIN,GPIO_MODE_OUT_PP_LOW_FAST);  
+  GPIO_Init(SPI_MOSI_PIN,GPIO_MODE_OUT_PP_HIGH_FAST);  
+  GPIO_Init(SPI_MISO_PIN,GPIO_MODE_IN_PU_NO_IT);
+  
+  //打开flash电源 开发板独有
+  GPIO_Init(GPIOE,GPIO_PIN_0,GPIO_MODE_OUT_PP_HIGH_FAST);
+  GPIO_WriteHigh(GPIOE,GPIO_PIN_0);
+  
+  //初始化SPI
+  SPI_DeInit(); 
+  SPI_Init(SPI_FIRSTBIT_MSB, SPI_BAUDRATEPRESCALER_4, SPI_MODE_MASTER, SPI_CLOCKPOLARITY_LOW, SPI_CLOCKPHASE_1EDGE, SPI_DATADIRECTION_2LINES_FULLDUPLEX, SPI_NSS_SOFT, 0x00);
+  SPI_Cmd(ENABLE);
+}
 
 void spiFlashWriteSector(u32 nSector, u8* pBuffer)
 {	
@@ -283,3 +313,17 @@ void spiFlashTest(void)
     printf("\r\n FLASH测试失败 \n\r");
   }
 }
+#ifdef USESPIFFS
+  s32_t my_spi_read(u32_t addr, u32_t size, u8_t *buf)
+  {
+    return SPIFFS_OK;
+  }
+  s32_t my_spi_write(u32_t addr, u32_t size, u8_t *buf)
+  {
+    return SPIFFS_OK;
+  }
+  s32_t my_spi_erase(u32_t addr, u32_t size)
+  {
+    return SPIFFS_OK;
+  }
+#endif

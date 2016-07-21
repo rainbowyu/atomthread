@@ -16,6 +16,12 @@ E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\..\..\hardwar
 -I
 E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\..\..\hardwaredriver\stm8speriphs
 -I
+E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\..\..\spifFs\test
+-I
+E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\..\..\spifFs
+-I
+E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\..\..\u8glib\src
+-I
 E:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\stm8\inc
 -I
 E:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\stm8\inc\c
@@ -33,6 +39,12 @@ E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\tests
 E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\hardwaredriver
 -I
 E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\hardwaredriver\stm8speriphs
+-I
+E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\spifFs\test
+-I
+E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\spifFs
+-I
+E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\u8glib\src
 -DATOM_STACK_CHECKING=0
 -DSTM8S105=0
 -D__CHAR_BITS__=8
@@ -243,8 +255,8 @@ E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\hardwaredriver\stm8speri
 -D__HAS_LOCATED_DECLARATION__=1
 -D__HAS_LOCATED_WITH_INIT__=1
 -D__IAR_COMPILERBASE__=593160
--D__DATE__="Jul 20 2016"
--D__TIME__="14:03:23"
+-D__DATE__="Jul 21 2016"
+-D__TIME__="16:35:26"
 -D__STDC__=1
 -D__STDC_VERSION__=199901L
 -D__STDC_HOSTED__=1

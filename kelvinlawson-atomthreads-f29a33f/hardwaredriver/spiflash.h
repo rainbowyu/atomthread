@@ -2,17 +2,14 @@
 #define _SPIFLASH_
 
 //spi pin
-#define CS_PIN         GPIOG,GPIO_PIN_0
-#define SPI_SCK_PIN  GPIOC,GPIO_PIN_5
-#define SPI_MOSI_PIN GPIOC,GPIO_PIN_6
-#define SPI_MISO_PIN GPIOC,GPIO_PIN_7
+#define FLASH_CS_PIN GPIOG,GPIO_PIN_0
 
 //Flash busy
 #define STATUS_WIP   0x01
 
 //CS pin
-#define FILECS_HIGH     GPIO_WriteHigh(CS_PIN);
-#define FILECS_LOW      GPIO_WriteLow(CS_PIN);
+#define FILECS_HIGH     GPIO_WriteHigh(FLASH_CS_PIN);
+#define FILECS_LOW      GPIO_WriteLow(FLASH_CS_PIN);
 
 //Flash command
 #define WRITE_EN_COM      0x06
@@ -44,4 +41,12 @@ extern void flashWriteEnable( void );
 extern void spiFlashBufferRead(u8 *buff, u32 addr, u32 readNum);
 extern void spiFlashBufferWrite(u8* pBuffer, u32 WriteAddr, u16 NumByteToWrite);
 extern void spiFlashWriteSector(u32 nSector, u8* pBuffer);
+extern void spiFlashInit();
+#ifdef USESPIFFS
+//spifFs function
+  extern s32_t my_spi_read (u32_t addr, u32_t size, u8_t *buf);
+  extern s32_t my_spi_write(u32_t addr, u32_t size, u8_t *buf);
+  extern s32_t my_spi_erase(u32_t addr, u32_t size);
+#endif
+
 #endif

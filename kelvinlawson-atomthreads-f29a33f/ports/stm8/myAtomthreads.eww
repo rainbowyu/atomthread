@@ -4,6 +4,9 @@
   <project>
     <path>$WS_DIR$\comAtomthreads.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\..\..\..\..\AirBox new\Myos_Public_STM8\Myos_Private.ewp</path>
+  </project>
   <batchBuild/>
 </workspace>
 

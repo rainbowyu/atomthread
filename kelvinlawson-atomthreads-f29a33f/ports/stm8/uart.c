@@ -27,7 +27,7 @@ int uart_init(uint32_t baudrate)
   UART2_DeInit();
   UART2_Init (baudrate, UART2_WORDLENGTH_8D, UART2_STOPBITS_1, UART2_PARITY_NO,
               UART2_SYNCMODE_CLOCK_DISABLE, UART2_MODE_TXRX_ENABLE);
-
+  UART2_ITConfig(UART2_IT_RXNE_OR, ENABLE);
   /* Create a mutex for single-threaded putchar() access */
   if (atomMutexCreate (&uart_mutex) != ATOM_OK)
   {
@@ -37,7 +37,7 @@ int uart_init(uint32_t baudrate)
   {
     status = 0;
   }
-
+  
   /* Finished */
   return (status);
 }
@@ -154,3 +154,11 @@ size_t __write(int handle, const unsigned char *buf, size_t bufSize)
     return (chars_written);
 }
 #endif /* __IAR_SYSTEMS_ICC__ */
+#pragma vector = 21
+__interrupt void Uart2RxdISR(void)
+{  
+  uint8_t temp;
+  /* Read one byte from the receive data register and send it back */
+  temp = (UART2_ReceiveData8());
+  UART2_SendData8(temp);
+}  

@@ -51,12 +51,21 @@
 /**
  * Architecture-specific types.
  */
-#define int8_t   s8
-#define int16_t  s16
-#define int32_t  s32
-#define uint8_t  u8
-#define uint16_t u16
-#define uint32_t u32
+
+typedef signed long  int32_t;
+typedef signed short int16_t;
+typedef signed char  int8_t;
+
+typedef unsigned long  uint32_t;
+typedef unsigned short uint16_t;
+typedef unsigned char  uint8_t;
+
+//#define int8_t   s8
+//#define int16_t  s16
+//#define int32_t  s32
+//#define uint8_t  u8
+//#define uint16_t u16
+//#define uint32_t u32
 #define POINTER  void *
 
 

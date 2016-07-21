@@ -9,6 +9,7 @@
 
 #include "diskio.h"		/* FatFs lower layer API */
 #include "stdio.h"
+#include "spiffs_config.h"
 #include "stm8s.h"
 #include "stm8s_gpio.h"
 #include "stm8s_spi.h"
@@ -221,20 +222,7 @@ static int MMC_disk_status()
  */
 static int MMC_disk_initialize()
 {
-  //初始化SPI IO口
-  GPIO_Init(CS_PIN,GPIO_MODE_OUT_PP_HIGH_FAST);  
-  GPIO_Init(SPI_SCK_PIN,GPIO_MODE_OUT_PP_LOW_FAST);  
-  GPIO_Init(SPI_MOSI_PIN,GPIO_MODE_OUT_PP_HIGH_FAST);  
-  GPIO_Init(SPI_MISO_PIN,GPIO_MODE_IN_PU_NO_IT);
-  
-  //打开flash电源 开发板独有
-  GPIO_Init(GPIOE,GPIO_PIN_0,GPIO_MODE_OUT_PP_HIGH_FAST);
-  GPIO_WriteHigh(GPIOE,GPIO_PIN_0);
-  
-  //初始化SPI
-  SPI_DeInit(); 
-  SPI_Init(SPI_FIRSTBIT_MSB, SPI_BAUDRATEPRESCALER_4, SPI_MODE_MASTER, SPI_CLOCKPOLARITY_LOW, SPI_CLOCKPHASE_1EDGE, SPI_DATADIRECTION_2LINES_FULLDUPLEX, SPI_NSS_SOFT, 0x00);
-  SPI_Cmd(ENABLE);
+  spiFlashInit();
   return RES_OK;
 }
 
