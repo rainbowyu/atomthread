@@ -23,7 +23,7 @@
 #define FLASH_PAGE_SIZE		      256
 #define FLASH_SECTOR_SIZE	      512
 #define FLASH_SECTOR_COUNT	    1024
-#define FLASH_BLOCK_SIZE		    8192  		
+#define MY_FLASH_BLOCK_SIZE		    8192  		
 #define FLASH_PAGES_PER_SECTOR	2
 
 #define FLASH_SECTORTOERASE 0x00

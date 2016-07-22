@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=1953413613
+Checksum=-700283718
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -59,6 +59,13 @@ LogEnabled=0
 GraphEnabled=0
 ShowTimeLog=1
 ShowTimeSum=1
+[Breakpoints]
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\..\..\fatFS\ff.c}.5628.3" 0 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\..\fatFS\ff.c}.5491.5" 0 0 0 0 "" 0 ""
+Bp2=_ "STD_CODE" "{$PROJ_DIR$\..\..\fatFS\ff.c}.5503.4" 0 0 0 0 "" 0 ""
+Bp3=_ "STD_CODE" "{$PROJ_DIR$\..\..\fatFS\ff.c}.5530.3" 0 0 0 0 "" 0 ""
+Bp4=_ "STD_CODE" "{$PROJ_DIR$\..\..\fatFS\ff.c}.5487.4" 0 0 0 0 "" 0 ""
+Count=5
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -66,14 +73,6 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
-[Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\..\..\fatFS\ff.c}.5628.3" 0 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\..\fatFS\ff.c}.5491.5" 0 0 0 0 "" 0 ""
-Bp2=_ "STD_CODE" "{$PROJ_DIR$\..\..\fatFS\ff.c}.5503.4" 0 0 0 0 "" 0 ""
-Bp3=_ "STD_CODE" "{$PROJ_DIR$\..\..\fatFS\ff.c}.5530.3" 0 0 0 0 "" 0 ""
-Bp4=_ "STD_CODE" "{$PROJ_DIR$\..\..\fatFS\ff.c}.5487.4" 0 0 0 0 "" 0 ""
-Bp5=_ "STD_CODE" "{$PROJ_DIR$\uart.c}.163.3" 1 0 0 0 "" 0 ""
-Count=6
 [Aliases]
 Count=0
 SuppressDialog=0

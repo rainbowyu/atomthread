@@ -6,6 +6,8 @@ E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\stm8s-periphs
 -I
 E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8
 -I
+E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\threads
+-I
 E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\..\..\kernel
 -I
 E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\..\..\fatFS
@@ -30,6 +32,8 @@ E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\stm8s-periphs
 -I
 E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8
 -I
+E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\threads
+-I
 E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\kernel
 -I
 E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\fatFS
@@ -46,7 +50,7 @@ E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\spifFs
 -I
 E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\u8glib\src
 -DATOM_STACK_CHECKING=0
--DSTM8S105=0
+-DSTM8S007=0
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0
@@ -255,8 +259,8 @@ E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\u8glib\src
 -D__HAS_LOCATED_DECLARATION__=1
 -D__HAS_LOCATED_WITH_INIT__=1
 -D__IAR_COMPILERBASE__=593160
--D__DATE__="Jul 21 2016"
--D__TIME__="16:35:35"
+-D__DATE__="Jul 22 2016"
+-D__TIME__="16:43:15"
 -D__STDC__=1
 -D__STDC_VERSION__=199901L
 -D__STDC_HOSTED__=1
@@ -282,7 +286,7 @@ E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\u8glib\src
 -D__EDG_ANSIC=1
 -D__EDG_CPP0X_IL_EXTENSIONS_SUPPORTED=1
 -DATOM_STACK_CHECKING=1
--DSTM8S105=1
+-DSTM8S007=1
 -D_DLIB_CONFIG_FILE_HEADER_NAME="E:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\stm8\LIB\dlstm8smn.h"
 -D_DLIB_CONFIG_FILE_STRING="E:\\Program Files (x86)\\IAR Systems\\Embedded Workbench 6.5\\stm8\\LIB\\dlstm8smn.h"
 -D__VERSION__="IAR C/C++ Compiler V1.40.1.50106 for STM8"

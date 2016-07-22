@@ -181,7 +181,7 @@
         <option>
           <name>CCDefines</name>
           <state>ATOM_STACK_CHECKING</state>
-          <state>STM8S105</state>
+          <state>STM8S007</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -251,6 +251,7 @@
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$\stm8s-periphs</state>
           <state>$PROJ_DIR$</state>
+          <state>$PROJ_DIR$\threads</state>
           <state>$PROJ_DIR$\..\..\kernel</state>
           <state>$PROJ_DIR$\..\..\fatFS</state>
           <state>$PROJ_DIR$\..\..\tests</state>
@@ -1770,22 +1771,19 @@
       <name>$PROJ_DIR$\stm8s-periphs\stm8s_tim1.h</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\stm8s-periphs\stm8s_type.h</name>
+      <name>$PROJ_DIR$\stm8s-periphs\stm8s_uart3.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\stm8s-periphs\stm8s_uart2.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\stm8s-periphs\stm8s_uart2.h</name>
+      <name>$PROJ_DIR$\stm8s-periphs\stm8s_uart3.h</name>
     </file>
   </group>
   <group>
-    <name>test</name>
+    <name>threads</name>
     <file>
-      <name>$PROJ_DIR$\..\..\tests\atomtests.h</name>
+      <name>$PROJ_DIR$\threads\displaythread.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\tests\sem1.c</name>
+      <name>$PROJ_DIR$\threads\uartrxthread.c</name>
     </file>
   </group>
   <group>

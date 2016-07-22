@@ -31,7 +31,7 @@
 #define __ATOM_PORT_H
 
 
-#include "stm8s_type.h"
+#include "stm8s.h"
 
 #if defined(__IAR_SYSTEMS_ICC__)
 #include "intrinsics.h"
@@ -52,13 +52,13 @@
  * Architecture-specific types.
  */
 
-typedef signed long  int32_t;
-typedef signed short int16_t;
-typedef signed char  int8_t;
-
-typedef unsigned long  uint32_t;
-typedef unsigned short uint16_t;
-typedef unsigned char  uint8_t;
+//typedef signed long  int32_t;
+//typedef signed short int16_t;
+//typedef signed char  int8_t;
+//
+//typedef unsigned long  uint32_t;
+//typedef unsigned short uint16_t;
+//typedef unsigned char  uint8_t;
 
 //#define int8_t   s8
 //#define int16_t  s16

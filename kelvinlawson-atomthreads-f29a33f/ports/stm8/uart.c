@@ -4,9 +4,13 @@
 
 #include "atom.h"
 #include "atommutex.h"
+#include "atomsem.h"
 #include "uart.h"
+#include "stm8s_uart3.h"
+#include "stm8s_itc.h"
 
-
+uint8_t rxDataBuff[50]={0};
+extern ATOM_SEM uartRxsem;
 /*
  * Semaphore for single-threaded access to UART device
  */
@@ -21,13 +25,15 @@ int uart_init(uint32_t baudrate)
   int status;
   
   /**
-   * Set up UART2 for putting out debug messages.
+   * Set up UART3 for putting out debug messages.
    * This the UART used on STM8S Discovery, change if required.
    */
-  UART2_DeInit();
-  UART2_Init (baudrate, UART2_WORDLENGTH_8D, UART2_STOPBITS_1, UART2_PARITY_NO,
-              UART2_SYNCMODE_CLOCK_DISABLE, UART2_MODE_TXRX_ENABLE);
-  UART2_ITConfig(UART2_IT_RXNE_OR, ENABLE);
+  UART3_DeInit();
+  UART3_Init (baudrate, UART3_WORDLENGTH_8D, UART3_STOPBITS_1, UART3_PARITY_NO,
+              UART3_MODE_TXRX_ENABLE);
+  UART3_ITConfig(UART3_IT_RXNE, ENABLE);
+  UART3_Cmd(ENABLE);
+  enableInterrupts(); 
   /* Create a mutex for single-threaded putchar() access */
   if (atomMutexCreate (&uart_mutex) != ATOM_OK)
   {
@@ -46,7 +52,7 @@ int uart_init(uint32_t baudrate)
 /**
  * \b uart_putchar
  *
- * Write a char out via UART2
+ * Write a char out via UART3
  *
  * @param[in] c Character to send
  *
@@ -61,11 +67,11 @@ char uart_putchar (char c)
         if (c == '\n')
             putchar('\r');
 
-        /* Write a character to the UART2 */
-        UART2_SendData8(c);
+        /* Write a character to the UART3 */
+        UART3_SendData8(c);
       
         /* Loop until the end of transmission */
-        while (UART2_GetFlagStatus(UART2_FLAG_TXE) == RESET)
+        while (UART3_GetFlagStatus(UART3_FLAG_TXE) == RESET)
             ;
 
         /* Return mutex access */
@@ -82,7 +88,7 @@ char uart_putchar (char c)
 /**
  * \b putchar
  *
- * Retarget putchar() to use UART2
+ * Retarget putchar() to use UART3
  *
  * @param[in] c Character to send
  *
@@ -100,7 +106,7 @@ char putchar (char c)
 /**
  * \b putchar
  *
- * Retarget putchar() to use UART2
+ * Retarget putchar() to use UART3
  *
  * @param[in] c Character to send
  *
@@ -154,11 +160,33 @@ size_t __write(int handle, const unsigned char *buf, size_t bufSize)
     return (chars_written);
 }
 #endif /* __IAR_SYSTEMS_ICC__ */
-#pragma vector = 21
-__interrupt void Uart2RxdISR(void)
+#pragma vector = ITC_IRQ_UART3_RX + 2
+__interrupt void UART3_RX_IRQHandler(void)
 {  
   uint8_t temp;
-  /* Read one byte from the receive data register and send it back */
-  temp = (UART2_ReceiveData8());
-  UART2_SendData8(temp);
+  static uint8_t * p = &rxDataBuff[0];
+  if( UART3_GetITStatus(UART3_IT_RXNE) == SET && \
+      UART3_GetFlagStatus(UART3_FLAG_RXNE) == SET)//接收中断处理
+  {
+    UART3_ClearITPendingBit (UART3_IT_RXNE);  //清中断标志
+    temp = (UART3_ReceiveData8()); 
+    if (temp == '\0')
+    {
+      printf ("RX 0");
+    }
+    *p = temp;
+    
+    if (p<=&rxDataBuff[48])p++;
+    else 
+    {
+      printf ("RX buff overflow\n");
+    }
+    
+    if (temp=='\n'){
+      *p='\0';
+      p=rxDataBuff;
+      atomSemPut (&uartRxsem);
+    }
+    
+  }
 }  

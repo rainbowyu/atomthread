@@ -1,15 +1,21 @@
 #include "stdio.h"  
 #include "atom.h"
 #include "atomport-private.h"
-#include "atomport-tests.h"
 #include "atomtests.h"
 #include "atomtimer.h"
+#include "atomsem.h"
+#include "atomqueue.h"
+#include "atommutex.h"
+
 #include "uart.h"
 #include "stm8s.h"
+#include "stm8s_clk.h"
 
-#include "u8g.h"
-#include "u8g_stm8s.h"
+#include "displaythread.h"
+#include "uartrxthread.h"
 /* Constants */
+
+
 
 /*
  * Idle thread stack size
@@ -22,7 +28,7 @@
  * In this case, the idle stack is allocated on the BSS via the
  * idle_thread_stack[] byte array.
  */
-#define IDLE_STACK_SIZE_BYTES       128
+#define IDLE_STACK_SIZE_BYTES       256
 
 
 /*
@@ -48,8 +54,7 @@
  * future as the codebase changes but for the time being is enough to
  * cope with all of the automated tests.
  */
-#define DISPLAY_STACK_SIZE_BYTES           1024
-#define UARTPROCESS_STACK_SIZE_BYTES       500
+
 
 /*
  * Startup code stack
@@ -68,8 +73,18 @@
 /* Local data */
 
 /* Application threads' TCBs */
-static ATOM_TCB display_tcb;
-static ATOM_TCB uartProcess_tcb;
+ATOM_TCB display_tcb;
+ATOM_TCB uartProcess_tcb;
+
+//ÐÅºÅÁ¿ÉùÃ÷
+ATOM_SEM uartRxsem;
+ATOM_SEM disCommondsem;
+
+ATOM_MUTEX disCommondmutex;
+
+extern uint8_t rxDataBuff[50];
+
+extern disComdata disCommandData;
 
 /* Main thread's stack area (large so place outside of the small page0 area on STM8) */
 NEAR static uint8_t display_thread_stack[DISPLAY_STACK_SIZE_BYTES];
@@ -77,10 +92,6 @@ NEAR static uint8_t uartProcess_thread_stack[UARTPROCESS_STACK_SIZE_BYTES];
 
 /* Idle thread's stack area (large so place outside of the small page0 area on STM8) */
 NEAR static uint8_t idle_thread_stack[IDLE_STACK_SIZE_BYTES];
-
-/* Forward declarations */
-static void display_thread_func (uint32_t param);
-static void uartProcess_thread_func (uint32_t param);
 
 /**
  * \b main
@@ -100,7 +111,7 @@ static void uartProcess_thread_func (uint32_t param);
 NO_REG_SAVE void main ( void )
 {
     int8_t status;
-
+    CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
     /**
      * Note: to protect OS structures and data during initialisation,
      * interrupts must remain disabled until the first thread
@@ -122,7 +133,25 @@ NO_REG_SAVE void main ( void )
                      &display_thread_stack[0],
                      DISPLAY_STACK_SIZE_BYTES,
                      TRUE);
+          
+        status = atomThreadCreate(&uartProcess_tcb,
+                     10, uartProcess_thread_func, 0,
+                     &uartProcess_thread_stack[0],
+                     UARTPROCESS_STACK_SIZE_BYTES,
+                     TRUE);
         
+        if (atomSemCreate (&uartRxsem, 0) != ATOM_OK)
+        {
+          printf ("Error creating uartRx semaphore \n");
+        }
+        if ( atomSemCreate (&disCommondsem, 0) != ATOM_OK)
+        {
+          printf ("Error creating disCommond semaphore \n");
+        }
+        if ( atomMutexCreate (&disCommondmutex) != ATOM_OK )
+        {
+          printf ("Error creating disCommond mutex \n");
+        }
         if (status == ATOM_OK)
         {
             /**
@@ -146,40 +175,6 @@ NO_REG_SAVE void main ( void )
 
 }
 
-static void uartProcess_thread_func (uint32_t param)
-{
-  if (uart_init(115200) != 0)
-  {
-      /* Error initialising UART */
-  }
-  printf("uart test\r\n");
-  while (1)
-  {
-    printf("uart test\r\n");
-    atomTimerDelay (SYSTEM_TICKS_PER_SEC);
-  }
-}
-static void display_thread_func (uint32_t param)
-{
-  u8g_t u8g;
-  int8_t status;
-  status = atomThreadCreate(&uartProcess_tcb,
-             10, uartProcess_thread_func, 0,
-             &uartProcess_thread_stack[0],
-             UARTPROCESS_STACK_SIZE_BYTES,
-             TRUE);
-  
-  u8g_InitComFn(&u8g,&u8g_dev_uc1701_mini12864_hw_spi,u8g_com_hw_spi_fn);
 
-  while (1)
-  {
-     u8g_SetFont(&u8g, u8g_font_osb18);
-     u8g_FirstPage(&u8g);  
-     do  
-     {    
-          u8g_DrawHLine(&u8g, 0, 20, 128);
-          u8g_DrawStr(&u8g, 0, 48, "Hello");
-     } while ( u8g_NextPage(&u8g) ); 
-  }
-}
+
 

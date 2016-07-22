@@ -1,11 +1,12 @@
 /**
   ******************************************************************************
-  * @file stm8s_itc.c
-  * @brief This file contains all the functions for the ITC peripheral.
-  * @author STMicroelectronics - MCD Application Team
-  * @version V1.1.1
-  * @date 06/05/2009
+  * @file    stm8s_itc.c
+  * @author  MCD Application Team
+  * @version V2.1.0
+  * @date    18-November-2011
+  * @brief   This file contains all the functions for the ITC peripheral.
   ******************************************************************************
+  * @attention
   *
   * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
   * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
@@ -14,14 +15,16 @@
   * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
   *
-	* <h2><center>&copy; COPYRIGHT 2009 STMicroelectronics</center></h2>
-  * @image html logo.bmp
+  * <h2><center>&copy; COPYRIGHT 2011 STMicroelectronics</center></h2>
   ******************************************************************************
   */
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm8s_itc.h"
 
+/** @addtogroup STM8S_StdPeriph_Driver
+  * @{
+  */
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -34,27 +37,22 @@
   */
 
 /**
-* @brief Utility function used to read CC register.
-* @par Parameters:
-* None
-* @retval u8 Content of CC register (in A register).
+  * @brief  Utility function used to read CC register.
+  * @param  None
+  * @retval CPU CC register value
   */
-u8 ITC_GetCPUCC(void)
+uint8_t ITC_GetCPUCC(void)
 {
 #ifdef _COSMIC_
-    _asm("push cc");
-    _asm("pop a");
-    return; /* Ignore compiler warning, the returned value is in A register */
-#endif
-    
-#ifdef _RAISONANCE_
-    return _getCC_();
-#endif
-
-#ifdef _IAR_SYSTEMS_
-    __asm("push cc");
-    __asm("pop a");
-#endif
+  _asm("push cc");
+  _asm("pop a");
+  return; /* Ignore compiler warning, the returned value is in A register */
+#elif defined _RAISONANCE_ /* _RAISONANCE_ */
+  return _getCC_();
+#else /* _IAR_ */
+  asm("push cc");
+  asm("pop a"); /* Ignore compiler warning, the returned value is in A register */
+#endif /* _COSMIC_*/
 }
 
 
@@ -69,11 +67,9 @@ u8 ITC_GetCPUCC(void)
   */
 
 /**
-* @brief Deinitializes the ITC registers to their default reset value.
-* @par Parameters:
-* None
-* @retval
-* None
+  * @brief  Deinitializes the ITC registers to their default reset value.
+  * @param  None
+  * @retval None
   */
 void ITC_DeInit(void)
 {
@@ -88,32 +84,31 @@ void ITC_DeInit(void)
 }
 
 /**
-* @brief Get the software interrupt priority bits (I1, I0) value from CPU CC register.
-* @par Parameters:
-* None
-* @retval u8 The software interrupt priority bits value.
+  * @brief  Gets the interrupt software priority bits (I1, I0) value from CPU CC register.
+  * @param  None
+  * @retval The interrupt software priority bits value.
   */
-u8 ITC_GetSoftIntStatus(void)
+uint8_t ITC_GetSoftIntStatus(void)
 {
-    return (u8)(ITC_GetCPUCC() & CPU_CC_I1I0);
+    return (uint8_t)(ITC_GetCPUCC() & CPU_CC_I1I0);
 }
 
 /**
-* @brief Get the software priority of the specified interrupt source.
-* @param[in] IrqNum The IRQ number to access.
-* @retval ITC_PriorityLevel_TypeDef The software priority of the interrupt source.
+  * @brief  Gets the software priority of the specified interrupt source.
+  * @param  IrqNum : Specifies the peripheral interrupt source.
+  * @retval ITC_PriorityLevel_TypeDef : Specifies the software priority of the interrupt source.
   */
 ITC_PriorityLevel_TypeDef ITC_GetSoftwarePriority(ITC_Irq_TypeDef IrqNum)
 {
 
-    u8 Value = 0;
-    u8 Mask;
+    uint8_t Value = 0;
+    uint8_t Mask = 0;
 
     /* Check function parameters */
-    assert_param(IS_ITC_IRQ_OK((u8)IrqNum));
+    assert_param(IS_ITC_IRQ_OK((uint8_t)IrqNum));
 
     /* Define the mask corresponding to the bits position in the SPR register */
-    Mask = (u8)(0x03U << (((u8)IrqNum % 4U) * 2U));
+    Mask = (uint8_t)(0x03U << (((uint8_t)IrqNum % 4U) * 2U));
 
     switch (IrqNum)
     {
@@ -121,18 +116,18 @@ ITC_PriorityLevel_TypeDef ITC_GetSoftwarePriority(ITC_Irq_TypeDef IrqNum)
     case ITC_IRQ_AWU:
     case ITC_IRQ_CLK:
     case ITC_IRQ_PORTA:
-        Value = (u8)(ITC->ISPR1 & Mask); /* Read software priority */
+        Value = (uint8_t)(ITC->ISPR1 & Mask); /* Read software priority */
         break;
     case ITC_IRQ_PORTB:
     case ITC_IRQ_PORTC:
     case ITC_IRQ_PORTD:
     case ITC_IRQ_PORTE:
-        Value = (u8)(ITC->ISPR2 & Mask); /* Read software priority */
+        Value = (uint8_t)(ITC->ISPR2 & Mask); /* Read software priority */
         break;
-#ifdef STM8S208
+#if defined(STM8S208) || defined(STM8AF52Ax)
     case ITC_IRQ_CAN_RX:
     case ITC_IRQ_CAN_TX:
-#endif /*STM8S208*/
+#endif /*STM8S208 or STM8AF52Ax */
 
 #ifdef STM8S903
     case ITC_IRQ_PORTF:
@@ -140,7 +135,7 @@ ITC_PriorityLevel_TypeDef ITC_GetSoftwarePriority(ITC_Irq_TypeDef IrqNum)
 
     case ITC_IRQ_SPI:
     case ITC_IRQ_TIM1_OVF:
-        Value = (u8)(ITC->ISPR3 & Mask); /* Read software priority */
+        Value = (uint8_t)(ITC->ISPR3 & Mask); /* Read software priority */
         break;
     case ITC_IRQ_TIM1_CAPCOM:
 #ifdef STM8S903
@@ -152,67 +147,72 @@ ITC_PriorityLevel_TypeDef ITC_GetSoftwarePriority(ITC_Irq_TypeDef IrqNum)
 #endif /*STM8S903*/
 
     case ITC_IRQ_TIM3_OVF:
-        Value = (u8)(ITC->ISPR4 & Mask); /* Read software priority */
+        Value = (uint8_t)(ITC->ISPR4 & Mask); /* Read software priority */
         break;
     case ITC_IRQ_TIM3_CAPCOM:
     case ITC_IRQ_UART1_TX:
     case ITC_IRQ_UART1_RX:
     case ITC_IRQ_I2C:
-        Value = (u8)(ITC->ISPR5 & Mask); /* Read software priority */
+        Value = (uint8_t)(ITC->ISPR5 & Mask); /* Read software priority */
         break;
-#ifdef STM8S105
+#if defined(STM8S105) || defined(STM8S005) || defined(STM8AF626x)
     case ITC_IRQ_UART2_TX:
     case ITC_IRQ_UART2_RX:
-#endif /*STM8S105*/
+#endif /*STM8S105 or STM8AF626x*/
 
-#if defined(STM8S208) ||defined(STM8S207)
+#if defined(STM8S208) || defined(STM8S207) || defined(STM8S007) || defined(STM8AF52Ax) || \
+    defined(STM8AF62Ax)
     case ITC_IRQ_UART3_TX:
     case ITC_IRQ_UART3_RX:
     case ITC_IRQ_ADC2:
-#endif /*STM8S208 or STM8S207*/
+#endif /*STM8S208 or STM8S207 or STM8AF52Ax or STM8AF62Ax */
 
-#if defined(STM8S105) ||defined(STM8S103) ||defined(STM8S905)
+#if defined(STM8S105) || defined(STM8S005) || defined(STM8S103) || defined(STM8S003) || \
+    defined(STM8S903) || defined(STM8AF626x)
     case ITC_IRQ_ADC1:
-#endif /*STM8S105, STM8S103 or STM8S905 */
+#endif /*STM8S105, STM8S103 or STM8S905 or STM8AF626x */
 
 #ifdef STM8S903
     case ITC_IRQ_TIM6_OVFTRI:
 #else
     case ITC_IRQ_TIM4_OVF:
 #endif /*STM8S903*/
-        Value = (u8)(ITC->ISPR6 & Mask); /* Read software priority */
+        Value = (uint8_t)(ITC->ISPR6 & Mask); /* Read software priority */
         break;
     case ITC_IRQ_EEPROM_EEC:
-        Value = (u8)(ITC->ISPR7 & Mask); /* Read software priority */
+        Value = (uint8_t)(ITC->ISPR7 & Mask); /* Read software priority */
         break;
     default:
         break;
     }
 
-    Value >>= (u8)(((u8)IrqNum % 4u) * 2u);
+    Value >>= (uint8_t)(((uint8_t)IrqNum % 4u) * 2u);
 
     return((ITC_PriorityLevel_TypeDef)Value);
 
 }
 
 /**
-* @brief Set the software priority of the specified interrupt source.
-* @param[in] IrqNum The interrupt source to access.
-* @param[in] PriorityValue The software priority value to set.
-* @retval ITC_PriorityLevel_TypeDef The software priority of the interrupt source.
-* @par Required preconditions:
-* - The modification of the software priority is only possible when the interrupts are disabled.
-* - The normal behavior is to disable the interrupts before calling this function, and re-enable it after.
-* - The priority level 0 cannot be set (see product specification for more details).
+  * @brief  Sets the software priority of the specified interrupt source.
+  * @note   - The modification of the software priority is only possible when
+  *         the interrupts are disabled.
+  *         - The normal behavior is to disable the interrupt before calling
+  *         this function, and re-enable it after.
+  *         - The priority level 0 cannot be set (see product specification
+  *         for more details).
+  * @param  IrqNum : Specifies the peripheral interrupt source.
+  * @param  PriorityValue : Specifies the software priority value to set,
+  *         can be a value of @ref  ITC_PriorityLevel_TypeDef .
+  * @retval None
 */
 void ITC_SetSoftwarePriority(ITC_Irq_TypeDef IrqNum, ITC_PriorityLevel_TypeDef PriorityValue)
 {
 
-    u8 Mask;
-    u8 NewPriority;
+    uint8_t Mask = 0;
+    uint8_t NewPriority = 0;
 
     /* Check function parameters */
-    assert_param(IS_ITC_IRQ_OK((u8)IrqNum));
+    assert_param(IS_ITC_IRQ_OK((uint8_t)IrqNum));
     assert_param(IS_ITC_PRIORITY_OK(PriorityValue));
 
     /* Check if interrupts are disabled */
@@ -220,10 +220,10 @@ void ITC_SetSoftwarePriority(ITC_Irq_TypeDef IrqNum, ITC_PriorityLevel_TypeDef P
 
     /* Define the mask corresponding to the bits position in the SPR register */
     /* The mask is reversed in order to clear the 2 bits after more easily */
-    Mask = (u8)(~(u8)(0x03U << (((u8)IrqNum % 4U) * 2U)));
+    Mask = (uint8_t)(~(uint8_t)(0x03U << (((uint8_t)IrqNum % 4U) * 2U)));
 
     /* Define the new priority to write */
-    NewPriority = (u8)((u8)(PriorityValue) << (((u8)IrqNum % 4U) * 2U));
+    NewPriority = (uint8_t)((uint8_t)(PriorityValue) << (((uint8_t)IrqNum % 4U) * 2U));
 
     switch (IrqNum)
     {
@@ -244,10 +244,10 @@ void ITC_SetSoftwarePriority(ITC_Irq_TypeDef IrqNum, ITC_PriorityLevel_TypeDef P
         ITC->ISPR2 |= NewPriority;
         break;
 
-#ifdef STM8S208
+#if defined(STM8S208) || defined(STM8AF52Ax)
     case ITC_IRQ_CAN_RX:
     case ITC_IRQ_CAN_TX:
-#endif /*STM8S208*/
+#endif /*STM8S208 or STM8AF52Ax */
 
 #ifdef STM8S903
     case ITC_IRQ_PORTF:
@@ -280,20 +280,22 @@ void ITC_SetSoftwarePriority(ITC_Irq_TypeDef IrqNum, ITC_PriorityLevel_TypeDef P
         ITC->ISPR5 |= NewPriority;
         break;
 
-#ifdef STM8S105
+#if defined(STM8S105) || defined(STM8S005) || defined(STM8AF626x)
     case ITC_IRQ_UART2_TX:
     case ITC_IRQ_UART2_RX:
-#endif /*STM8S105*/
+#endif /*STM8S105 or STM8AF626x */
 
-#if defined(STM8S208) ||defined(STM8S207)
+#if defined(STM8S208) || defined(STM8S207) || defined(STM8S007) || defined(STM8AF52Ax) || \
+    defined(STM8AF62Ax)
     case ITC_IRQ_UART3_TX:
     case ITC_IRQ_UART3_RX:
     case ITC_IRQ_ADC2:
-#endif /*STM8S208 or STM8S207*/
+#endif /*STM8S208 or STM8S207 or STM8AF52Ax or STM8AF62Ax */
 
-#if defined(STM8S105) ||defined(STM8S103) ||defined(STM8S905)
+#if defined(STM8S105) || defined(STM8S005) || defined(STM8S103) || defined(STM8S003) || \
+    defined(STM8S903) || defined(STM8AF626x)
     case ITC_IRQ_ADC1:
-#endif /*STM8S105, STM8S103 or STM8S905 */
+#endif /*STM8S105, STM8S103 or STM8S905 or STM8AF626x */
 
 #ifdef STM8S903
     case ITC_IRQ_TIM6_OVFTRI:
@@ -319,5 +321,9 @@ void ITC_SetSoftwarePriority(ITC_Irq_TypeDef IrqNum, ITC_PriorityLevel_TypeDef P
 /**
   * @}
   */
-
-/******************* (C) COPYRIGHT 2009 STMicroelectronics *****END OF FILE****/
+  
+/**
+  * @}
+  */
+  
+/******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/

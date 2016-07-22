@@ -34,10 +34,10 @@ static void set_gpio_level(GPIO_TypeDef *PORT, GPIO_Pin_TypeDef Pin, uint8_t lev
 	}
 }
 
-static uint8_t get_gpio_level(GPIO_TypeDef *PORT, GPIO_Pin_TypeDef Pin)
-{
-   return GPIO_ReadInputPin(PORT, Pin);
-}
+//static uint8_t get_gpio_level(GPIO_TypeDef *PORT, GPIO_Pin_TypeDef Pin)
+//{
+//   return GPIO_ReadInputPin(PORT, Pin);
+//}
 
 //SpeedSet:
 //SPI_BAUDRATEPRESCALER_2    
@@ -62,6 +62,9 @@ static void spi_init(SPI_BaudRatePrescaler_TypeDef SPI_BaudRatePrescaler)
   //打开背光
   GPIO_WriteLow(LCD_LIGHT_PIN);
   
+  GPIO_WriteLow(LCD_RST_PIN);
+  u8g_10MicroDelay();
+  GPIO_WriteHigh(LCD_RST_PIN);
   //关闭FLASH CS
   GPIO_WriteLow(GPIOG,GPIO_PIN_0);
   

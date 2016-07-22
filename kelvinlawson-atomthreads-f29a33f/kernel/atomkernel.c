@@ -145,7 +145,8 @@
 
 
 #include "atom.h"
-
+#include "stm8s_conf.h"
+#include "stdio.h"
 
 /* Global data */
 
@@ -759,11 +760,12 @@ void atomOSStart (void)
  *
  * @return None
  */
+volatile u32 time = 888888;
 static void atomIdleThread (uint32_t param)
 {
     /* Compiler warning  */
     param = param;
-
+    
     /* Loop forever */
     while (1)
     {

@@ -1,6 +1,6 @@
 #ifndef _U8G_STM8S_
 #define _U8G_STM8S_
-#include "stm8s_type.h"
+#include "stm8s.h"
 #include "stm8s_gpio.h"
 #include "stm8s_spi.h"
 #define LCD_CD_PIN    GPIOE,GPIO_PIN_7
