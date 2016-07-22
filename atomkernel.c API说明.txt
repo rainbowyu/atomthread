@@ -16,3 +16,63 @@
  * 返回:void
  */
 void atomSched (uint8_t timer_tick);
+
+/*
+ * 内部函数,应用代码不会使用
+ 
+ * 该函数被调度器调用,用来执行上下文切换.运行就代表着线程的切换.该函数
+ * 不会返回,知道老线程被放在列表最后.
+ 
+ * 功能:切换线程.
+ * 说明:被调度器调用
+ * 参数:
+ * ATOM_TCB *old_tcb
+ * ATOM_TCB *new_tcb
+ 
+ * 返回:void
+ */
+static void atomThreadSwitch(ATOM_TCB *old_tcb, ATOM_TCB *new_tcb);
+
+/*
+ * 功能:创建并启动一个新的线程.
+ 
+ * 说明:调用方需要提供ATOM_TCB结构体来存储新线程的数据.
+ * 该函数将一个新的线程放入准备好的线程队列,并启动调度器.若其优先级高于
+ * 现有线程,则新线程可能会在函数返回之前就被切入新的线程.
+ 
+ * 参数:
+ * ATOM_TCB* tcb_ptr指向线程TCB的指针
+ * uint8_t priority 优先级0-255 255最低
+ * void (*entry_point)(uint32_t) 线程入口函数
+ * uint32_t entry_param 入口参数
+ * void *stack_bottom 堆空间的底部
+ * uint32_t stack_size 堆空间的大小byte
+ * uint8_t stack_check 使能线程的堆检测
+	 
+
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_ERR_PARAM 参数错误
+ * ATOM_ERR_QUEUE 将线程加入队列失败
+ */
+uint8_t atomThreadCreate (ATOM_TCB *tcb_ptr, uint8_t priority, void (*entry_point)(uint32_t),\
+                          uint32_t entry_param, void *stack_bottom, uint32_t stack_size, \
+													uint8_t stack_check)
+/*
+ * 功能:线程堆检测.
+ 
+ * 说明:若定义了ATOM_STACK_CHECKING,则线程的堆空间在线程启动的时候会被初始化
+   为已知的数据.这些数据可以被放在线程中用来测试最多的线程占用内存.
+ 
+ * 参数:
+ * ATOM_TCB* tcb_ptr指向线程TCB的指针
+ * uint32_t *used_bytes 使用的堆空间
+ * uint32_t *free_bytes 剩余的堆空间
+
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_ERR_PARAM 参数错误
+ * ATOM_ERR_QUEUE 将线程加入队列失败
+ */													
+uint8_t atomThreadStackCheck (ATOM_TCB *tcb_ptr, uint32_t *used_bytes, uint32_t *free_bytes);
+													
