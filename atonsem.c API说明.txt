@@ -1,4 +1,4 @@
-/** 
+/*
  * \n <b> 使用说明</b> \n
  * 所有信号量都必须在使用前被初始化,初始化函数为atomSemCreate().
  * 初始化之后atomSemGet()和atomSemPut()分别用来减少和增加信号量的计数.

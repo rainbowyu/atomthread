@@ -760,7 +760,6 @@ void atomOSStart (void)
  *
  * @return None
  */
-volatile u32 time = 888888;
 static void atomIdleThread (uint32_t param)
 {
     /* Compiler warning  */

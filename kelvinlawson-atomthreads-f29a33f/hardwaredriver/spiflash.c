@@ -246,13 +246,12 @@ void spiFlashBufferWrite(u8* pBuffer, u32 WriteAddr, u16 NumByteToWrite)
 void spiFlashTest(void)
 {
 	u32 FlashID = 0;
-	u32 DeviceID = 0;
   u8  state[2] = {0};
   u8  Rx_Buffer[22];
   
   FlashID = spiFlashReadID();
 
-  printf("\r\n 芯片的ID是 0x%X", FlashID);
+  //printf("\r\n 芯片的ID是 0x%X", FlashID);
 
   if (FlashID == 0xEF4016)  
   {

@@ -240,7 +240,7 @@ void archInitSystemTickTimer ( void )
     TIM1_DeInit();
 
     /* Configure a 10ms tick */
-    TIM1_TimeBaseInit(10000, TIM1_COUNTERMODE_UP, 1, 0);
+    TIM1_TimeBaseInit(10000, TIM1_COUNTERMODE_UP, 16, 0);
 
     /* Generate an interrupt on timer count overflow */
     TIM1_ITConfig(TIM1_IT_UPDATE, ENABLE);

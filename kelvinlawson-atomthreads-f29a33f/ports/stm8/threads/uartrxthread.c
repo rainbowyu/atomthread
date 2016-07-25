@@ -12,13 +12,9 @@
 #include "uartrxthread.h"
 #include "displaythread.h"
 
-extern ATOM_TCB uartProcess_tcb;
-extern ATOM_SEM uartRxsem;
-extern ATOM_SEM disCommondsem;
-extern ATOM_MUTEX disCommondmutex;
+ATOM_TCB uartProcess_tcb;
+ATOM_SEM uartRxsem;
 
-extern disComdata disCommandData;
-extern uint8_t rxDataBuff[50];
 void uartProcess_thread_func (uint32_t param);
 
 void uartProcess_thread_func (uint32_t param)
@@ -32,22 +28,18 @@ void uartProcess_thread_func (uint32_t param)
   while (1)
   {
     //wait forever
-    if (atomSemGet(&uartRxsem, 0)==ATOM_OK)
+    if (atomSemGet(&uartRxsem, 0) == ATOM_OK)
     {
-      if (atomMutexGet(&disCommondmutex, 0) == ATOM_OK)
+      for (uint8_t i=0;i<50;i++)
       {
-        for (uint8_t i=0;i<50;i++)
-        {
-          disCommandData.buff[i] = rxDataBuff[i];
-        }
-        disCommandData.commandlist |= NEWCOMMAND;
-        atomMutexPut(&disCommondmutex);
+        disCommandData.buff[i] = rxDataBuff[i];
       }
+      disCommandData.commandlist |= NEWCOMMAND;
       atomSemPut (&disCommondsem);
-    }
     
-    atomThreadStackCheck (&uartProcess_tcb, (uint32_t*)&use, (uint32_t*)&free);
-    if (free<100)
-      printf("display stack too low");
+      atomThreadStackCheck (&uartProcess_tcb, (uint32_t*)&use, (uint32_t*)&free);
+      if (free<100)
+        printf("display stack too low");
+    }
   }
 }

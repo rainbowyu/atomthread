@@ -1584,9 +1584,6 @@
   </mfc>
   <group>
     <name>fatFs</name>
-    <excluded>
-      <configuration>Debug</configuration>
-    </excluded>
     <file>
       <name>$PROJ_DIR$\..\..\fatFS\diskio.c</name>
     </file>
@@ -1714,6 +1711,9 @@
       <name>$PROJ_DIR$\atomport.h</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\mainthread.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\spifFs-main.c</name>
       <excluded>
         <configuration>Debug</configuration>
@@ -1727,9 +1727,6 @@
       <excluded>
         <configuration>Debug</configuration>
       </excluded>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\u8glib-main.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\uart.c</name>
@@ -1781,6 +1778,9 @@
     <name>threads</name>
     <file>
       <name>$PROJ_DIR$\threads\displaythread.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\threads\filethread.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\threads\uartrxthread.c</name>

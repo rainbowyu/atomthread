@@ -9,7 +9,7 @@
 
 #include "diskio.h"		/* FatFs lower layer API */
 #include "stdio.h"
-#include "spiffs_config.h"
+//#include "spiffs_config.h"
 #include "stm8s.h"
 #include "stm8s_gpio.h"
 #include "stm8s_spi.h"
@@ -50,19 +50,19 @@ DSTATUS disk_status (
 )
 {
 	DSTATUS stat=RES_OK;
-	int result=0;
+	//int result=0;
 
 	switch (pdrv) {
 	case DEV_RAM :
-		result = RAM_disk_status();
+		RAM_disk_status();
 		return stat;
 
 	case DEV_MMC :
-		result = MMC_disk_status();
+		MMC_disk_status();
 		return stat;
 
 	case DEV_USB :
-		result = USB_disk_status();
+		USB_disk_status();
 		return stat;
 	}
 	return STA_NOINIT;
@@ -79,17 +79,18 @@ DSTATUS disk_initialize (
 )
 {
 	DSTATUS stat=RES_OK;
+//  int result=0;
 	switch (pdrv) {
 	case DEV_RAM :
-		result = RAM_disk_initialize();
+		RAM_disk_initialize();
 		return stat;
 
 	case DEV_MMC :
-		result = MMC_disk_initialize();
+		MMC_disk_initialize();
 		return stat;
 
 	case DEV_USB :
-		result = USB_disk_initialize();
+		USB_disk_initialize();
 		return stat;
 	}
 	return STA_NOINIT;
@@ -109,17 +110,18 @@ DRESULT disk_read (
 )
 {
 	DRESULT res=RES_OK;
+  
 	switch (pdrv) {
 	case DEV_RAM :
-		result = RAM_disk_read(buff, sector, count);
+		RAM_disk_read(buff, sector, count);
 		return res;
 
 	case DEV_MMC :
-		result = MMC_disk_read(buff, sector, count);
+		MMC_disk_read(buff, sector, count);
 		return res;
 
 	case DEV_USB :
-		result = USB_disk_read(buff, sector, count);
+		USB_disk_read(buff, sector, count);
 		return res;
 	}
 
@@ -138,18 +140,18 @@ DRESULT disk_write (
 )
 {
 	DRESULT res =RES_OK;
-	int result=0;
+  
 	switch (pdrv) {
 	case DEV_RAM :
-		result = RAM_disk_write(buff, sector, count);
+		RAM_disk_write(buff, sector, count);
 		return res;
 
 	case DEV_MMC :
-		result = MMC_disk_write(buff, sector, count);
+		MMC_disk_write(buff, sector, count);
 		return res;
 
 	case DEV_USB :
-		result = USB_disk_write(buff, sector, count);
+		USB_disk_write(buff, sector, count);
 		return res;
 	}
 	return RES_PARERR;

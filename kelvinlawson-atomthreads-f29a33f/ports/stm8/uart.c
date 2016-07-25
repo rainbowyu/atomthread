@@ -160,11 +160,13 @@ size_t __write(int handle, const unsigned char *buf, size_t bufSize)
     return (chars_written);
 }
 #endif /* __IAR_SYSTEMS_ICC__ */
+
 #pragma vector = ITC_IRQ_UART3_RX + 2
 __interrupt void UART3_RX_IRQHandler(void)
 {  
   uint8_t temp;
   static uint8_t * p = &rxDataBuff[0];
+  atomIntEnter ();
   if( UART3_GetITStatus(UART3_IT_RXNE) == SET && \
       UART3_GetFlagStatus(UART3_FLAG_RXNE) == SET)//接收中断处理
   {
@@ -187,6 +189,6 @@ __interrupt void UART3_RX_IRQHandler(void)
       p=rxDataBuff;
       atomSemPut (&uartRxsem);
     }
-    
+    atomIntExit (0);
   }
 }  

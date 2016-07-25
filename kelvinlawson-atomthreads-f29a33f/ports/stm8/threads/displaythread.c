@@ -11,11 +11,11 @@
 #include "atommutex.h"
 
 #include "displaythread.h"
-extern ATOM_TCB display_tcb;
-extern ATOM_SEM disCommondsem;
-extern ATOM_MUTEX disCommondmutex;
+ATOM_TCB display_tcb;
+ATOM_SEM disCommondsem;
 
 disComdata disCommandData;
+
 void display_thread_func (uint32_t param);
 
 void display_thread_func (uint32_t param)
@@ -29,11 +29,10 @@ void display_thread_func (uint32_t param)
   //500Byte
   volatile uint8_t displaybuff[8][50]={0};
   volatile uint8_t displayrow=0;
+  
   while (1)
   {
-    atomSemGet (&disCommondsem, 0);
-    
-    if (atomMutexGet(&disCommondmutex, 0) == ATOM_OK)
+    if (atomSemGet (&disCommondsem, 0) == ATOM_OK)
     {
       if (disCommandData.commandlist&NEWCOMMAND)
       { 
@@ -50,19 +49,19 @@ void display_thread_func (uint32_t param)
           displaybuff[0][i]=disCommandData.buff[i];           
         }
       }
-      atomMutexPut(&disCommondmutex);
+         
+      u8g_FirstPage(&u8g);  
+      do  
+      {    
+        for (uint8_t i =0;i<8 ;i++){
+         u8g_DrawStr(&u8g, 0, 64-(i<<3), (char const*)displaybuff[i]);
+        }
+      } while ( u8g_NextPage(&u8g) );
+      
+      atomThreadStackCheck (&display_tcb, (uint32_t*)&use, (uint32_t*)&free);
+      
+      if (free<100)
+        printf("display stack too low");
     }
-       
-    u8g_FirstPage(&u8g);  
-    do  
-    {    
-      for (uint8_t i =0;i<8 ;i++){
-       u8g_DrawStr(&u8g, 0, 64-(i<<3), (char const*)displaybuff[i]);
-      }
-    } while ( u8g_NextPage(&u8g) );
-    
-    atomThreadStackCheck (&display_tcb, (uint32_t*)&use, (uint32_t*)&free);
-    if (free<100)
-      printf("display stack too low");
   }
 }

@@ -1,0 +1,152 @@
+uint8_t atomQueueCreate (ATOM_QUEUE *qptr, uint8_t *buff_ptr, uint32_t unit_size, uint32_t max_num_msgs);
+uint8_t atomQueueDelete (ATOM_QUEUE *qptr);
+uint8_t atomQueueGet (ATOM_QUEUE *qptr, int32_t timeout, uint8_t *msgptr);
+uint8_t atomQueuePut (ATOM_QUEUE *qptr, int32_t timeout, uint8_t *msgptr);
+static void atomQueueTimerCallback (POINTER cb_data);
+static uint8_t queue_remove (ATOM_QUEUE *qptr, uint8_t* msgptr);
+static uint8_t queue_insert (ATOM_QUEUE *qptr, uint8_t* msgptr);
+
+/*
+ * 建立队列信号量.
+ * 功能:创建一个队列.
+ * 说明:必须在使用之前创建,创建之后可以使用atomQueueDelete()删除调用者需要提供一
+ * 个缓存来存储队列中的数据.当数据在两个线程中传输时,分别使用它们各自的缓存空间,
+ * 这个空间必须足够大,以便存储传输的数据.
+ 
+ * 参数:
+ * ATOM_QUEUE *qptr   队列指针.
+ * uint8_t *buff_ptr  数据缓存指针
+ * uint32_t unit_size 每个队列消息的大小
+ * uint32_t max_num_msgs 队列中最大的消息数
+ 
+ * 中断安全性:安全
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_ERR_PARAM 错误的参数
+ */
+uint8_t atomQueueCreate (ATOM_QUEUE *qptr, uint8_t *buff_ptr, uint32_t unit_size, uint32_t max_num_msgs);
+ 
+/*
+ * 删除队列信号量.
+ * 功能:删除一个队列.
+ * 说明:任何正被该信号量阻塞的线程会被唤醒并返回ATOM_ERR_DELETED,
+ * 如果在线程中使用,调度器将根据优先级决定是否唤醒阻塞的线程.
+ 
+ * 参数:
+ * ATOM_QUEUE *qptr 指向队列的指针
+ 
+ * 中断安全性:安全
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_ERR_QUEUE 将唤醒的线程载入准备队列失败
+ * ATOM_ERR_TIMER 取消一个已被唤醒的线程timeout失败
+ */
+uint8_t atomQueueDelete (ATOM_QUEUE *qptr);
+ 
+/*
+ * 获取(get)队列信号.
+ * 功能:获取一个队列信号.
+ * 说明:一次获取一个消息,消息会被复制到msgptr中,当队列中有多个消息的时候,他们将遵循FIFO.
+ * 若队列为空,则会根据timeout的不同值执行不同的动作
+ 
+ * 根据timeout的不同值,当队列为空的时候会有如下结果:
+ * timeout == 0 线程会被阻塞直到队列不再为空.
+ * timeout >0 线程将被阻塞直到队列不再为空或者超时.
+ * timeout == -1 当队列为空的时候立刻返回.
+ 
+ * 当线程由于timeout为0而退出阻塞时,该函数会返回ATOM_TIMEOUT.
+
+ * 参数:
+ * ATOM_QUEUE *qptr 队列指针
+ * int32_t timeout  阻塞的最长时间 (0 = 永远)
+ * uint8_t *msgptr  消息buff指针
+ 
+ * 中断安全性:只有当timeout=-1时才能在中断中使用
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_TIMEOUT 在被唤醒前 timeout已到时间
+ * ATOM_WOULDBLOCK 在队列为空的时候,timeout=-1
+ * ATOM_ERR_DELETED 阻塞时,队列被删除了
+ * ATOM_ERR_CONTEXT 不是在线程中被调用
+ * ATOM_ERR_PARAM 错误的参数
+ * ATOM_ERR_QUEUE 将线程放在阻塞队列时发生错误
+ * ATOM_ERR_TIMER 注册timeout错误
+ */
+uint8_t atomQueueGet (ATOM_QUEUE *qptr, int32_t timeout, uint8_t *msgptr);
+ 
+/*
+ * 给队列中添加一个消息.
+ * 功能:给队列中添加一个消息..
+ * 说明:发送一个消息,消息从msgptr指向的地址copy到队列中.若队列已经满了.则会根据timeout
+   的不同值执行不同的动作.
+ 
+ * 根据timeout的不同值,当队列为空的时候会有如下结果:
+ * timeout == 0 线程会被阻塞直到队列不再满.
+ * timeout >0 线程将被阻塞直到队列不再满或者超时.
+ * timeout == -1 当队列满的时候立刻返回.
+ 
+ * 当线程由于timeout为0而退出阻塞时,该函数会返回ATOM_TIMEOUT.
+ 
+ * 参数:
+ * ATOM_QUEUE *qptr 队列指针
+ * int32_t timeout	阻塞的最长时间 (0 = 永远)
+ * uint8_t *msgptr	消息buff指针
+ 
+ * 中断安全性:只有当timeout=-1时才能在中断中使用
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_TIMEOUT 在被唤醒前 timeout已到时间
+ * ATOM_WOULDBLOCK 在队列为空的时候,timeout=-1
+ * ATOM_ERR_DELETED 阻塞时,队列被删除了
+ * ATOM_ERR_CONTEXT 不是在线程中被调用
+ * ATOM_ERR_PARAM 错误的参数
+ * ATOM_ERR_QUEUE 将线程放在阻塞队列时发生错误
+ * ATOM_ERR_TIMER 注册timeout错误
+ */
+uint8_t atomQueuePut (ATOM_QUEUE *qptr, int32_t timeout, uint8_t *msgptr);
+ 
+/*
+ * 队列定时器回调函数.
+ * 功能:内部函数外部无需调用
+ * 说明:当阻塞线程timeout到的时候就会调用该函数,参数QUEUE_TIMER POINTER cb_data有更多细节.
+ 
+ * 参数:
+ * POINTER cb_data
+ */
+static void atomQueueTimerCallback (POINTER cb_data);
+ 
+/*
+ * 从队列移除一个消息
+ * 功能:内部函数外部无需调用
+ * 说明:从队列移除一个消息,
+ 
+ * 参数:
+ * ATOM_QUEUE *qptr 队列指针
+ * uint8_t *msgptr	消息buff指针
+ 
+ * 中断安全性:内部函数 不能使用
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_ERR_PARAM 错误的参数
+ * ATOM_ERR_QUEUE 将线程放在阻塞队列时发生错误
+ * ATOM_ERR_TIMER 注册timeout错误
+ */
+static uint8_t queue_remove (ATOM_QUEUE *qptr, uint8_t* msgptr);
+ 
+/*
+ * 向队列添加一个消息
+ * 功能:内部函数外部无需调用
+ * 说明:向队列添加一个消息,
+ 
+ * 参数:
+ * ATOM_QUEUE *qptr 队列指针
+ * uint8_t *msgptr	消息buff指针
+ 
+ * 中断安全性:内部函数 不能使用
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_ERR_PARAM 错误的参数
+ * ATOM_ERR_QUEUE 将线程放在阻塞队列时发生错误
+ * ATOM_ERR_TIMER 注册timeout错误
+ */
+static uint8_t queue_insert (ATOM_QUEUE *qptr, uint8_t* msgptr);

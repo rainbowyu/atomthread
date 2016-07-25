@@ -1,5 +1,4 @@
 /*
-
   u8g.h
   
   Universal 8bit Graphics Library
@@ -1796,7 +1795,6 @@ extern const u8g_fntpgm_uint8_t u8g_font_babyn[] U8G_FONT_SECTION("u8g_font_baby
 extern const u8g_fntpgm_uint8_t u8g_font_blipfest_07[] U8G_FONT_SECTION("u8g_font_blipfest_07");
 extern const u8g_fntpgm_uint8_t u8g_font_blipfest_07r[] U8G_FONT_SECTION("u8g_font_blipfest_07r");
 extern const u8g_fntpgm_uint8_t u8g_font_blipfest_07n[] U8G_FONT_SECTION("u8g_font_blipfest_07n");
-
 
 
 #ifdef __cplusplus
