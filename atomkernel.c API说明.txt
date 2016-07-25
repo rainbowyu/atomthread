@@ -1,3 +1,25 @@
+//所有函数名称
+void atomSched (uint8_t timer_tick);
+
+uint8_t atomOSInit (void *idle_thread_stack_bottom, uint32_t idle_thread_stack_size, uint8_t idle_thread_stack_check);
+void atomOSStart (void);
+
+void atomIntEnter (void);
+void atomIntExit (uint8_t timer_tick);
+
+uint8_t tcbEnqueuePriority (ATOM_TCB **tcb_queue_ptr, ATOM_TCB *tcb_ptr);
+ATOM_TCB *tcbDequeueHead (ATOM_TCB **tcb_queue_ptr);
+ATOM_TCB *tcbDequeueEntry (ATOM_TCB **tcb_queue_ptr, ATOM_TCB *tcb_ptr);
+ATOM_TCB *tcbDequeuePriority (ATOM_TCB **tcb_queue_ptr, uint8_t priority);
+
+ATOM_TCB *atomCurrentContext (void);
+
+uint8_t atomThreadCreate (ATOM_TCB *tcb_ptr, uint8_t priority, void (*entry_point)(uint32_t), uint32_t entry_param, void *stack_bottom, uint32_t stack_size, uint8_t stack_check);
+uint8_t atomThreadStackCheck (ATOM_TCB *tcb_ptr, uint32_t *used_bytes, uint32_t *free_bytes);
+
+static void atomThreadSwitch(ATOM_TCB *old_tcb, ATOM_TCB *new_tcb);
+static void atomIdleThread (uint32_t data);
+
 /*
  * 内部函数,应用层不会用到.
  * 主调度器程序,他会被各种系统库调用,检查是否有线程需要被调度.
@@ -75,4 +97,165 @@ uint8_t atomThreadCreate (ATOM_TCB *tcb_ptr, uint8_t priority, void (*entry_poin
  * ATOM_ERR_QUEUE 将线程加入队列失败
  */													
 uint8_t atomThreadStackCheck (ATOM_TCB *tcb_ptr, uint32_t *used_bytes, uint32_t *free_bytes);
+													uint8_t stack_check)
 													
+/*
+ * 功能:进入中断例行程序
+ 
+ * 说明:进入中断例行程序.因为中断会屏蔽心跳中断,所以进入中断与退出中断都应调用对应函数.
+ 
+ * 参数:
+ * void
+
+ * 返回:
+ * void
+ */	
+void atomIntEnter (void);
+
+/*
+ * 功能:退出中断例行程序
+ 
+ * 说明:函数最后调用了调度器,用来决定是否有新的线程准备好了并需要被调度.
+ 
+ * 参数:
+ * uint8_t timer_tick
+
+ * 返回:
+ * void
+ */	
+void atomIntExit (uint8_t timer_tick);
+
+/*
+ * 功能:获取正在运行线程的上下文.
+ 
+ * 说明:返回一个目前运行线程的TCB指针,当在中断中调用的时候返回NULL
+ 
+ * 参数:
+ * void
+
+ * 返回:
+ * ATOM_TCB* TCB指针
+ */		
+ATOM_TCB *atomCurrentContext (void);
+
+/*
+ * 功能:初始化atomthreads系统.
+ 
+ * 说明:必须在任何应用层使用任何atomthreads API之前调用.在调用atomOSStart()不会有任何线程
+ * 被开始执行.调用者必须提供一些存储指针做为idle线程的堆栈.调用者应该在自己架构的基础上,
+ * 为其计算出合适的堆栈大小.
+ 
+ * 应该遵循如下初始化顺序:
+ * 1.在调用任何API之前调用atomOSInit()
+ * 2.安排一个定时器为atomTimerTick()提供周期中断.
+ * 3.用atomThreadCreate()创建一个或以上的任务
+ * 4.用函数atomOSStart()启动系统.此时最高优先级的任务将被启动.
+ 
+ * 在线程恢复完成之前应该禁止任何中断.以防任何重要的系统初始化操作被影响,一般中断会在
+ * archFirstThreadRestore()中被使能.
+ 
+ * 参数:
+ * void *idle_thread_stack_bottom 空闲线程堆栈底部地址.
+ * uint32_t idle_thread_stack_size 堆栈总空间大小
+ * uint8_t idle_thread_stack_check 是否检测最大使用空间.
+
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_ERROR 初始化错误
+ */
+uint8_t atomOSInit (void *idle_thread_stack_bottom, uint32_t idle_thread_stack_size,\
+										uint8_t idle_thread_stack_check);
+										
+/*
+ * 功能:启动最高优先级线程
+ 
+ * 说明:该函数必须在OS初始化完成后调用.至少有一个应用线程被创建.他会启动优先级最高的线程.
+ * 若线程优先级相同,则会启动先被创建的线程.
+ 
+ * 参数:
+ * void
+
+ * 返回:
+ * void
+ */												
+void atomOSStart (void);
+
+/*
+ * 功能:空线程
+ 
+ * 说明:该函数必须一直存在,当其他线程都被阻塞时会运行.
+ 
+ * 参数:
+ * void
+
+ * 返回:
+ * void
+ */			
+static void atomIdleThread (uint32_t param);
+
+/*
+ * 内部函数,应用层不会用到.
+ 
+ * 功能:将一个TCB指针按照优先级加入运行队列.
+ * 说明:如果队列中已经存在相同的优先级的TCB,则会将该线程TCB放置在相同优先级的TCB后面,
+ * 调用tcbDequeuePriority()时会遵守FIFO的规则
+ 
+ * 参数:
+ * ATOM_TCB **tcb_queue_ptr 指向tcb队列排头的指针
+ * ATOM_TCB *tcb_ptr TCB的指针
+
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_ERR_PARAM 错误参数
+ */
+uint8_t tcbEnqueuePriority (ATOM_TCB **tcb_queue_ptr, ATOM_TCB *tcb_ptr);
+
+/*
+ * 内部函数,应用层不会用到.
+ 
+ * 功能:在TCB队列头中取出一个TCB指针.
+ * 说明:两个相同的优先级的TCB按照FIFO规则被取出,若队列为空,则会返回NULL
+ 
+ * 参数:
+ * ATOM_TCB **tcb_queue_ptr 指向tcb队列排头的指针
+
+ * 返回:
+ * ATOM_TCB * 线程TCB的指针
+ * NULL 队列为空
+ */
+ATOM_TCB *tcbDequeueHead (ATOM_TCB **tcb_queue_ptr);
+
+/*
+ * 内部函数,应用层不会用到.
+ 
+ * 功能:在TCB队列头中取出一个TCB指针.
+ * 说明:取出的TCB由 ATOM_TCB *tcb_ptr 指定,若取出的TCB指针为队列的头,则**tcb_queue_ptr
+ * 有可能会被更改.若队列为空则tcb_queue_ptr会为NULL.若队列本来就为空,则函数会返回NULL
+ 
+ * 参数:
+ * ATOM_TCB **tcb_queue_ptr 指向tcb队列排头的指针
+ * ATOM_TCB *tcb_ptr 要取出的TCB指针.
+ 
+ * 返回:
+ * ATOM_TCB * 线程TCB的指针
+ * NULL TCB未被找到.
+ */
+ ATOM_TCB *tcbDequeueEntry (ATOM_TCB **tcb_queue_ptr, ATOM_TCB *tcb_ptr);
+ 
+ /*
+ * 内部函数,应用层不会用到.
+ 
+ * 功能:在TCB队列头中取出一个TCB指针.
+ * 说明:在队列中,取出和给出优先级相同或更高的第一个TCB指针,因为队列是按照优先级排列的,
+ * 若第一个TCB就低于给出的优先级,则后面所有的TCB均会低于该优先级,若取出的TCB指针为队列的头,则**tcb_queue_ptr
+ * 有可能会被更改.若队列为空则tcb_queue_ptr会为NULL.若队列本来就为空,则函数会返回NULL
+ 
+ * 参数:
+ * ATOM_TCB **tcb_queue_ptr 指向tcb队列排头的指针
+ * uint8_t priority 指定的优先级
+ 
+ * 返回:
+ * ATOM_TCB * 线程TCB的指针
+ * NULL TCB未被找到.
+ */
+ ATOM_TCB *tcbDequeuePriority (ATOM_TCB **tcb_queue_ptr, uint8_t priority);
