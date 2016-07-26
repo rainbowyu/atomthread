@@ -26,9 +26,7 @@ static void fileCmdProcess(fileComdata *cmd);
 void file_thread_func (uint32_t param)
 {
   FATFS fs;           /* File system object */
-  //FIL fil;            /* File object */
   FRESULT res;        /* API result code */
-  //UINT bw;            /* Bytes written */
 
   res=f_mount(&fs, "", 1);
   if (res)
@@ -45,26 +43,61 @@ void file_thread_func (uint32_t param)
   }
 }
 
-static void fileCmdProcess(fileComdata* cmd)
+static void fileCmdProcess(fileComdata* cmd,uint8_t *buff)
 {
-  FIL fil;            /* File object */
-  FRESULT res
+  static FIL fil;            /* File object */
+  static DIR dirp;
+  UINT brw;
+  FRESULT res;
   switch (cmd->commandlist)
   {
     case CREATCOMMAND:
       res = f_open(&fil, (const char *)cmd->name, FA_CREATE_NEW);
       if (res != FR_OK)
         printf("open file %s failed",(const char *)cmd->name);
-    break;
+      break;
+
     case OPENCOMMAND:
 
-    break;
+      break;
+
     case READCOMMAND:
+    //f_size(file)< display buff
+      res = f_read(&fil, buff, f_size(file), &brw);
+      if (res != FR_OK || brw != f_size(file))
+        printf("read file %s failed",(const char *)cmd->name);
+      break;
 
-    break;
     case WRITECOMMAND:
+      res = f_write(&fil, (const char *)buff, cmd->buffsize, &brw);
+      if (res != FR_OK || brw != cmd->buffsize)
+        printf("write file %s failed",(const char *)cmd->name);
+      break;
 
-    break;
+    case LISTCOMMAND:
+      scan_files((const char *)cmd->name);
+      break;
+
+    case OPENDIRCOMMAND:
+      res = f_opendir(&dirp, (const char *)cmd->name);
+      if (res != FR_OK)
+        printf("open dir %s failed",(const char *)cmd->name);
+      break;
+
+    case CLOSEFILECOMMAND:
+      res = f_close (&fil);
+      if (res != FR_OK)
+        printf("close %s failed",(const char *)cmd->name);
+      break;
+
+    case CLOSEDIRCOMMAND:
+      res = f_closedir (&dirp);
+      if (res != FR_OK)
+        printf("close dir %s failed",(const char *)cmd->name);
+      break;
+
+    default:
+      break;
   }
 }
 

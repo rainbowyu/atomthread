@@ -1,4 +1,4 @@
-#include "stdio.h"  
+#include "stdio.h"
 #include "atom.h"
 #include "atomport-private.h"
 #include "atomport-tests.h"
@@ -92,7 +92,7 @@ static void main_thread_func (uint32_t param);
  * If the compiler supports it, stack space can be saved by preventing
  * the function from saving registers on entry. This is because we
  * are called directly by the C startup assembler, and know that we will
- * never return from here. The NO_REG_SAVE macro is used to denote such 
+ * never return from here. The NO_REG_SAVE macro is used to denote such
  * functions in a compiler-agnostic way, though not all compilers support it.
  *
  */
@@ -154,6 +154,7 @@ static void main_thread_func (uint32_t param)
   //BYTE work[_MAX_SS]={0}; /* Work area (larger is better for process time) */
   //BYTE readByte[20];
   //BYTE writeByte[3]="OK";
+  
   /* Initialise UART (115200bps) */
   if (uart_init(115200) != 0)
   {
@@ -163,7 +164,7 @@ static void main_thread_func (uint32_t param)
   /* Configure GPIO for flashing the STM8S Discovery LED on GPIO D0 */
   GPIO_DeInit(GPIOC);
   GPIO_Init(GPIOC, GPIO_PIN_1, GPIO_MODE_OUT_PP_LOW_FAST);
-  
+
   disk_initialize (0);
   /* Register work area */
   res=f_mount(&fs, "", 1);
@@ -173,7 +174,7 @@ static void main_thread_func (uint32_t param)
     atomTimerDelay (1);
   }
   /* Create a file as new */
-  
+
   res = f_open(&fil, "hello.txt", FA_READ	| FA_WRITE);
   if (res)
   {
@@ -181,7 +182,7 @@ static void main_thread_func (uint32_t param)
     atomTimerDelay (1);
   }
   printFile(&fil);
-  
+
   f_lseek(&fil, f_size(&fil));
   f_write(&fil, writeByte, sizeof writeByte, &bw);
   if (bw != sizeof writeByte)
@@ -190,7 +191,7 @@ static void main_thread_func (uint32_t param)
     atomTimerDelay (1);
   }
   printFile(&fil);
-  
+
   FATFS *fs1;
   DWORD fre_clust, fre_sect, tot_sect;
 
@@ -204,10 +205,10 @@ static void main_thread_func (uint32_t param)
   /* Print the free space (assuming 512 bytes/sector) */
   printf("%10lu KiB total drive space.\n%10lu KiB available.\n",
          tot_sect / 2, fre_sect / 2);
-  
+
   /* Close the file */
   f_close(&fil);
-  
+
   /* Unregister work area */
   f_mount(0, "", 1);
 
@@ -221,4 +222,3 @@ static void main_thread_func (uint32_t param)
       atomTimerDelay (SYSTEM_TICKS_PER_SEC);
   }
 }
-

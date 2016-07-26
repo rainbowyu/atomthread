@@ -6,58 +6,6 @@
   <configuration>
     <name>Debug</name>
     <outputs>
-      <file>$PROJ_DIR$\..\..\fatFS\diskio.c</file>
-      <file>$PROJ_DIR$\..\..\fatFS\ff.c</file>
-      <file>$PROJ_DIR$\..\..\fatFS\diskio.h</file>
-      <file>$PROJ_DIR$\..\..\fatFS\ff.h</file>
-      <file>$PROJ_DIR$\..\..\fatFS\ffconf.h</file>
-      <file>$PROJ_DIR$\..\..\fatFS\filecommon.c</file>
-      <file>$PROJ_DIR$\..\..\fatFS\filecommon.h</file>
-      <file>$PROJ_DIR$\..\..\fatFS\integer.h</file>
-      <file>$PROJ_DIR$\..\..\hardwaredriver\stm8speriphs\spidriver.c</file>
-      <file>$PROJ_DIR$\..\..\hardwaredriver\stm8speriphs\spidriver.h</file>
-      <file>$PROJ_DIR$\..\..\hardwaredriver\spiflash.c</file>
-      <file>$PROJ_DIR$\..\..\hardwaredriver\spiflash.h</file>
-      <file>$PROJ_DIR$\..\..\kernel\atom.h</file>
-      <file>$PROJ_DIR$\..\..\kernel\atomkernel.c</file>
-      <file>$PROJ_DIR$\..\..\kernel\atommutex.c</file>
-      <file>$PROJ_DIR$\..\..\kernel\atommutex.h</file>
-      <file>$PROJ_DIR$\..\..\kernel\atomport-template.h</file>
-      <file>$PROJ_DIR$\..\..\kernel\atomqueue.c</file>
-      <file>$PROJ_DIR$\..\..\kernel\atomqueue.h</file>
-      <file>$PROJ_DIR$\..\..\kernel\atomsem.c</file>
-      <file>$PROJ_DIR$\..\..\kernel\atomsem.h</file>
-      <file>$PROJ_DIR$\..\..\kernel\atomtimer.c</file>
-      <file>$PROJ_DIR$\..\..\kernel\atomtimer.h</file>
-      <file>$PROJ_DIR$\..\..\spifFs\spiffs.h</file>
-      <file>$PROJ_DIR$\..\..\spifFs\spiffs_cache.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_attiny85_hw_spi.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_hw_spi.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_hw_usart_spi.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_no_en_parallel.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_parallel.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_port_d_wr.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_64128n.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_atmega_st7920_hw_spi.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_atmega_parallel.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_atmega_st7920_spi.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_atmega_sw_spi.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_i2c.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_io.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_cursor.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_fast_parallel.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_dogm128.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_dogm132.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_lm6059.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_lm6063.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_nhd_c12832.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_nhd_c12864.o</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_type.h</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_uart2.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\filethread.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\filethread.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\fatFsthread.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\fatFsthread.o</file>
       <file>$PROJ_DIR$\threads\filethread.h</file>
       <file>$PROJ_DIR$\threads\fatFsthread.h</file>
       <file>$PROJ_DIR$\threads\fatFsthread.c</file>
@@ -87,123 +35,20 @@
       <file>$PROJ_DIR$\Debug\Obj\u8g_pb16v1.o</file>
       <file>$PROJ_DIR$\Debug\Obj\u8g_pb16v2.o</file>
       <file>$PROJ_DIR$\Debug\Obj\spiflash.o</file>
-      <file>$PROJ_DIR$\Debug\Exe\templproj.out</file>
-      <file>$TOOLKIT_DIR$\config\lnkstm8s007c8.icf</file>
-      <file>$PROJ_DIR$\Debug\Obj\atomport.pbi</file>
-      <file>$TOOLKIT_DIR$\lib\dlstm8smn.a</file>
-      <file>$PROJ_DIR$\Debug\Obj\tests-main.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\c\ystdio.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\uart.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_pb.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\chessengine.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_circle.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_clip.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_api.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_api_16gr.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_common.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_pb8v2.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_pbxh16.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_pbxh24.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_rect.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_rot.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_scale.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_state.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_u16toa.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_u8toa.pbi</file>
-      <file>$TOOLKIT_DIR$\lib\dbgstm8smd.a</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_parallel.pbi</file>
-      <file>$PROJ_DIR$\uart.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\atomtimer.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8s_spi.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7920_202x32.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_t6963_128x64.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_t6963_240x128.pbi</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_adc2.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\sem1.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\comAtomthreads.pbd</file>
-      <file>$TOOLKIT_DIR$\lib\dlstm8smn.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\uartrxthread.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\uartrxthread.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\displaythread.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\displaythread.o</file>
-      <file>$PROJ_DIR$\threads\displaythread.h</file>
-      <file>$PROJ_DIR$\threads\uartrxthread.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_pb32h1.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_pb8h1.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_pb8h1f.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_pb8h2.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_font.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_font_data.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_line.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_ll_api.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_page.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_pb.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_pb14v1.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_pb16h1.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_pb16h2.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\spiffs_check.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\spiffs_nucleus.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\spiffs_gc.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_font_data.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_line.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_ll_api.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\ff.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\uart.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\spidriver.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\diskio.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\spiflash.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\atomport.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\spidriver.o</file>
-      <file>$TOOLKIT_DIR$\inc\c\string.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\sem1.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ks0108_128x64.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_port_d_wr.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_pb8h1f.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_lc7981_160x80.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_lc7981_240x128.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_lc7981_240x64.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_lc7981_320x64.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_null.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_pcd8544_84x48.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_pcf8812_96x65.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_sbn1661_122x32.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1306_128x32.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1306_128x64.pbi</file>
-      <file>$PROJ_DIR$\..\..\spifFs\spiffs_check.c</file>
-      <file>$PROJ_DIR$\..\..\spifFs\spiffs_config.h</file>
-      <file>$PROJ_DIR$\..\..\spifFs\spiffs_gc.c</file>
-      <file>$PROJ_DIR$\..\..\spifFs\spiffs_hydrogen.c</file>
-      <file>$PROJ_DIR$\..\..\spifFs\spiffs_nucleus.c</file>
-      <file>$PROJ_DIR$\..\..\spifFs\spiffs_nucleus.h</file>
-      <file>$PROJ_DIR$\atomport-asm-iar.s</file>
       <file>$PROJ_DIR$\atomport-private.h</file>
-      <file>$PROJ_DIR$\atomport-tests.h</file>
       <file>$PROJ_DIR$\atomport.c</file>
       <file>$PROJ_DIR$\atomport.h</file>
       <file>$PROJ_DIR$\mainthread.c</file>
       <file>$PROJ_DIR$\spifFs-main.c</file>
-      <file>$PROJ_DIR$\stm8s_conf.h</file>
       <file>$PROJ_DIR$\tests-main.c</file>
       <file>$PROJ_DIR$\uart.c</file>
       <file>$PROJ_DIR$\stm8s-periphs\stm8s.h</file>
       <file>$PROJ_DIR$\stm8s-periphs\stm8s_clk.c</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_clk.h</file>
       <file>$PROJ_DIR$\stm8s-periphs\stm8s_gpio.c</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_gpio.h</file>
       <file>$PROJ_DIR$\stm8s-periphs\stm8s_itc.c</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_itc.h</file>
       <file>$PROJ_DIR$\stm8s-periphs\stm8s_spi.c</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_spi.h</file>
       <file>$PROJ_DIR$\stm8s-periphs\stm8s_tim1.c</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_tim1.h</file>
       <file>$PROJ_DIR$\stm8s-periphs\stm8s_uart3.c</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_uart3.h</file>
       <file>$PROJ_DIR$\threads\displaythread.c</file>
       <file>$PROJ_DIR$\threads\filethread.c</file>
       <file>$PROJ_DIR$\threads\uartrxthread.c</file>
@@ -250,6 +95,38 @@
       <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_state.c</file>
       <file>$PROJ_DIR$\..\..\u8glib\src\u8g_stm8s.c</file>
       <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_u16toa.c</file>
+      <file>$PROJ_DIR$\..\..\fatFS\diskio.c</file>
+      <file>$PROJ_DIR$\..\..\fatFS\ff.c</file>
+      <file>$PROJ_DIR$\..\..\fatFS\diskio.h</file>
+      <file>$PROJ_DIR$\..\..\fatFS\ff.h</file>
+      <file>$PROJ_DIR$\..\..\fatFS\ffconf.h</file>
+      <file>$PROJ_DIR$\..\..\fatFS\filecommon.c</file>
+      <file>$PROJ_DIR$\..\..\fatFS\filecommon.h</file>
+      <file>$PROJ_DIR$\..\..\fatFS\integer.h</file>
+      <file>$PROJ_DIR$\..\..\hardwaredriver\stm8speriphs\spidriver.c</file>
+      <file>$PROJ_DIR$\..\..\hardwaredriver\stm8speriphs\spidriver.h</file>
+      <file>$PROJ_DIR$\..\..\hardwaredriver\spiflash.c</file>
+      <file>$PROJ_DIR$\..\..\hardwaredriver\spiflash.h</file>
+      <file>$PROJ_DIR$\..\..\kernel\atom.h</file>
+      <file>$PROJ_DIR$\..\..\kernel\atomkernel.c</file>
+      <file>$PROJ_DIR$\..\..\kernel\atommutex.c</file>
+      <file>$PROJ_DIR$\..\..\kernel\atommutex.h</file>
+      <file>$PROJ_DIR$\..\..\kernel\atomport-template.h</file>
+      <file>$PROJ_DIR$\..\..\kernel\atomqueue.c</file>
+      <file>$PROJ_DIR$\..\..\kernel\atomqueue.h</file>
+      <file>$PROJ_DIR$\..\..\kernel\atomsem.c</file>
+      <file>$PROJ_DIR$\..\..\kernel\atomsem.h</file>
+      <file>$PROJ_DIR$\..\..\kernel\atomtimer.c</file>
+      <file>$PROJ_DIR$\..\..\kernel\atomtimer.h</file>
+      <file>$PROJ_DIR$\..\..\spifFs\spiffs.h</file>
+      <file>$PROJ_DIR$\..\..\spifFs\spiffs_cache.c</file>
+      <file>$PROJ_DIR$\..\..\spifFs\spiffs_check.c</file>
+      <file>$PROJ_DIR$\..\..\spifFs\spiffs_config.h</file>
+      <file>$PROJ_DIR$\..\..\spifFs\spiffs_gc.c</file>
+      <file>$PROJ_DIR$\..\..\spifFs\spiffs_hydrogen.c</file>
+      <file>$PROJ_DIR$\..\..\spifFs\spiffs_nucleus.c</file>
+      <file>$PROJ_DIR$\..\..\spifFs\spiffs_nucleus.h</file>
+      <file>$PROJ_DIR$\atomport-asm-iar.s</file>
       <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_u8toa.c</file>
       <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_virtual_screen.c</file>
       <file>$PROJ_DIR$\..\..\..\..\u8glib\src\chessengine.c</file>
@@ -292,107 +169,50 @@
       <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_uc1601_c128032.c</file>
       <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_uc1610_dogxl160.c</file>
       <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_uc1701_dogs102.c</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_beep.h</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_i2c.h</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_exti.h</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_flash.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_scale.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_rot.o</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_iwdg.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_state.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_pb8v1.pbi</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_rst.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_u16toa.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_virtual_screen.pbi</file>
-      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_st7920_hw_spi.c</file>
-      <file>$PROJ_DIR$\..\..\u8glib\src\u8g_front22.c</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_t6963_240x64.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_tls8204_84x48.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_uc1601_c128032.pbi</file>
-      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_std_sw_spi.c</file>
-      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_st7920_spi.c</file>
-      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_sw_spi.c</file>
-      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_parallel.c</file>
-      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_t6963.c</file>
-      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_hw_spi.c</file>
-      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_sw_spi.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_uc1610_dogxl160.pbi</file>
-      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_st7920_spi.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_uc1701_dogs102.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_uc1701_mini12864.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_ellipse.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1309_128x64.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1322_nhd31oled_bw.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1322_nhd31oled_gr.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1325_nhd27oled_bw.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1325_nhd27oled_gr.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1327_96x96_gr.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1351_128x128.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_64128n.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_dogm128.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_dogm132.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_lm6059.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1325_nhd27oled_bw_new.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_lm6063.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1325_nhd27oled_gr_new.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_nhd_c12832.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1322_nhd31oled_gr.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1325_nhd27oled_bw.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1325_nhd27oled_gr.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1327_96x96_gr.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1325_nhd27oled_bw_new.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1351_128x128.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1325_nhd27oled_gr_new.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_null.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_cursor.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_delay.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_a2_micro_printer.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_flipdisc_2x7.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_gprof.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ht1632.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\ff.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\filecommon.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\diskio.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_circle.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_hw_spi.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_common.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_api_16gr.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_api.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_clip.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_fast_parallel.pbi</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_awu.h</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_tim3.h</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_tim2.h</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_uart1.h</file>
-      <file>$PROJ_DIR$\stm8s-periphs\stm8s_wwdg.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8s_uart3.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8s_uart3.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8s_tim1.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8s_itc.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_front22.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_front22.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\spiffs_cache.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\spiffs_hydrogen.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8s_uart2.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\atomqueue.pbi</file>
-      <file>$PROJ_DIR$\Debug\List\templproj.map</file>
-      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\atomsem.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\vregs.inc</file>
-      <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8s_gpio.o</file>
-      <file>$PROJ_DIR$\u8glib-main.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_hw_usart_spi.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_no_en_parallel.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_virtual_screen.o</file>
-      <file>$PROJ_DIR$\..\..\hardwaredriver\spiSSD1306.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7920_128x64.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\atomkernel.o</file>
-      <file>$PROJ_DIR$\main.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\atomqueue.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8s_spi.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_fast_parallel.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_cursor.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_dogm128.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_nhd_c12832.o</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_type.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_nhd_c12864.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_lm6063.o</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_uart2.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_lm6059.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_dogm132.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\filethread.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\filethread.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\fatFsthread.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\fatFsthread.o</file>
+      <file>$PROJ_DIR$\Debug\Exe\templproj.out</file>
+      <file>$TOOLKIT_DIR$\config\lnkstm8s007c8.icf</file>
+      <file>$PROJ_DIR$\Debug\Obj\atomport.pbi</file>
+      <file>$TOOLKIT_DIR$\lib\dlstm8smn.a</file>
+      <file>$PROJ_DIR$\Debug\Obj\tests-main.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\c\ystdio.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\uart.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_pb.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\chessengine.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_circle.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_clip.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_api.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_api_16gr.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_common.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_pb8v2.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_attiny85_hw_spi.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_hw_spi.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_hw_usart_spi.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_64128n.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_atmega_parallel.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_atmega_st7920_hw_spi.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_port_d_wr.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_atmega_st7920_spi.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_parallel.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_no_en_parallel.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_atmega_sw_spi.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_i2c.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_io.o</file>
       <file>$PROJ_DIR$\..\..\u8glib\src\u8g.h</file>
       <file>$PROJ_DIR$\Debug\Obj\spifFs-main.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\spiSSD1306.o</file>
@@ -480,326 +300,227 @@
       <file>$PROJ_DIR$\Debug\Obj\u8g_dev_flipdisc_2x7.pbi</file>
       <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_fast_parallel.c</file>
       <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_ssd_i2c.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_attiny85_hw_spi.pbi</file>
       <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_hw_usart_spi.c</file>
       <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_no_en_parallel.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_attiny85_hw_spi.pbi</file>
       <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_st7920_custom.c</file>
       <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_st7920_hw_spi.c</file>
       <file>$PROJ_DIR$\Debug\Obj\u8g_pb16h2.o</file>
-      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_common.c</file>
       <file>$PROJ_DIR$\Debug\Obj\mainthread.o</file>
-      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_attiny85_hw_spi.c</file>
       <file>$PROJ_DIR$\Debug\Obj\mainthread.pbi</file>
+      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_common.c</file>
+      <file>$PROJ_DIR$\mainthread.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_attiny85_hw_spi.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_pbxh16.pbi</file>
       <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_hw_spi.c</file>
       <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_ssd_i2c.c</file>
       <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_parallel.c</file>
       <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_port_d_wr.c</file>
-      <file>$PROJ_DIR$\mainthread.h</file>
-      <file>$TOOLKIT_DIR$\doc\infocenter\index.ENU.html</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_pbxh24.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_rect.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_rot.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_scale.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_state.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_u16toa.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_u8toa.pbi</file>
+      <file>$TOOLKIT_DIR$\lib\dbgstm8smd.a</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_parallel.pbi</file>
+      <file>$PROJ_DIR$\uart.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\atomtimer.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm8s_spi.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7920_202x32.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_t6963_128x64.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_t6963_240x128.pbi</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_adc2.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\sem1.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\comAtomthreads.pbd</file>
+      <file>$TOOLKIT_DIR$\lib\dlstm8smn.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\uartrxthread.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\uartrxthread.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\displaythread.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\displaythread.o</file>
+      <file>$PROJ_DIR$\threads\displaythread.h</file>
+      <file>$PROJ_DIR$\threads\uartrxthread.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_pb32h1.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_pb8h1.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_pb8h1f.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_pb8h2.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_font.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_font_data.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_line.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_ll_api.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_page.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_pb.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_pb14v1.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_pb16h1.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_pb16h2.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\spiffs_check.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\spiffs_nucleus.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\spiffs_gc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_font_data.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_line.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_ll_api.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\ff.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\uart.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\spidriver.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\diskio.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\spiflash.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\atomport.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\spidriver.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\string.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\sem1.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ks0108_128x64.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_port_d_wr.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_pb8h1f.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_lc7981_160x80.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_lc7981_240x128.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_lc7981_240x64.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_lc7981_320x64.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_null.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_pcd8544_84x48.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_pcf8812_96x65.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_sbn1661_122x32.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1306_128x32.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1306_128x64.pbi</file>
+      <file>$PROJ_DIR$\atomport-tests.h</file>
+      <file>$PROJ_DIR$\stm8s_conf.h</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_clk.h</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_gpio.h</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_itc.h</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_spi.h</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_tim1.h</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_uart3.h</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_i2c.h</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_beep.h</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_exti.h</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_flash.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_scale.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_rot.o</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_iwdg.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_state.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_pb8v1.pbi</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_rst.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_u16toa.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_virtual_screen.pbi</file>
+      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_st7920_hw_spi.c</file>
+      <file>$PROJ_DIR$\..\..\u8glib\src\u8g_front22.c</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_t6963_240x64.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_tls8204_84x48.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_uc1601_c128032.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_uc1610_dogxl160.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_uc1701_dogs102.pbi</file>
+      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_std_sw_spi.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_st7920_spi.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_sw_spi.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_parallel.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_t6963.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_hw_spi.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_sw_spi.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_st7920_spi.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_uc1701_mini12864.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_ellipse.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1309_128x64.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1322_nhd31oled_bw.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1322_nhd31oled_gr.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1325_nhd27oled_bw.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1325_nhd27oled_gr.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1327_96x96_gr.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1351_128x128.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_64128n.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_dogm128.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_dogm132.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_lm6059.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_lm6063.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1325_nhd27oled_bw_new.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7565_nhd_c12832.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1322_nhd31oled_gr.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1325_nhd27oled_gr_new.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1325_nhd27oled_bw.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1325_nhd27oled_gr.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1327_96x96_gr.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1325_nhd27oled_bw_new.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1351_128x128.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ssd1325_nhd27oled_gr_new.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_null.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_cursor.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_delay.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_a2_micro_printer.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_flipdisc_2x7.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_gprof.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_ht1632.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\ff.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\filecommon.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\diskio.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_circle.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_hw_spi.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_common.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_api_16gr.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_api.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_clip.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_fast_parallel.pbi</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_awu.h</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_tim3.h</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_tim2.h</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_uart1.h</file>
+      <file>$PROJ_DIR$\stm8s-periphs\stm8s_wwdg.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm8s_uart3.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm8s_uart3.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm8s_tim1.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm8s_itc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_front22.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_front22.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\spiffs_cache.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\spiffs_hydrogen.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm8s_uart2.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\atomqueue.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\templproj.map</file>
+      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\atomsem.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\vregs.inc</file>
+      <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm8s_gpio.o</file>
+      <file>$PROJ_DIR$\u8glib-main.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_hw_usart_spi.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_com_arduino_no_en_parallel.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_virtual_screen.o</file>
+      <file>$PROJ_DIR$\..\..\hardwaredriver\spiSSD1306.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\u8g_dev_st7920_128x64.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\atomkernel.o</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\atomqueue.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm8s_spi.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
     </outputs>
     <file>
       <name>[ROOT_NODE]</name>
       <outputs>
         <tool>
           <name>ILINK</name>
-          <file> 81 370</file>
+          <file> 177 472</file>
         </tool>
       </outputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\fatFS\diskio.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 149</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 2 7 88 154 116 120 118 119 435 446 371 86 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 22 179 58 12 11</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\fatFS\ff.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 146</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 3 7 4 2</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\fatFS\filecommon.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 445</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 3 7 4 88 154 116 120 118 119 435 446 371 86 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\hardwaredriver\stm8speriphs\spidriver.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 148</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\hardwaredriver\spiflash.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 150</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 88 154 116 120 118 119 435 446 371 86 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 22 179 58 12 11 9</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\kernel\atomkernel.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 382 439 151 384 59 60 347 124 345 346 48 481 152 80 56 375 55 110 57 360 413 92 93 94 95 36 37 338 339 340 341 342 343 424 452 453 454 143 144 145 65 90 64 66 479 78 79 127 128 129 130 464 463 465 466 467 468 291 290 293 411 296 72 379 147 121</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 444</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 12 22 179 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 58 154 116 120 118 119 435 446 371 88 86 14 15 178 176 17 153 18 19 20 21 0 2 7 11 198 387 300 67 125 1 3 4 5 199 52 180 63 177 108 488 126 8 10 9 186 188 190 192 194 196 202 201 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237 238 239 240 241 242 243 244 245 184 200</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 12 22 179 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 58 154 116 120 118 119 435 446 371 88 86</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\kernel\atommutex.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 62</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 12 22 179 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 58 154 116 120 118 119 435 446 371 15</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\kernel\atomqueue.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 369</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 153 154 116 120 118 119 435 446 371 12 22 179 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 58 18</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\kernel\atomsem.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 372</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 12 22 179 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 58 154 116 120 118 119 435 446 371 20</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\kernel\atomtimer.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 109</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 12 22 179 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 58 154 116 120 118 119 435 446 371</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\spifFs\spiffs_cache.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 366</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 23 170 88 154 116 120 118 119 435 446 371 86 386 153 58 174</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\stm8s-periphs\stm8s_uart2.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 368</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 76 185 182 187 189 195 374</file>
-        </tool>
-      </inputs>
     </file>
     <file>
       <name>$PROJ_DIR$\threads\fatFsthread.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 51</file>
+          <file> 176</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 50</file>
+          <file> 175</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 88 154 116 120 118 119 435 446 371 86 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 387 58 300 67 12 22 179 20 18 15 53</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Debug\Exe\templproj.out</name>
-      <outputs>
-        <tool>
-          <name>ILINK</name>
-          <file> 370</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ILINK</name>
-          <file> 82 382 439 436 151 384 59 60 347 124 345 346 48 481 152 80 56 375 55 110 57 360 413 92 93 94 95 36 37 338 339 340 341 342 343 424 452 453 454 143 144 145 65 90 64 66 479 78 79 127 128 129 130 464 463 465 466 467 468 291 290 293 411 296 72 379 147 121 84 106</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\spifFs\spiffs_check.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 140</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 23 170 88 154 116 120 118 119 435 446 371 86 386 153 58 174</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\spifFs\spiffs_gc.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 142</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 23 170 88 154 116 120 118 119 435 446 371 86 386 153 58 174</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\spifFs\spiffs_hydrogen.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 367</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 23 170 88 154 116 120 118 119 435 446 371 86 386 153 58 174</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\spifFs\spiffs_nucleus.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 141</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 23 170 88 154 116 120 118 119 435 446 371 86 386 153 58 174</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\atomport-asm-iar.s</name>
-      <outputs>
-        <tool>
-          <name>ASTM8</name>
-          <file> 436 61</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ASTM8</name>
-          <file> 373</file>
+          <file> 184 365 327 331 329 330 255 266 473 182 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 207 6 402 15 101 111 31 109 107 104 1</file>
         </tool>
       </inputs>
     </file>
@@ -807,14 +528,18 @@
       <name>$PROJ_DIR$\atomport.c</name>
       <outputs>
         <tool>
+          <name>ICCSTM8</name>
+          <file> 362</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
-          <file> 83</file>
+          <file> 179</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 12 22 179 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 58 154 116 120 118 119 435 446 371 176</file>
+          <file> 101 111 31 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 6 365 327 331 329 330 255 266 473 29</file>
         </tool>
       </inputs>
     </file>
@@ -822,1516 +547,8 @@
       <name>$PROJ_DIR$\mainthread.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 483</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 88 154 116 120 118 119 435 446 371 86 12 22 179 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 58 176 63 177 20 18 15 108 488 125 126 52</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\spifFs-main.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 388</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 88 154 116 120 118 119 435 446 371 86 12 22 179 46 374 58 23 170 386 153 176 177 63 108 185 182 187 189 195 76 11</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\tests-main.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 85</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 88 154 116 120 118 119 435 446 371 86 12 22 179 46 374 58 176 177 63 108 185 182 187 189 195 76 3 7 4 2 11 6</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\uart.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 87</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 88 154 116 120 118 119 435 446 371 86 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 12 22 179 58 15 20 108</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\stm8s-periphs\stm8s_clk.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 437</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 187 185 182 114 355 286 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\stm8s-periphs\stm8s_gpio.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 438</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 189 185 182 114 355 286 187 288 289 287 191 292 295 193 195 357 356 77 358 197 359 374</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\stm8s-periphs\stm8s_itc.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 363</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 191 185 182 114 355 286 187 288 289 189 287 292 295 193 195 357 356 77 358 197 359 374</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\stm8s-periphs\stm8s_spi.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 385</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 193 185 182 114 355 286 187 288 289 189 287 191 292 295 195 357 356 77 358 197 359 374</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\stm8s-periphs\stm8s_tim1.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 362</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 195 185 182 114 355 286 187 288 289 189 287 191 292 295 193 357 356 77 358 197 359 374</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\stm8s-periphs\stm8s_uart3.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 361</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 197 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 359 374</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\threads\displaythread.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 123</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 88 154 116 120 118 119 435 446 371 86 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 387 58 300 67 12 22 179 20 18 15 125</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\threads\filethread.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 49</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 88 154 116 120 118 119 435 446 371 86 153 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 387 58 300 67 3 7 4 12 22 179 20 18 15 52</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\threads\uartrxthread.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 122</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 88 154 116 120 118 119 435 446 371 86 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 108 12 22 179 58 20 18 15 126 125</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_bitmap.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 69</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_circle.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 348</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_clip.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 353</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_api.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 352</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_api_16gr.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 351</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_i2c.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 404</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_io.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 405</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_null.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 406</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_cursor.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 38</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_delay.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 469</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_a2_micro_printer.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 470</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_flipdisc_2x7.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 471</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_gprof.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 415</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_null.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 163</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_uc1701_mini12864.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 314</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_ellipse.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 315</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_font.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 131</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_font_data.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 132</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_line.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 133</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_ll_api.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 134</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 58 154 116 120 118 119 435 446 371 201 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_page.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 135</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 136</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb14v1.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 137</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300 153</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb16h1.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 138</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300 153</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb16h2.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 139</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300 153</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb16v1.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 440</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300 153</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb16v2.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 441</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300 153</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb32h1.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 442</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300 153</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb8h1.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 443</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300 153</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb8h1f.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 158</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300 153</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb8h2.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 432</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300 153</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb8h8.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 433</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb8v1.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 294</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300 153</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb8v2.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 97</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300 153</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pbxh16.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 98</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pbxh24.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 99</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_rect.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 100</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_rot.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 101</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_scale.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 102</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_state.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 103</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 58 154 116 120 118 119 435 446 371 201 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\u8glib\src\u8g_stm8s.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 412</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 88 154 116 120 118 119 435 446 371 86 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 22 179 58 12 387 300 67 9</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_u16toa.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 104</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_u8toa.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 105</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_virtual_screen.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 297</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\chessengine.c</name>
-      <outputs>
-        <tool>
           <name>ICCSTM8</name>
-          <file> 91</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 71</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ht1632.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 344</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 416</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ili9325d_320x240.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 418</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 417</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ks0108_128x64.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 419</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 156</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_lc7981_160x80.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 420</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 159</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_lc7981_240x128.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 421</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 160</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_lc7981_240x64.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 422</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 161</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_lc7981_320x64.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 423</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 162</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_pcd8544_84x48.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 425</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 164</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_pcf8812_96x65.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 426</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 165</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_sbn1661_122x32.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 427</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 166</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1306_128x32.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 428</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 167</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1306_128x64.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 429</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 168</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1309_128x64.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 430</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 316</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1322_nhd31oled_bw.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 431</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 317</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1322_nhd31oled_gr.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 331</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 318</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1325_nhd27oled_bw.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 332</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 319</file>
-        </tool>
-      </outputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1325_nhd27oled_gr.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 333</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 320</file>
-        </tool>
-      </outputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1325_nhd27oled_bw_new.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 335</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 327</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1327_96x96_gr.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 334</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 321</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1325_nhd27oled_gr_new.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 337</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 329</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1351_128x128.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 336</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 322</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7565_64128n.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 31</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 323</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7565_dogm128.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 40</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 324</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7565_dogm132.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 41</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 325</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7565_lm6059.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 42</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 326</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7565_lm6063.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 43</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 328</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7565_nhd_c12832.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 44</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 330</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7565_nhd_c12864.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 45</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 407</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7687_c144mvgd.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 68</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 408</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7920_128x64.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 381</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 409</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7920_192x32.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 70</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 410</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7920_202x32.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 73</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 111</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_t6963_128x64.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 74</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 112</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_t6963_240x128.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 75</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 113</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_t6963_240x64.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 447</file>
+          <file> 300</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -2341,215 +558,156 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 184 365 327 331 329 330 255 266 473 182 101 111 31 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 6 29 11 380 109 107 104 319 303 336 337 0</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_tls8204_84x48.c</name>
+      <name>$PROJ_DIR$\spifFs-main.c</name>
       <outputs>
         <tool>
-          <name>ICCSTM8</name>
-          <file> 448</file>
-        </tool>
-        <tool>
           <name>BICOMP</name>
-          <file> 302</file>
+          <file> 208</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 184 365 327 331 329 330 255 266 473 182 101 111 31 167 476 6 112 115 488 364 29 380 11 319 36 381 382 383 386 24 100</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_uc1601_c128032.c</name>
+      <name>$PROJ_DIR$\tests-main.c</name>
       <outputs>
         <tool>
-          <name>ICCSTM8</name>
-          <file> 449</file>
-        </tool>
-        <tool>
           <name>BICOMP</name>
-          <file> 303</file>
+          <file> 181</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 184 365 327 331 329 330 255 266 473 182 101 111 31 167 476 6 29 380 11 319 36 381 382 383 386 24 92 96 93 91 100 95</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_uc1610_dogxl160.c</name>
+      <name>$PROJ_DIR$\uart.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 450</file>
+          <file> 358</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 311</file>
+          <file> 183</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 184 365 327 331 329 330 255 266 473 182 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 101 111 31 6 104 109 319</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_uc1701_dogs102.c</name>
+      <name>$PROJ_DIR$\stm8s-periphs\stm8s_clk.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 451</file>
+          <file> 4</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 313</file>
+          <file> 257</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 382 36 381 325 457 389 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_st7920_hw_spi.c</name>
+      <name>$PROJ_DIR$\stm8s-periphs\stm8s_gpio.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 32</file>
+          <file> 477</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 401</file>
+          <file> 258</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 383 36 381 325 457 389 382 390 391 388 384 394 397 385 386 459 458 25 460 387 461 476</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\u8glib\src\u8g_front22.c</name>
+      <name>$PROJ_DIR$\stm8s-periphs\stm8s_itc.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 365</file>
+          <file> 3</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 364</file>
-        </tool>
-      </outputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_std_sw_spi.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 459</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 396</file>
+          <file> 465</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 384 36 381 325 457 389 382 390 391 383 388 394 397 385 386 459 458 25 460 387 461 476</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_st7920_spi.c</name>
+      <name>$PROJ_DIR$\stm8s-periphs\stm8s_spi.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 458</file>
+          <file> 321</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 393</file>
+          <file> 487</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 385 36 381 325 457 389 382 390 391 383 388 384 394 397 386 459 458 25 460 387 461 476</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_sw_spi.c</name>
+      <name>$PROJ_DIR$\stm8s-periphs\stm8s_tim1.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 460</file>
+          <file> 5</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 397</file>
+          <file> 464</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 386 36 381 325 457 389 382 390 391 383 388 384 394 397 385 459 458 25 460 387 461 476</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_parallel.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 33</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 400</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_t6963.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 461</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 398</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_hw_spi.c</name>
+      <name>$PROJ_DIR$\stm8s-periphs\stm8s_uart3.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
@@ -2557,257 +715,510 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 399</file>
+          <file> 463</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 387 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 461 476</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_sw_spi.c</name>
+      <name>$PROJ_DIR$\threads\displaythread.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 35</file>
+          <file> 335</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 403</file>
+          <file> 334</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 184 365 327 331 329 330 255 266 473 182 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 207 6 402 15 101 111 31 109 107 104 336</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_st7920_spi.c</name>
+      <name>$PROJ_DIR$\threads\filethread.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 34</file>
+          <file> 173</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 402</file>
+          <file> 174</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 184 365 327 331 329 330 255 266 473 182 364 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 207 6 402 15 92 96 93 101 111 31 109 107 104 0</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\u8glib-main.c</name>
+      <name>$PROJ_DIR$\threads\uartrxthread.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 394</file>
+          <file> 332</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 395</file>
+          <file> 333</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 88 154 116 120 118 119 435 446 371 86 12 22 179 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 58 176 63 177 20 18 15 108 125 126 52</file>
+          <file> 184 365 327 331 329 330 255 266 473 182 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 319 101 111 31 6 109 107 104 337 336</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\hardwaredriver\spiSSD1306.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_bitmap.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 389</file>
+          <file> 233</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 392</file>
-        </tool>
-      </outputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\main.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 89</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 434</file>
-        </tool>
-      </outputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\tests\sem1.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 155</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 115</file>
+          <file> 17</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 12 22 179 185 182 114 355 286 187 288 289 189 287 191 292 295 193 195 357 356 77 358 197 359 374 58 154 116 120 118 119 435 446 371 20 63 177 88 86</file>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_fast_parallel.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_circle.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 39</file>
+          <file> 188</file>
         </tool>
         <tool>
           <name>BICOMP</name>
+          <file> 450</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_clip.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 189</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 455</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_api.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 190</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 454</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_api_16gr.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 191</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 453</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_i2c.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 205</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 224</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_io.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 206</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 225</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_null.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 440</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 226</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_cursor.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 441</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 164</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_delay.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 442</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 289</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_a2_micro_printer.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 443</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 290</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_flipdisc_2x7.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 444</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 291</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_gprof.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 445</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 235</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_null.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 244</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 374</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_uc1701_mini12864.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 272</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 416</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_ellipse.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 273</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 417</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_font.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 274</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 342</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_font_data.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
           <file> 354</file>
         </tool>
-      </outputs>
-      <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_hw_usart_spi.c</name>
-      <outputs>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 27</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 377</file>
+          <file> 343</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_no_en_parallel.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_line.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 28</file>
+          <file> 355</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 378</file>
+          <file> 344</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_st7920_custom.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_ll_api.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 456</file>
+          <file> 356</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 391</file>
+          <file> 345</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 6 365 327 331 329 330 255 266 473 46 402</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_st7920_hw_spi.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_page.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 457</file>
+          <file> 13</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 390</file>
+          <file> 346</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_common.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 96</file>
+          <file> 186</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 350</file>
+          <file> 347</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_attiny85_hw_spi.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb14v1.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 25</file>
+          <file> 12</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 474</file>
+          <file> 348</file>
         </tool>
       </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
-        </tool>
-      </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_hw_spi.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb16h1.c</name>
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 26</file>
+          <file> 14</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -2817,7 +1228,1620 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 46 6 365 327 331 329 330 255 266 473 402 364</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb16h2.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 299</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 350</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402 364</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb16v1.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 26</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 260</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402 364</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb16v2.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 27</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 261</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402 364</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb32h1.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 338</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 262</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402 364</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb8h1.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 339</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 263</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402 364</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb8h1f.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 340</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 369</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402 364</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb8h2.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 341</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 252</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402 364</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb8h8.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 284</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 253</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb8v1.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 283</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 396</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402 364</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pb8v2.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 285</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 193</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402 364</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pbxh16.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 286</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 305</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_pbxh24.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 287</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 310</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_rect.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 288</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 311</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_rot.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 393</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 312</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_scale.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 392</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 313</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_state.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 395</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 314</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 6 365 327 331 329 330 255 266 473 46 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\u8glib\src\u8g_stm8s.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 231</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 232</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 184 365 327 331 329 330 255 266 473 182 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 111 31 6 101 207 402 15 98</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_u16toa.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 398</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 315</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\fatFS\diskio.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 449</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 360</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 91 96 184 365 327 331 329 330 255 266 473 182 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 111 31 6 101 100</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\fatFS\ff.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 447</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 357</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 92 96 93 91</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\fatFS\filecommon.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 448</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 265</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 92 96 93 184 365 327 331 329 330 255 266 473 182 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\hardwaredriver\stm8speriphs\spidriver.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 363</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 359</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\hardwaredriver\spiflash.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 28</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 361</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 184 365 327 331 329 330 255 266 473 182 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 111 31 6 101 100 98</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\kernel\atomkernel.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 484 259 362 486 7 8 449 335 447 448 173 300 363 28 4 477 3 321 5 462 233 188 189 190 191 205 206 440 441 442 443 444 445 244 272 273 274 354 355 356 13 186 12 14 299 26 27 338 339 340 341 284 283 285 286 287 288 393 392 395 231 398 20 481 358 332</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 264</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 101 111 31 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 6 365 327 331 329 330 255 266 473 184 182 103 104 30 29 106 364 107 108 109 110 89 91 96 100 43 207 402 15 336 90 92 93 94 44 0 32 11 380 319 303 337 97 99 98 37 38 39 40 41 42 47 46 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 121 122 35 45</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 101 111 31 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 6 365 327 331 329 330 255 266 473 184 182</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\kernel\atommutex.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 259</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 10</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 101 111 31 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 6 365 327 331 329 330 255 266 473 104</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\kernel\atomqueue.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 486</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 471</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 364 365 327 331 329 330 255 266 473 101 111 31 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 6 107</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\kernel\atomsem.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 474</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 101 111 31 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 6 365 327 331 329 330 255 266 473 109</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\kernel\atomtimer.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 320</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 101 111 31 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 6 365 327 331 329 330 255 266 473</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\spifFs\spiffs_cache.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 468</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 112 115 184 365 327 331 329 330 255 266 473 182 488 364 6 119</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\spifFs\spiffs_check.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 351</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 112 115 184 365 327 331 329 330 255 266 473 182 488 364 6 119</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\spifFs\spiffs_gc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 353</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 112 115 184 365 327 331 329 330 255 266 473 182 488 364 6 119</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\spifFs\spiffs_hydrogen.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 469</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 112 115 184 365 327 331 329 330 255 266 473 182 488 364 6 119</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\spifFs\spiffs_nucleus.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 352</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 112 115 184 365 327 331 329 330 255 266 473 182 488 364 6 119</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\atomport-asm-iar.s</name>
+      <outputs>
+        <tool>
+          <name>ASTM8</name>
+          <file> 256 9</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ASTM8</name>
+          <file> 475</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_u8toa.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 20</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 316</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_virtual_screen.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 481</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 399</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\chessengine.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 187</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ht1632.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 446</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 236</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ili9325d_320x240.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 238</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 237</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ks0108_128x64.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 239</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 367</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_lc7981_160x80.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 240</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 370</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_lc7981_240x128.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 241</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 371</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_lc7981_240x64.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 242</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 372</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_lc7981_320x64.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 243</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 373</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_pcd8544_84x48.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 245</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 375</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_pcf8812_96x65.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 246</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 376</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_sbn1661_122x32.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 247</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 377</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1306_128x32.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 248</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 378</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1306_128x64.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 249</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 379</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1309_128x64.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 250</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 418</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1322_nhd31oled_bw.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 251</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 419</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1322_nhd31oled_gr.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 432</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 420</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1325_nhd27oled_bw.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 434</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 421</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1325_nhd27oled_gr.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 435</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 422</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1325_nhd27oled_bw_new.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 437</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 430</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1327_96x96_gr.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 436</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 423</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1325_nhd27oled_gr_new.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 439</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 433</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_ssd1351_128x128.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 438</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 424</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7565_64128n.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 197</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 425</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7565_dogm128.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 165</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 426</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7565_dogm132.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 172</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 427</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7565_lm6059.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 171</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 428</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7565_lm6063.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 169</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 429</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7565_nhd_c12832.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 166</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 431</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7565_nhd_c12864.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 168</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 227</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7687_c144mvgd.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 16</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 228</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7920_128x64.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 483</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 229</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7920_192x32.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 18</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 230</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_st7920_202x32.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 21</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 322</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_t6963_128x64.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 22</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 323</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_t6963_240x128.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 23</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 324</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_t6963_240x64.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 267</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 403</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_tls8204_84x48.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 268</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 404</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_uc1601_c128032.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 269</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 405</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_uc1610_dogxl160.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 270</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 406</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_dev_uc1701_dogs102.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 271</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 407</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\stm8s-periphs\stm8s_uart2.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 470</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 24 36 381 382 383 386 476</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\templproj.out</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 472</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 178 484 259 256 362 486 7 8 449 335 447 448 173 300 363 28 4 477 3 321 5 462 233 188 189 190 191 205 206 440 441 442 443 444 445 244 272 273 274 354 355 356 13 186 12 14 299 26 27 338 339 340 341 284 283 285 286 287 288 393 392 395 231 398 20 481 358 332 180 317</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\tests\sem1.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 366</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 326</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 101 111 31 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 6 365 327 331 329 330 255 266 473 109 11 380 184 182</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_fast_parallel.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 163</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 456</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_hw_usart_spi.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 196</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 479</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_no_en_parallel.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 203</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 480</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_st7920_custom.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 276</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 211</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_st7920_hw_spi.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 277</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 210</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_common.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 192</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 452</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_attiny85_hw_spi.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 194</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 296</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_hw_spi.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 195</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 451</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
         </tool>
       </inputs>
     </file>
@@ -2826,17 +2850,17 @@
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 455</file>
+          <file> 275</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 473</file>
+          <file> 293</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
         </tool>
       </inputs>
     </file>
@@ -2845,17 +2869,17 @@
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 29</file>
+          <file> 202</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 107</file>
+          <file> 318</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
         </tool>
       </inputs>
     </file>
@@ -2864,80 +2888,249 @@
       <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 30</file>
+          <file> 200</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 157</file>
+          <file> 368</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 201 58 154 116 120 118 119 435 446 371 300</file>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
         </tool>
       </inputs>
     </file>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\fatFS\diskio.c</name>
-      <tool>ICCSTM8</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\fatFS\ff.c</name>
-      <tool>ICCSTM8</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\fatFS\filecommon.c</name>
-      <tool>ICCSTM8</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\hardwaredriver\stm8speriphs\spidriver.c</name>
-      <tool>ICCSTM8</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\hardwaredriver\spiflash.c</name>
-      <tool>ICCSTM8</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\kernel\atommutex.c</name>
-      <tool>ICCSTM8</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\kernel\atomqueue.c</name>
-      <tool>ICCSTM8</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\kernel\atomsem.c</name>
-      <tool>ICCSTM8</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\kernel\atomtimer.c</name>
-      <tool>ICCSTM8</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\spifFs\spiffs_cache.c</name>
-      <tool>ICCSTM8</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\stm8s-periphs\stm8s_uart2.c</name>
-      <tool>ICCSTM8</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\spifFs\spiffs_check.c</name>
-      <tool>ICCSTM8</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\spifFs\spiffs_gc.c</name>
-      <tool>ICCSTM8</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\spifFs\spiffs_hydrogen.c</name>
-      <tool>ICCSTM8</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\spifFs\spiffs_nucleus.c</name>
-      <tool>ICCSTM8</tool>
-    </forcedrebuild>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_st7920_hw_spi.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 199</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 221</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\u8glib\src\u8g_front22.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 467</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 466</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_std_sw_spi.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 279</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 216</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_st7920_spi.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 278</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 213</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_sw_spi.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 280</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 217</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_parallel.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 198</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 220</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_arduino_t6963.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 281</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 218</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_hw_spi.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 282</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 219</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_sw_spi.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 204</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 223</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_com_atmega_st7920_spi.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 201</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 222</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 6 365 327 331 329 330 255 266 473 402</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\u8glib-main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 214</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 215</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 184 365 327 331 329 330 255 266 473 182 101 111 31 36 381 325 457 389 382 390 391 383 388 384 394 397 385 386 459 458 25 460 387 461 476 6 29 11 380 109 107 104 319 336 337 0</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\hardwaredriver\spiSSD1306.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 209</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 212</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 185</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 254</file>
+        </tool>
+      </outputs>
+    </file>
     <forcedrebuild>
       <name>$PROJ_DIR$\atomport.c</name>
       <tool>ICCSTM8</tool>
@@ -3155,6 +3348,62 @@
       <tool>ICCSTM8</tool>
     </forcedrebuild>
     <forcedrebuild>
+      <name>$PROJ_DIR$\..\..\fatFS\diskio.c</name>
+      <tool>ICCSTM8</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\..\..\fatFS\ff.c</name>
+      <tool>ICCSTM8</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\..\..\fatFS\filecommon.c</name>
+      <tool>ICCSTM8</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\..\..\hardwaredriver\stm8speriphs\spidriver.c</name>
+      <tool>ICCSTM8</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\..\..\hardwaredriver\spiflash.c</name>
+      <tool>ICCSTM8</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\..\..\kernel\atommutex.c</name>
+      <tool>ICCSTM8</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\..\..\kernel\atomqueue.c</name>
+      <tool>ICCSTM8</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\..\..\kernel\atomsem.c</name>
+      <tool>ICCSTM8</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\..\..\kernel\atomtimer.c</name>
+      <tool>ICCSTM8</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\..\..\spifFs\spiffs_cache.c</name>
+      <tool>ICCSTM8</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\..\..\spifFs\spiffs_check.c</name>
+      <tool>ICCSTM8</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\..\..\spifFs\spiffs_gc.c</name>
+      <tool>ICCSTM8</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\..\..\spifFs\spiffs_hydrogen.c</name>
+      <tool>ICCSTM8</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\..\..\spifFs\spiffs_nucleus.c</name>
+      <tool>ICCSTM8</tool>
+    </forcedrebuild>
+    <forcedrebuild>
       <name>$PROJ_DIR$\..\..\..\..\u8glib\src\u8g_u8toa.c</name>
       <tool>ICCSTM8</tool>
     </forcedrebuild>
@@ -3323,11 +3572,15 @@
       <tool>ICCSTM8</tool>
     </forcedrebuild>
     <forcedrebuild>
-      <name>$PROJ_DIR$\u8glib-main.c</name>
+      <name>$PROJ_DIR$\stm8s-periphs\stm8s_uart2.c</name>
       <tool>ICCSTM8</tool>
     </forcedrebuild>
     <forcedrebuild>
       <name>$PROJ_DIR$\..\..\tests\sem1.c</name>
+      <tool>ICCSTM8</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\u8glib-main.c</name>
       <tool>ICCSTM8</tool>
     </forcedrebuild>
   </configuration>

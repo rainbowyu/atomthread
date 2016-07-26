@@ -5,13 +5,18 @@
 #define FILE_STACK_SIZE_BYTES           1500
 
 //file command
-#define CREATCOMMAND  0x0001
-#define OPENCOMMAND   0x0002
-#define READCOMMAND   0x0004
-#define WRITECOMMAND  0x0008
+#define CREATCOMMAND     0x0001
+#define OPENCOMMAND      0x0002
+#define READCOMMAND      0x0004
+#define WRITECOMMAND     0x0008
+#define LISTCOMMAND      0x0010
+#define OPENDIRCOMMAND   0x0020
+#define CLOSEFILECOMMAND 0x0040
+#define CLOSEDIRCOMMAND  0x0080
 
 typedef struct fileCommanddatas{
   uint16_t commandlist;
+  uint8_t name[20];
   uint8_t buff[50];
 }fileComdata;
 
