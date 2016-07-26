@@ -4,7 +4,9 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-display_tcb	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\threads\displaythread.c	/^ATOM_TCB display_tcb;$/;"	variable	line:14
-disCommondsem	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\threads\displaythread.c	/^ATOM_SEM disCommondsem;$/;"	variable	line:15
-disCommandData	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\threads\displaythread.c	/^disComdata disCommandData;$/;"	variable	line:17
-display_thread_func	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\threads\displaythread.c	/^void display_thread_func (uint32_t param)$/;"	function	line:21	signature:(uint32_t param)
+file_tcb	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\threads\filethread.c	/^ATOM_TCB file_tcb;$/;"	variable	line:17
+fileCommondsem	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\threads\filethread.c	/^ATOM_SEM fileCommondsem;$/;"	variable	line:19
+fileCommandData	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\threads\filethread.c	/^fileComdata fileCommandData;$/;"	variable	line:20
+file_thread_func	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\threads\filethread.c	/^void file_thread_func (uint32_t param)$/;"	function	line:26	signature:(uint32_t param)
+fileCmdProcess	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\threads\filethread.c	/^static void fileCmdProcess(fileComdata* cmd)$/;"	function	line:48	file:	signature:(fileComdata* cmd)
+scan_files	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\threads\filethread.c	/^FRESULT scan_files ($/;"	function	line:71	signature:( char* path )

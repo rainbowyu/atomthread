@@ -6,7 +6,6 @@
 #include "u8g_stm8s.h"
 #include "ff.h"
 
-
 #include "atom.h"
 #include "atomtimer.h"
 #include "atomsem.h"
@@ -22,7 +21,7 @@ fileComdata fileCommandData;
 
 void file_thread_func (uint32_t param);
 FRESULT scan_files (char* path);
-static void fileCmdParser(fileComdata *cmd);
+static void fileCmdProcess(fileComdata *cmd);
 
 void file_thread_func (uint32_t param)
 {
@@ -30,7 +29,7 @@ void file_thread_func (uint32_t param)
   //FIL fil;            /* File object */
   FRESULT res;        /* API result code */
   //UINT bw;            /* Bytes written */
-  
+
   res=f_mount(&fs, "", 1);
   if (res)
   {
@@ -41,14 +40,32 @@ void file_thread_func (uint32_t param)
   {
     if (atomSemGet (&fileCommondsem, 0) == ATOM_OK)
     {
-      fileCmdParser(&fileCommandData);
+      fileCmdProcess(&fileCommandData);
     }
   }
-} 
+}
 
-static void fileCmdParser(fileComdata* cmd)
+static void fileCmdProcess(fileComdata* cmd)
 {
-  
+  FIL fil;            /* File object */
+  FRESULT res
+  switch (cmd->commandlist)
+  {
+    case CREATCOMMAND:
+      res = f_open(&fil, (const char *)cmd->name, FA_CREATE_NEW);
+      if (res != FR_OK)
+        printf("open file %s failed",(const char *)cmd->name);
+    break;
+    case OPENCOMMAND:
+
+    break;
+    case READCOMMAND:
+
+    break;
+    case WRITECOMMAND:
+
+    break;
+  }
 }
 
 FRESULT scan_files (
