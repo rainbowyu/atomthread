@@ -166,16 +166,13 @@ __interrupt void UART3_RX_IRQHandler(void)
 {  
   uint8_t temp;
   static uint8_t * p = &rxDataBuff[0];
-  atomIntEnter ();
+  
   if( UART3_GetITStatus(UART3_IT_RXNE) == SET && \
       UART3_GetFlagStatus(UART3_FLAG_RXNE) == SET)//接收中断处理
   {
     UART3_ClearITPendingBit (UART3_IT_RXNE);  //清中断标志
+    atomIntEnter ();
     temp = (UART3_ReceiveData8()); 
-    if (temp == '\0')
-    {
-      printf ("RX 0");
-    }
     *p = temp;
     
     if (p<=&rxDataBuff[48])p++;

@@ -1702,9 +1702,6 @@
       <name>$PROJ_DIR$\atomport-private.h</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\atomport-tests.h</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\atomport.c</name>
     </file>
     <file>
@@ -1718,9 +1715,6 @@
       <excluded>
         <configuration>Debug</configuration>
       </excluded>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\stm8s_conf.h</name>
     </file>
     <file>
       <name>$PROJ_DIR$\tests-main.c</name>
@@ -1741,37 +1735,19 @@
       <name>$PROJ_DIR$\stm8s-periphs\stm8s_clk.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\stm8s-periphs\stm8s_clk.h</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\stm8s-periphs\stm8s_gpio.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\stm8s-periphs\stm8s_gpio.h</name>
     </file>
     <file>
       <name>$PROJ_DIR$\stm8s-periphs\stm8s_itc.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\stm8s-periphs\stm8s_itc.h</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\stm8s-periphs\stm8s_spi.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\stm8s-periphs\stm8s_spi.h</name>
     </file>
     <file>
       <name>$PROJ_DIR$\stm8s-periphs\stm8s_tim1.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\stm8s-periphs\stm8s_tim1.h</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\stm8s-periphs\stm8s_uart3.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\stm8s-periphs\stm8s_uart3.h</name>
     </file>
   </group>
   <group>

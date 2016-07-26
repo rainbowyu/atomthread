@@ -1,0 +1,140 @@
+/*
+ * atomthread中 mutex具有的特性
+ * 1.灵活的可选阻塞特性
+ * 使用的时候可以选择阻塞,按照timeout阻塞,或者即使mutex被锁也不阻塞线程.
+
+ * 2.中断可调用
+ * 一些API可以在中断中调用.但是因为mutex有归属的属性,所以,锁定和解锁必须在线程中调用.
+
+ * 3.基于优先级的队列
+ * 无论有多少线程被mutex阻塞,则唤醒都根据线程的优先级,相同优先级的线程按照FIFO的原则.
+
+ * 4.递归闭锁
+ * 当一个要求对一个共享资源进行排他性的访问而调用一个或者多个函数,函数同样也需要对同
+ * 样的资源进行访问时,这是非常有用.可以避免引起死锁.
+
+ * 5.线程所有权
+ * 当一个线程锁住信号后,只能由该线程解锁.
+
+ * 6.智能删除.
+ * 当删除互斥锁时,所有被该互斥锁锁定的线程都将进入准备态,并返回特定数值.
+
+   小心优先级倒置
+ */
+
+
+/*
+ * \n <b> 使用说明</b> \n
+ * 所有信号量都必须在使用前被初始化,初始化函数为atomSemCreate().
+ * 初始化之后atomSemGet()和atomSemPut()分别用来减少和增加信号量的计数.
+ *
+ * 一旦信号量计数为0,继续使用atomSemGet()将阻塞调用的线程(除非传入的参数不需要阻塞).
+ * 当线程被阻塞时若执行了atomSemPut(),则高优先级的线程将被唤醒.当多个相同优先级的线程
+ * 都被阻塞,则会被同时唤醒,并从他们进入阻塞的位置继续运行
+ *
+ * 当一个信号量不再被需要的时候,可以使用atomSemDelete()来把其删除.该函数将智能的唤醒
+ * 任何被该信号量阻塞的任务.
+ */
+
+uint8_t atomMutexCreate (ATOM_SEM *sem, uint8_t initial_count);
+uint8_t atomMutexDelete (ATOM_MUTEX *mutex);
+uint8_t atomMutexGet (ATOM_MUTEX *mutex, int32_t timeout);
+uint8_t atomMutexPut (ATOM_MUTEX *mutex);
+static void atomMutexTimerCallback (POINTER cb_data);
+
+/*
+ * 建立互斥锁.
+ * 功能:创建一个互斥锁.
+ * 说明:必须在使用之前创建,创建之后可以使用atomMutexDelete()删除,不用设置拥有者,当
+ * 调用atomMutexGet()时即设置了拥有者.
+ * 参数:
+ * ATOM_MUTEX *mutex mutex指针
+ * 中断安全性:安全
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_ERR_PARAM 错误的参数
+ */
+ uint8_t atomMutexCreate (ATOM_MUTEX *mutex);
+
+/*
+ * 删除互斥锁.
+ * 功能:删除一个互斥锁.
+ * 说明:任何正被该互斥锁阻塞的线程会被唤醒并返回ATOM_ERR_DELETED,
+ * 如果在线程中使用,调度器将根据优先级决定是否唤醒阻塞的线程.
+ * 参数:
+ * ATOM_MUTEX *mutex mutex指针
+ * 中断安全性:安全
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_ERR_QUEUE 将唤醒的线程载入准备队列失败
+ * ATOM_ERR_TIMER 取消一个已被唤醒的线程timeout失败
+ */
+uint8_t atomMutexDelete (ATOM_MUTEX *mutex);
+
+/*
+ * 锁住(get)互斥锁.
+ * 功能:锁住一个互斥锁.
+ * 说明:若该信号量没有拥有着则会建立拥有者,其归属权一直持续到该线程调用atomMutexPut()为止
+
+ * 可以在owner线程递归调用,循环调用次数会被计数,atomMutexPut()调用次数必须高于atomMutexGet().
+
+ * 其他线程不能解锁互斥锁.
+
+ * 根据timeout的不同值,当信号量为零的时候会有如下结果:
+ * timeout == 0 线程会被阻塞直到互斥锁被解锁.
+ * timeout >0 线程将被阻塞直到互斥锁被解锁或者超时.
+ * timeout == -1 当互斥锁被锁时,立刻返回.
+
+ * 若线程被阻塞且timeout为0,其会被无限期的阻塞直到atomMutexPut()或者atomMutexDelete()
+ * 被其他线程调用.
+
+ * 参数:
+ * ATOM_MUTEX *mutex
+ * int32_t timeout 阻塞的最长时间 (0 = 永远)
+ * 中断安全性:不能在中断中使用
+
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_TIMEOUT 在被唤醒前 timeout已到时间
+ * ATOM_WOULDBLOCK 在信号量为0的时候,timeout=-1
+ * ATOM_ERR_DELETED 阻塞时,信号量被删除了
+ * ATOM_ERR_CONTEXT 不是在线程中被调用
+ * ATOM_ERR_PARAM 错误的参数
+ * ATOM_ERR_QUEUE 将线程放在阻塞队列时发生错误
+ * ATOM_ERR_TIMER 注册timeout错误
+ * ATOM_ERR_OVF 递归计数溢出 (>255)
+ */
+uint8_t atomMutexGet (ATOM_MUTEX *mutex, int32_t timeout);
+
+/*
+ * 解锁互斥锁.
+ * 功能:解锁互斥锁.
+ * 说明:该函数会检测互斥锁是否属于该线程,决定是否解锁互斥锁.当互斥锁的计数为0以后,则
+ * 该线程不再拥有该互斥锁.
+
+ * 若所有权被放弃,且有一个线程被该互斥锁阻塞,则该调用会唤醒优先级最高的线程.
+ * 每次调用该函数只会唤醒一个线程.如果有多个相同优先级的线程被阻塞,则遵循先入先出(FIFO)原则.
+
+ * 参数:
+ * ATOM_MUTEX * mutex
+ * 中断安全性:不能在中断中使用
+
+ * 返回:
+ * ATOM_OK 成功
+ * ATOM_ERR_PARAM 错误的参数
+ * ATOM_ERR_QUEUE 唤醒线程错误
+ * ATOM_ERR_TIMER 取消一个被唤醒线程的timeout错误
+ * ATOM_ERR_OWNERSHIP 非拥有者尝试解锁互斥锁
+ */
+uint8_t atomMutexPut (ATOM_MUTEX * mutex)
+
+/*
+ * 互斥锁定时器回调函数.
+ * 功能:内部函数外部无需调用
+ * 说明:当阻塞线程timeout到的时候就会调用改函数
+ * 参数 POINTER cb_data将会得到更多细节.
+
+ * 参数:
+ * POINTER cb_data
+ */
+ static void atomSemTimerCallback (POINTER cb_data);
