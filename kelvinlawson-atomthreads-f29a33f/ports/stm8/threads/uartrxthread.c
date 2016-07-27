@@ -10,7 +10,7 @@
 #include "atommutex.h"
 
 #include "uartrxthread.h"
-#include "displaythread.h"
+//#include "displaythread.h"
 
 ATOM_TCB uartProcess_tcb;
 ATOM_SEM uartRxsem;
@@ -22,7 +22,7 @@ void uartProcess_thread_func (uint32_t param)
   volatile uint32_t use=0,free=0;
   if (uart_init(115200) != 0)
   {
-      /* Error initialising UART */
+    /* Error initialising UART */
   }
   printf("uart test\r\n");
   while (1)
@@ -30,12 +30,12 @@ void uartProcess_thread_func (uint32_t param)
     //wait forever
     if (atomSemGet(&uartRxsem, 0) == ATOM_OK)
     {
-      for (uint8_t i=0;i<50;i++)
-      {
-        disCommandData.buff[i] = rxDataBuff[i];
-      }
-      disCommandData.commandlist |= NEWCOMMAND;
-      atomSemPut (&disCommondsem);
+//      for (uint8_t i=0;i<50;i++)
+//      {
+//        disCommandData.buff[i] = rxDataBuff[i];
+//      }
+//      disCommandData.commandlist |= NEWCOMMAND;
+//      atomSemPut (&disCommondsem);
     
       atomThreadStackCheck (&uartProcess_tcb, (uint32_t*)&use, (uint32_t*)&free);
       if (free<100)

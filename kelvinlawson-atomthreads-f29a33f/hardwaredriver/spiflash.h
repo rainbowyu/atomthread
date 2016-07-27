@@ -2,7 +2,7 @@
 #define _SPIFLASH_
 
 //spi pin
-#define FLASH_CS_PIN GPIOG,GPIO_PIN_0
+#define FLASH_CS_PIN GPIOC,GPIO_PIN_2
 
 //Flash busy
 #define STATUS_WIP   0x01
@@ -21,10 +21,10 @@
 
 //FLASH inf
 #define FLASH_PAGE_SIZE		      256
-#define FLASH_SECTOR_SIZE	      512
-#define FLASH_SECTOR_COUNT	    1024
-#define MY_FLASH_BLOCK_SIZE		    8192  		
-#define FLASH_PAGES_PER_SECTOR	2
+#define FLASH_SECTOR_SIZE	      1024
+#define FLASH_SECTOR_COUNT	    0x200
+#define MY_FLASH_BLOCK_SIZE		  8192  		
+#define FLASH_PAGES_PER_SECTOR	4
 
 #define FLASH_SECTORTOERASE 0x00
 #define FLASH_WRITEADDR     0x00

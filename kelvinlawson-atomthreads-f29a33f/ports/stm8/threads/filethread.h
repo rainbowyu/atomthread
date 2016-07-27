@@ -2,7 +2,7 @@
 #define __FILETHREAD_H
 #include "stm8s.h"
 
-#define FILE_STACK_SIZE_BYTES           1500
+#define FILE_STACK_SIZE_BYTES           4000
 
 //file command
 #define CREATCOMMAND     0x0001
@@ -16,8 +16,9 @@
 
 typedef struct fileCommanddatas{
   uint16_t commandlist;
-  uint8_t name[20];
+  char name[20];
   uint8_t buff[50];
+  uint8_t buffsize;
 }fileComdata;
 
 extern fileComdata fileCommandData;

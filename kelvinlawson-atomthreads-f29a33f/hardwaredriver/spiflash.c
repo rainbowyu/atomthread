@@ -251,9 +251,9 @@ void spiFlashTest(void)
   
   FlashID = spiFlashReadID();
 
-  //printf("\r\n 芯片的ID是 0x%X", FlashID);
+  printf("\r\n 芯片的ID是 0x%X", FlashID);
 
-  if (FlashID == 0xEF4016)  
+  if (FlashID == 0xEF4015)  
   {
     //擦除0x00扇区
     flashEraseSector(FLASH_SECTORTOERASE);

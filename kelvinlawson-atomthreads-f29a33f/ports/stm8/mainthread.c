@@ -12,12 +12,12 @@
 #include "stm8s_clk.h"
 
 #include "mainthread.h"
-#include "displaythread.h"
+//#include "displaythread.h"
 #include "uartrxthread.h"
 #include "filethread.h"
 
 /* Main thread's stack area (large so place outside of the small page0 area on STM8) */
-NEAR static uint8_t display_thread_stack[DISPLAY_STACK_SIZE_BYTES];
+//NEAR static uint8_t display_thread_stack[DISPLAY_STACK_SIZE_BYTES];
 NEAR static uint8_t uartProcess_thread_stack[UARTPROCESS_STACK_SIZE_BYTES];
 NEAR static uint8_t file_thread_stack[FILE_STACK_SIZE_BYTES];
 
@@ -36,12 +36,13 @@ NO_REG_SAVE void main ( void )
         /* Enable the system tick timer */
         archInitSystemTickTimer();
 
+
         /* Create an application thread */
-        status += atomThreadCreate(&display_tcb,
-                     10, display_thread_func, 0,
-                     &display_thread_stack[0],
-                     DISPLAY_STACK_SIZE_BYTES,
-                     TRUE);
+//        status += atomThreadCreate(&display_tcb,
+//                     20, display_thread_func, 0,
+//                     &display_thread_stack[0],
+//                     DISPLAY_STACK_SIZE_BYTES,
+//                     TRUE);
           
         status += atomThreadCreate(&uartProcess_tcb,
                      10, uartProcess_thread_func, 0,
@@ -49,23 +50,23 @@ NO_REG_SAVE void main ( void )
                      UARTPROCESS_STACK_SIZE_BYTES,
                      TRUE);
         
-        status += atomThreadCreate(&uartProcess_tcb,
-                     10, file_thread_func, 0,
+        status += atomThreadCreate(&file_tcb,
+                     20, file_thread_func, 0,
                      &file_thread_stack[0],
                      FILE_STACK_SIZE_BYTES,
                      TRUE);
         
         if (atomSemCreate (&uartRxsem, 0) != ATOM_OK)
         {
-          printf ("Error creating uartRx semaphore \n");
+          //printf ("Error creating uartRx semaphore \n");
         }
-        if ( atomSemCreate (&disCommondsem, 0) != ATOM_OK)
-        {
-          printf ("Error creating disCommond semaphore \n");
-        }
+//        if ( atomSemCreate (&disCommondsem, 0) != ATOM_OK)
+//        {
+//          //printf ("Error creating disCommond semaphore \n");
+//        }
         if ( atomSemCreate (&fileCommondsem, 0) != ATOM_OK)
         {
-          printf ("Error creating disCommond semaphore \n");
+          //printf ("Error creating disCommond semaphore \n");
         }
         
         //所有任务创建成功

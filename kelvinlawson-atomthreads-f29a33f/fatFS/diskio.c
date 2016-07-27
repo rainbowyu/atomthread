@@ -186,7 +186,7 @@ DRESULT disk_ioctl (
     {
 
       case GET_BLOCK_SIZE:
-        *(DWORD*)buff = 512;
+        *(DWORD*)buff = 1;//可擦除的最小单位大小
         break;
       
       case GET_SECTOR_SIZE:
@@ -194,7 +194,7 @@ DRESULT disk_ioctl (
         break;
       
       case GET_SECTOR_COUNT:
-        *(DWORD*)buff = 0x400;
+        *(DWORD*)buff = 0x200;
         break;
         
     }

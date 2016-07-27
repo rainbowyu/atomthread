@@ -5206,6 +5206,7 @@ FRESULT f_forward (
 	DWORD b_vol, b_fat, b_data;				/* Base LBA for volume, fat, data */
 	DWORD sz_vol, sz_rsv, sz_fat, sz_dir;	/* Size for volume, fat, dir, data */
 	UINT i, ns;
+  WORD ss;
 FRESULT f_mkfs (
 	const TCHAR* path,	/* Logical drive number */
 	BYTE opt,			/* Format option */
@@ -5219,7 +5220,7 @@ FRESULT f_mkfs (
 	static const WORD cst[] = {1, 4, 16, 64, 256, 512, 0};	/* Cluster size boundary for FAT12/16 volume (4KS unit) */
 	static const WORD cst32[] = {1, 2, 4, 8, 16, 32, 0};	/* Cluster size boundary for FAT32 volume (128KS unit) */
 	BYTE fmt, sys, *buf, *pte, pdrv, part;
-	WORD ss;
+	
 
   
   
