@@ -1,8 +1,9 @@
 #ifndef __FILETHREAD_H
 #define __FILETHREAD_H
 #include "stm8s.h"
-
-#define FILE_STACK_SIZE_BYTES           4000
+#include "atom.h"
+#include "atomsem.h"
+#define FILE_STACK_SIZE_BYTES           2000
 
 //file command
 #define CREATCOMMAND     0x0001

@@ -32,6 +32,7 @@ FRESULT fileFormat(BYTE * work,uint32_t worksize)
 	{
 		printf("错误代码: %u\r\n",res);
 	}	
+  
   printf("开始格式化...\r\n");
   
   res = f_mkfs( "", FM_ANY|FM_SFD, 1024, work, worksize);

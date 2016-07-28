@@ -10,6 +10,7 @@ typedef struct disCommanddatas{
   uint16_t commandlist;
   uint8_t buff[50];
 }disComdata;
+
 extern disComdata disCommandData;
 extern ATOM_TCB display_tcb;
 extern ATOM_SEM disCommondsem;

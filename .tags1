@@ -4,7 +4,7 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-__CMDSHELL_H	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\cmdShell\cmdShell.h	/^#define __CMDSHELL_H$/;"	macro	line:2
-Commanddatas	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\cmdShell\cmdShell.h	/^typedef struct Commanddatas{$/;"	struct	line:3
-buff	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\cmdShell\cmdShell.h	/^  uint8_t buff[50];$/;"	member	line:4	struct:Commanddatas
-Commanddata	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\cmdShell\cmdShell.h	/^}Commanddata;$/;"	typedef	line:5	typeref:struct:Commanddatas
+cmdData	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\threads\cmdshellthread.c	/^Commanddata cmdData = {0};$/;"	variable	line:17
+cmdshell_tcb	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\threads\cmdshellthread.c	/^ATOM_TCB cmdshell_tcb;$/;"	variable	line:19
+cmdShellsem	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\threads\cmdshellthread.c	/^ATOM_SEM cmdShellsem;$/;"	variable	line:20
+cmdshell_thread_func	E:\projects\atomthread\kelvinlawson-atomthreads-f29a33f\ports\stm8\threads\cmdshellthread.c	/^void cmdshell_thread_func (uint32_t param)$/;"	function	line:38	signature:(uint32_t param)

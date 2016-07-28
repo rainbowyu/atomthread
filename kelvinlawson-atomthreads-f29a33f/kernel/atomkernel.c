@@ -147,7 +147,8 @@
 #include "atom.h"
 #include "stm8s_conf.h"
 #include "stdio.h"
-
+#include "mainthread.h"
+   
 /* Global data */
 
 /**
@@ -385,15 +386,23 @@ static void atomThreadSwitch(ATOM_TCB *old_tcb, ATOM_TCB *new_tcb)
  * @retval ATOM_ERR_PARAM Bad parameters
  * @retval ATOM_ERR_QUEUE Error putting the thread on the ready queue
  */
-uint8_t atomThreadCreate (ATOM_TCB *tcb_ptr, uint8_t priority, void (*entry_point)(uint32_t), uint32_t entry_param, void *stack_bottom, uint32_t stack_size, uint8_t stack_check)
+uint8_t atomThreadCreate (ATOM_TCB *tcb_ptr, uint8_t priority, void (*entry_point)(uint32_t), uint32_t entry_param, void *stack_bottom, uint32_t stack_size, uint8_t stack_check, const char* TASKNAME)
 {
     CRITICAL_STORE;
     uint8_t status;
     uint8_t *stack_top;
+    uint8_t i=0;
+    char *p=NULL;
 #ifdef ATOM_STACK_CHECKING
 	int32_t count;
 #endif
-
+    for (p=(char *)TASKNAME;(*p)!='\0';p++)
+    {  
+      taskState.taskName[taskState.taskNum][i]=*p;
+      i++;
+    }
+    tcb_ptr->threadNum=taskState.taskNum;
+    taskState.taskNum++;
     if ((tcb_ptr == NULL) || (entry_point == NULL) || (stack_bottom == NULL)
         || (stack_size == 0))
     {
@@ -688,7 +697,7 @@ uint8_t atomOSInit (void *idle_thread_stack_bottom, uint32_t idle_thread_stack_s
                  0,
                  idle_thread_stack_bottom,
                  idle_thread_stack_size,
-				 idle_thread_stack_check);
+				 idle_thread_stack_check,"IDLE");
 
     /* Return status */
     return (status);

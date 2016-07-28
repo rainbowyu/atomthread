@@ -10,12 +10,23 @@
 #include "atommutex.h"
 
 #include "uartrxthread.h"
+#include "cmdshellthread.h"
+#include "mainthread.h"
 //#include "displaythread.h"
 
 ATOM_TCB uartProcess_tcb;
 ATOM_SEM uartRxsem;
 
 void uartProcess_thread_func (uint32_t param);
+
+/*
+typedef struct Commanddatas{
+  uint8_t buff[CMDBUFFLEN];
+  uint8_t cmdParam[ARGNUM][ARGLEN];
+  uint8_t cmd[CMDLEN];
+  uint8_t bufflen;
+}Commanddata;
+*/
 
 void uartProcess_thread_func (uint32_t param)
 {
@@ -24,22 +35,23 @@ void uartProcess_thread_func (uint32_t param)
   {
     /* Error initialising UART */
   }
-  printf("uart test\r\n");
   while (1)
   {
     //wait forever
     if (atomSemGet(&uartRxsem, 0) == ATOM_OK)
     {
-//      for (uint8_t i=0;i<50;i++)
-//      {
-//        disCommandData.buff[i] = rxDataBuff[i];
-//      }
-//      disCommandData.commandlist |= NEWCOMMAND;
-//      atomSemPut (&disCommondsem);
-    
+      //UART send data to cli
+      for (uint8_t i=0;i<rxDataBuff.len;i++)
+      {
+        cmdData.buff[i] = rxDataBuff.buff[i];
+      }
+      cmdData.bufflen = rxDataBuff.len;
+      atomSemPut (&cmdShellsem);
+      
+      //get the used RAM
       atomThreadStackCheck (&uartProcess_tcb, (uint32_t*)&use, (uint32_t*)&free);
-      if (free<100)
-        printf("display stack too low");
+      taskState.taskRAMMax[uartProcess_tcb.threadNum][0]=(uint16_t)use;
+      taskState.taskRAMMax[uartProcess_tcb.threadNum][1]=(uint16_t)free;
     }
   }
 }

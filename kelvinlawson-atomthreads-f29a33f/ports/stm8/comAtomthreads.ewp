@@ -259,6 +259,7 @@
           <state>$PROJ_DIR$\..\..\hardwaredriver\stm8speriphs</state>
           <state>$PROJ_DIR$\..\..\spifFs\test</state>
           <state>$PROJ_DIR$\..\..\spifFs</state>
+          <state>$PROJ_DIR$\..\..\cmdShell</state>
           <state>$PROJ_DIR$\..\..\u8glib\src</state>
         </option>
         <option>
@@ -1583,6 +1584,15 @@
     <configuration>Debug</configuration>
   </mfc>
   <group>
+    <name>cmdShell</name>
+    <file>
+      <name>$PROJ_DIR$\..\..\cmdShell\cmdShell.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\cmdShell\cmdShell.h</name>
+    </file>
+  </group>
+  <group>
     <name>fatFs</name>
     <file>
       <name>$PROJ_DIR$\..\..\fatFS\diskio.c</name>
@@ -1717,12 +1727,6 @@
       </excluded>
     </file>
     <file>
-      <name>$PROJ_DIR$\tests-main.c</name>
-      <excluded>
-        <configuration>Debug</configuration>
-      </excluded>
-    </file>
-    <file>
       <name>$PROJ_DIR$\uart.c</name>
     </file>
   </group>
@@ -1752,6 +1756,9 @@
   </group>
   <group>
     <name>threads</name>
+    <file>
+      <name>$PROJ_DIR$\threads\cmdshellthread.c</name>
+    </file>
     <file>
       <name>$PROJ_DIR$\threads\displaythread.c</name>
       <excluded>
