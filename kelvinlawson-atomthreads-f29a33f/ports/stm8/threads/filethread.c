@@ -9,7 +9,6 @@
 #include "atom.h"
 #include "atomtimer.h"
 #include "atomsem.h"
-#include "atomqueue.h"
 #include "atommutex.h"
 
 #include "filethread.h"
@@ -23,7 +22,7 @@ ATOM_SEM fileCommondsem;
 fileComdata fileCommandData;
 
 void file_thread_func (uint32_t param);
-FRESULT scan_files (char* path);
+
 static void fileCmdProcess(fileComdata* cmd,uint8_t *buff);
 
 void file_thread_func (uint32_t param)
@@ -58,84 +57,80 @@ static void fileCmdProcess(fileComdata* cmd,uint8_t *buff)
 {
   static FIL fil;            // File object 
   static DIR dirp;
+  static uint8_t patchNow[20]="/";
   UINT brw;
   FRESULT res;
   switch (cmd->commandlist)
   {
     case CREATCOMMAND:
-      res = f_open(&fil, (const char *)cmd->name, FA_CREATE_NEW);
+      res = f_open(&fil, (const char *)cmd->pathName, FA_CREATE_NEW);
       if (res != FR_OK)
-        printf("open file %s failed",(const char *)cmd->name);
+        printf("open file %s failed\n",(const char *)cmd->pathName);
+      f_close(&fil);
       break;
 
-    case OPENCOMMAND:
-
+    case DELETECOMMAND:
+      res = f_unlink ((const char *)cmd->pathName);
+      if (res != FR_OK)
+        printf("delete file or dir %s failed\n",(const char *)cmd->pathName);
+      else 
+      {
+        printf("delete file or dir %s done\n",(const char *)cmd->pathName);
+      }
+      break;
+      
+    case CATCOMMAND:
+      res = f_open(&fil, (const char *)cmd->pathName, FA_READ);
+      if (res != FR_OK)
+        printf("cat file %s failed\n",(const char *)cmd->pathName);
+      else printFile(&fil);
+      f_close(&fil);
       break;
 
     case READCOMMAND:
       res = f_read(&fil, buff, f_size(&fil), &brw);
       if (res != FR_OK || brw != f_size(&fil))
-        printf("read file %s failed",(const char *)cmd->name);
+        printf("read file %s failed\n",(const char *)cmd->pathName);
       break;
 
     case WRITECOMMAND:
       res = f_write(&fil, (const char *)buff, cmd->buffsize, &brw);
       if (res != FR_OK || brw != cmd->buffsize)
-        printf("write file %s failed",(const char *)cmd->name);
+        printf("write file %s failed\n",(const char *)cmd->pathName);
       break;
 
     case LISTCOMMAND:
-      scan_files((char*)cmd->name);
+      printf("---------------------------------\n");
+      res = scan_files((char*)patchNow);
+      if (res != FR_OK)
+        printf("scan  %s failed, error code %d\n\r",(const char *)patchNow,(int)res);
+      printf("---------------------------------\n");
       break;
 
     case OPENDIRCOMMAND:
-      res = f_opendir(&dirp, (const char *)cmd->name);
+      res = f_opendir(&dirp, (const char *)cmd->pathName);
+      memcpy (patchNow, cmd->pathName, 20);
       if (res != FR_OK)
-        printf("open dir %s failed",(const char *)cmd->name);
+        printf("open dir %s failed",(const char *)cmd->pathName);
       break;
 
     case CLOSEFILECOMMAND:
       res = f_close (&fil);
       if (res != FR_OK)
-        printf("close %s failed",(const char *)cmd->name);
+        printf("close %s failed",(const char *)cmd->pathName);
       break;
 
     case CLOSEDIRCOMMAND:
       res = f_closedir (&dirp);
       if (res != FR_OK)
-        printf("close dir %s failed",(const char *)cmd->name);
+        printf("close dir %s failed",(const char *)cmd->pathName);
       break;
-
+      
+    case CREATDIRCOMMAND:
+      res = f_mkdir((const char*)cmd->pathName);
+      if (res != FR_OK)
+        printf("make dir %s failed, error code %d \n\r",(const char *)cmd->pathName,(int)res);
     default:
       break;
   }
-}
-
-FRESULT scan_files (
-    char* path        /* Start node to be scanned (***also used as work area***) */
-)
-{
-    FRESULT res;
-    DIR dir;
-    UINT i;
-    static FILINFO fno;
-
-    res = f_opendir(&dir, path);                           /* Open the directory */
-    if (res == FR_OK) {
-        for (;;) {
-            res = f_readdir(&dir, &fno);                   /* Read a directory item */
-            if (res != FR_OK || fno.fname[0] == 0) break;  /* Break on error or end of dir */
-            if (fno.fattrib & AM_DIR) {                    /* It is a directory */
-                i = strlen(path);
-                sprintf(&path[i], "/%s", fno.fname);
-                res = scan_files(path);                    /* Enter the directory */
-                if (res != FR_OK) break;
-                path[i] = 0;
-            } else {                                       /* It is a file. */
-                printf("%s/%s\n", path, fno.fname);
-            }
-        }
-        f_closedir(&dir);
-    }
-    return res;
 }

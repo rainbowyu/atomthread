@@ -8,7 +8,6 @@
 #include "atom.h"
 #include "atomtimer.h"
 #include "atomsem.h"
-#include "atomqueue.h"
 #include "atommutex.h"
 
 #include "cmdshellthread.h"

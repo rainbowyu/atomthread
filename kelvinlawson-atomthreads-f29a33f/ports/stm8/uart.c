@@ -8,6 +8,7 @@
 #include "uart.h"
 #include "stm8s_uart3.h"
 #include "stm8s_itc.h"
+#include "uartrxthread.h"
 
 rxDataBuffStruct rxDataBuff;
 extern ATOM_SEM uartRxsem;
@@ -166,7 +167,7 @@ __interrupt void UART3_RX_IRQHandler(void)
 {
   uint8_t temp;
   static uint8_t * p = rxDataBuff.buff;
-  static uint8_t len =0;
+  static uint8_t len = 0;
   if( UART3_GetITStatus(UART3_IT_RXNE) == SET && \
       UART3_GetFlagStatus(UART3_FLAG_RXNE) == SET)
   {
@@ -187,6 +188,7 @@ __interrupt void UART3_RX_IRQHandler(void)
       
       len=0;                                //长度归零
       p=rxDataBuff.buff;                    //指针归位
+      
       atomSemPut (&uartRxsem);
     }
     atomIntExit (0);

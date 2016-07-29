@@ -2,6 +2,7 @@
 #include "mainthread.h"
 #include "ctype.h"
 #include "stdio.h"
+#include "string.h"
 
 #include "filethread.h"
 //static void cmdCutOff(char *cmddata, char **cmd,const char *delims);
@@ -16,13 +17,18 @@ void handleArg(uint8_t argc,void *cmd_arg);
 void printfHello(uint8_t argc,void *cmd_arg);
 void showTaskHandle(uint8_t argc,void *cmd_arg);
 void filelistHandle(uint8_t argc,void *cmd_arg);
+void mkdirHandle(uint8_t argc,void *cmd_arg);
+void rmHandle(uint8_t argc,void *cmd_arg);
+void catHandle(uint8_t argc,void *cmd_arg);
 
 const cmdListStruct CMDList[]={
   /*命令名称(cmd name)    参数数目(para num)     控制函数(cmd func)     帮助信息(help)*/
   {"hello" ,              0,                    printfHello,           "hello -打印Hello world"},
-  {"arg",                 5,                    handleArg,             "arg<arg1><arg2>..  -测试用"},
   {"showTask",            0,                    showTaskHandle,        "显示运行任务的信息"},
-  {"ls",                  0,                    filelistHandle,        "显示文件目录结构"}
+  {"ls",                  0,                    filelistHandle,        "显示文件目录结构"},
+  {"mkdir",               1,                    mkdirHandle,           "创建文件夹"},
+  {"rm",                  1,                    rmHandle,              "删除文件或文件夹"},
+  {"cat",                 1,                    catHandle,             "显示文件内容"}
 };
 
 /*
@@ -42,6 +48,7 @@ uint8_t cmdParser(Commanddata *cmddata)
   uint32_t spaceFlag=0;          //空格标志
   uint32_t argNum=0;             //参数数目(包括cmd)
   uint32_t index[ARGNUM]={0};    //有效参数首个数字的数组索引
+  uint8_t i;
 
   /*先做一遍分析,找出参数的数目,以及参数段的首个数字所在 cmddata->buff 数组中的下标*/
   for(uint8_t i=0;i<cmddata->bufflen;i++)
@@ -75,7 +82,7 @@ uint8_t cmdParser(Commanddata *cmddata)
   }
 
   //get cmd before first space or \n
-  for (uint8_t i=0;i<index[0]-1;i++)
+  for (i=0;i<index[0]-1;i++)
   {
     cmddata->cmd[i]=cmddata->buff[i];
   }
@@ -84,8 +91,9 @@ uint8_t cmdParser(Commanddata *cmddata)
   //get param
   for(uint8_t j=0;j<argNum;j++)
   {
-    for (uint8_t i=0;i<index[j+1]-index[j]-1;i++)
+    for (i=0;i<index[j+1]-index[j]-1;i++)
       cmddata->cmdParam[j][i]=cmddata->buff[index[j]+i];
+    cmddata->cmdParam[j][i]='\0';
   }
 
   //return param num
@@ -95,26 +103,6 @@ uint8_t cmdParser(Commanddata *cmddata)
 void printfHello(uint8_t argc,void *cmd_arg)
 {
   printf("Hello world!\n");
-}
-
-/*printf every param*/
-void handleArg(uint8_t argc,void *cmd_arg)
-{
-  int i;
-  Commanddata *arg;
-  arg = (Commanddata *)cmd_arg;
-  
-  if(argc==0)
-  {
-    printf("no param\n");
-  }
-  else
-  {
-    for(i=0;i<argc;i++)
-    {
-      printf("the %dst param:%s\n",i,arg->cmdParam[i]);
-    }
-  }
 }
 
 void showTaskHandle(uint8_t argc,void *cmd_arg)
@@ -128,7 +116,34 @@ void showTaskHandle(uint8_t argc,void *cmd_arg)
 
 void filelistHandle(uint8_t argc,void *cmd_arg)
 {
-  fileCommandData.commandlist |= LISTCOMMAND;
+  fileCommandData.commandlist = LISTCOMMAND;
+  atomSemPut (&fileCommondsem);
+}
+
+void mkdirHandle(uint8_t argc,void *cmd_arg)
+{
+  Commanddata *arg;
+  arg = (Commanddata *)cmd_arg;
+  fileCommandData.commandlist = CREATDIRCOMMAND;
+  memcpy (fileCommandData.pathName, arg->cmdParam[0], ARGLEN);
+  atomSemPut (&fileCommondsem);
+}
+
+void rmHandle(uint8_t argc,void *cmd_arg)
+{
+  Commanddata *arg;
+  arg = (Commanddata *)cmd_arg;
+  fileCommandData.commandlist = DELETECOMMAND;
+  memcpy (fileCommandData.pathName, arg->cmdParam[0], ARGLEN);
+  atomSemPut (&fileCommondsem);
+}
+
+void catHandle(uint8_t argc,void *cmd_arg)
+{
+  Commanddata *arg;
+  arg = (Commanddata *)cmd_arg;
+  fileCommandData.commandlist = CATCOMMAND;
+  memcpy (fileCommandData.pathName, arg->cmdParam[0], ARGLEN);
   atomSemPut (&fileCommondsem);
 }
 

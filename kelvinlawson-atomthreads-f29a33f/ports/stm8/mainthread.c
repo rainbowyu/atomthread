@@ -35,8 +35,14 @@ NO_REG_SAVE void main ( void )
     int8_t status;
     CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
 
+    if (uart_init(115200) != 0)
+    {
+    /* Error initialising UART */
+    }
+    
     /* Initialise the OS before creating our threads */
     status = atomOSInit(&idle_thread_stack[0], IDLE_STACK_SIZE_BYTES, TRUE);
+    
     if (status == ATOM_OK)
     {
         /* Enable the system tick timer */
@@ -76,10 +82,6 @@ NO_REG_SAVE void main ( void )
         {
 
         }
-//      if ( atomSemCreate (&disCommondsem, 0) != ATOM_OK)
-//      {
-
-//      }
         if ( atomSemCreate (&fileCommondsem, 0) != ATOM_OK)
         {
   

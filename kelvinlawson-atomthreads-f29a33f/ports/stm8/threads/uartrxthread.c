@@ -6,7 +6,6 @@
 #include "atom.h"
 #include "atomtimer.h"
 #include "atomsem.h"
-#include "atomqueue.h"
 #include "atommutex.h"
 
 #include "uartrxthread.h"
@@ -19,22 +18,9 @@ ATOM_SEM uartRxsem;
 
 void uartProcess_thread_func (uint32_t param);
 
-/*
-typedef struct Commanddatas{
-  uint8_t buff[CMDBUFFLEN];
-  uint8_t cmdParam[ARGNUM][ARGLEN];
-  uint8_t cmd[CMDLEN];
-  uint8_t bufflen;
-}Commanddata;
-*/
-
 void uartProcess_thread_func (uint32_t param)
 {
   volatile uint32_t use=0,free=0;
-  if (uart_init(115200) != 0)
-  {
-    /* Error initialising UART */
-  }
   while (1)
   {
     //wait forever

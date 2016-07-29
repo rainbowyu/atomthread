@@ -251,7 +251,7 @@ void spiFlashTest(void)
   
   FlashID = spiFlashReadID();
 
-  printf("\r\n 芯片的ID是 0x%X", FlashID);
+  printf("\r\n 芯片的ID是 0x%X", (int)FlashID);
 
   if (FlashID == 0xEF4015)  
   {

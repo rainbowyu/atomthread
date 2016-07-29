@@ -4,10 +4,10 @@
 
 #define CMDBUFFLEN 50         //命令缓存长度
 #define ARGNUM     5+1        //命令中允许的参数个数
-#define ARGLEN     4          //命令中允许的参数长度
-#define CMDLEN     20         //命令名占用的最大字符长度
+#define ARGLEN     15         //命令中允许的参数长度
+#define CMDLEN     10         //命令名占用的最大字符长度
 
-#define SHELLCMDNUM 4
+#define SHELLCMDNUM 6
 typedef struct Commanddatas{
   uint8_t buff[CMDBUFFLEN];
   uint8_t cmdParam[ARGNUM][ARGLEN];
@@ -33,4 +33,7 @@ extern void handleArg(uint8_t argc,void *cmd_arg);
 extern void filelistHandle(uint8_t argc,void *cmd_arg);
 extern void showTaskHandle(uint8_t argc,void *cmd_arg);
 extern void printfHello(uint8_t argc,void *cmd_arg);
+extern void mkdirHandle(uint8_t argc,void *cmd_arg);
+extern void rmHandle(uint8_t argc,void *cmd_arg);
+extern void catHandle(uint8_t argc,void *cmd_arg);
 #endif
