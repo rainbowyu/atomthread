@@ -1585,6 +1585,9 @@
   </mfc>
   <group>
     <name>cmdShell</name>
+    <excluded>
+      <configuration>Debug</configuration>
+    </excluded>
     <file>
       <name>$PROJ_DIR$\..\..\cmdShell\cmdShell.c</name>
     </file>
@@ -1594,6 +1597,9 @@
   </group>
   <group>
     <name>fatFs</name>
+    <excluded>
+      <configuration>Debug</configuration>
+    </excluded>
     <file>
       <name>$PROJ_DIR$\..\..\fatFS\diskio.c</name>
     </file>
@@ -1621,6 +1627,9 @@
   </group>
   <group>
     <name>hardWareDriver</name>
+    <excluded>
+      <configuration>Debug</configuration>
+    </excluded>
     <group>
       <name>stm8speriphs</name>
       <file>
@@ -1758,6 +1767,9 @@
     <name>threads</name>
     <file>
       <name>$PROJ_DIR$\threads\cmdshellthread.c</name>
+      <excluded>
+        <configuration>Debug</configuration>
+      </excluded>
     </file>
     <file>
       <name>$PROJ_DIR$\threads\displaythread.c</name>
@@ -1767,6 +1779,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\threads\filethread.c</name>
+      <excluded>
+        <configuration>Debug</configuration>
+      </excluded>
     </file>
     <file>
       <name>$PROJ_DIR$\threads\uartrxthread.c</name>

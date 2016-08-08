@@ -92,6 +92,7 @@ static NO_REG_SAVE void thread_shell (void)
 #if defined(__CSMC__)
     _asm("rim");
 #elif defined(__IAR_SYSTEMS_ICC__)
+    //enable interrupt
     rim();
 #elif defined(__RCSTM8__)
     _rim_();

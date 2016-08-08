@@ -13,19 +13,19 @@
 
 #include "mainthread.h"
 #include "uartrxthread.h"
-#include "cmdshellthread.h"
-#include "cmdshell.h"
-#include "filethread.h"
+//#include "cmdshellthread.h"
+//#include "cmdshell.h"
+//#include "filethread.h"
 //#include "displaythread.h"
 
 
 taskStateStruct taskState;
 /* Main thread's stack area (large so place outside of the small page0 area on STM8) */
 //NEAR static uint8_t display_thread_stack[DISPLAY_STACK_SIZE_BYTES];
-NEAR static uint8_t file_thread_stack[FILE_STACK_SIZE_BYTES];
+//NEAR static uint8_t file_thread_stack[FILE_STACK_SIZE_BYTES];
 
 NEAR static uint8_t uartProcess_thread_stack[UARTPROCESS_STACK_SIZE_BYTES];
-NEAR static uint8_t cmdshell_thread_stack[CMDSHELL_STACK_SIZE_BYTES];
+//NEAR static uint8_t cmdshell_thread_stack[CMDSHELL_STACK_SIZE_BYTES];
 
 /* Idle thread's stack area (large so place outside of the small page0 area on STM8) */
 NEAR static uint8_t idle_thread_stack[IDLE_STACK_SIZE_BYTES];
@@ -62,30 +62,30 @@ NO_REG_SAVE void main ( void )
                      UARTPROCESS_STACK_SIZE_BYTES,
                      TRUE,"UART_PRC");
 
-        status += atomThreadCreate(&cmdshell_tcb,
-                     10, cmdshell_thread_func, 0,
-                     &cmdshell_thread_stack[0],
-                     CMDSHELL_STACK_SIZE_BYTES,
-                     TRUE,"CMD_SHELL");
+//        status += atomThreadCreate(&cmdshell_tcb,
+//                     10, cmdshell_thread_func, 0,
+//                     &cmdshell_thread_stack[0],
+//                     CMDSHELL_STACK_SIZE_BYTES,
+//                     TRUE,"CMD_SHELL");
 
-        status += atomThreadCreate(&file_tcb,
-                     9, file_thread_func, 0,
-                     &file_thread_stack[0],
-                     FILE_STACK_SIZE_BYTES,
-                     TRUE,"FILE_SYS");
+//        status += atomThreadCreate(&file_tcb,
+//                     9, file_thread_func, 0,
+//                     &file_thread_stack[0],
+//                     FILE_STACK_SIZE_BYTES,
+//                     TRUE,"FILE_SYS");
 
         if (atomSemCreate (&uartRxsem, 0) != ATOM_OK)
         {
 
         }
-        if (atomSemCreate (&cmdShellsem, 0) != ATOM_OK)
-        {
-
-        }
-        if ( atomSemCreate (&fileCommondsem, 0) != ATOM_OK)
-        {
-  
-        }
+//        if (atomSemCreate (&cmdShellsem, 0) != ATOM_OK)
+//        {
+//
+//        }
+//        if ( atomSemCreate (&fileCommondsem, 0) != ATOM_OK)
+//        {
+//  
+//        }
 
         if (status == ATOM_OK)
         {
