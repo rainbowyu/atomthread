@@ -176,20 +176,20 @@ __interrupt void UART3_RX_IRQHandler(void)
     temp = (UART3_ReceiveData8());
     *p = temp;
 
-    if (p<=&rxDataBuff.buff[48]){p++;len++;}
+    if (p<=&rxDataBuff.buff[RXBUFFLEN-1]){p++;len++;}
     else
     {
       printf ("RX buff overflow\n");
     }
 
     if (temp=='\n'){
-      *p='\0';                              //数据最后添加 '\0'     
+      *(p+1)='\0';                              //数据最后添加 '\0'     
       rxDataBuff.len=len;
       
       len=0;                                //长度归零
       p=rxDataBuff.buff;                    //指针归位
       
-      atomSemPut (&uartRxsem);
+      atomSemPut (&uart3Rxsem);
     }
     atomIntExit (0);
   }

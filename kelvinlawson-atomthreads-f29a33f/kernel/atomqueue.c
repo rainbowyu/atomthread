@@ -203,96 +203,96 @@ uint8_t atomQueueCreate (ATOM_QUEUE *qptr, uint8_t *buff_ptr, uint32_t unit_size
  */
 uint8_t atomQueueDelete (ATOM_QUEUE *qptr)
 {
-    uint8_t status;
-    CRITICAL_STORE;
-    ATOM_TCB *tcb_ptr;
-    uint8_t woken_threads = FALSE;
+  uint8_t status;
+  CRITICAL_STORE;
+  ATOM_TCB *tcb_ptr;
+  uint8_t woken_threads = FALSE;
 
-    /* Parameter check */
-    if (qptr == NULL)
-    {
-        /* Bad pointer */
-        status = ATOM_ERR_PARAM;
-    }
-    else
-    {
-        /* Default to success status unless errors occur during wakeup */
-        status = ATOM_OK;
+  /* Parameter check */
+  if (qptr == NULL)
+  {
+      /* Bad pointer */
+      status = ATOM_ERR_PARAM;
+  }
+  else
+  {
+      /* Default to success status unless errors occur during wakeup */
+      status = ATOM_OK;
 
-        /* Wake up all suspended tasks */
-        while (1)
-        {
-            /* Enter critical region */
-            CRITICAL_START ();
+      /* Wake up all suspended tasks */
+      while (1)
+      {
+          /* Enter critical region */
+          CRITICAL_START ();
 
-            /* Check if any threads are suspended */
-            if (((tcb_ptr = tcbDequeueHead (&qptr->getSuspQ)) != NULL)
-                || ((tcb_ptr = tcbDequeueHead (&qptr->putSuspQ)) != NULL))
-            {
-                /* A thread is waiting on a suspend queue */
+          /* Check if any threads are suspended */
+          if (((tcb_ptr = tcbDequeueHead (&qptr->getSuspQ)) != NULL)
+              || ((tcb_ptr = tcbDequeueHead (&qptr->putSuspQ)) != NULL))
+          {
+              /* A thread is waiting on a suspend queue */
 
-                /* Return error status to the waiting thread */
-                tcb_ptr->suspend_wake_status = ATOM_ERR_DELETED;
+              /* Return error status to the waiting thread */
+              tcb_ptr->suspend_wake_status = ATOM_ERR_DELETED;
 
-                /* Put the thread on the ready queue */
-                if (tcbEnqueuePriority (&tcbReadyQ, tcb_ptr) != ATOM_OK)
-                {
-                    /* Exit critical region */
-                    CRITICAL_END ();
+              /* Put the thread on the ready queue */
+              if (tcbEnqueuePriority (&tcbReadyQ, tcb_ptr) != ATOM_OK)
+              {
+                  /* Exit critical region */
+                  CRITICAL_END ();
 
-                    /* Quit the loop, returning error */
-                    status = ATOM_ERR_QUEUE;
-                    break;
-                }
+                  /* Quit the loop, returning error */
+                  status = ATOM_ERR_QUEUE;
+                  break;
+              }
 
-                /* If there's a timeout on this suspension, cancel it */
-                if (tcb_ptr->suspend_timo_cb)
-                {
-                    /* Cancel the callback */
-                    if (atomTimerCancel (tcb_ptr->suspend_timo_cb) != ATOM_OK)
-                    {
-                        /* Exit critical region */
-                        CRITICAL_END ();
+              /* If there's a timeout on this suspension, cancel it */
+              if (tcb_ptr->suspend_timo_cb)
+              {
+                  /* Cancel the callback */
+                  if (atomTimerCancel (tcb_ptr->suspend_timo_cb) != ATOM_OK)
+                  {
+                      /* Exit critical region */
+                      CRITICAL_END ();
 
-                        /* Quit the loop, returning error */
-                        status = ATOM_ERR_TIMER;
-                        break;
-                    }
+                      /* Quit the loop, returning error */
+                      status = ATOM_ERR_TIMER;
+                      break;
+                  }
 
-                    /* Flag as no timeout registered */
-                    tcb_ptr->suspend_timo_cb = NULL;
+                  /* Flag as no timeout registered */
+                  tcb_ptr->suspend_timo_cb = NULL;
 
-                }
+              }
 
-                /* Exit critical region */
-                CRITICAL_END ();
+              /* Exit critical region */
+              CRITICAL_END ();
 
-                /* Request a reschedule */
-                woken_threads = TRUE;
-            }
+              /* Request a reschedule */
+              woken_threads = TRUE;
+          }
 
-            /* No more suspended threads */
-            else
-            {
-                /* Exit critical region and quit the loop */
-                CRITICAL_END ();
-                break;
-            }
-        }
+          /* No more suspended threads */
+          else
+          {
+              /* Exit critical region and quit the loop */
+              CRITICAL_END ();
+              break;
+          }
+      }
 
-        /* Call scheduler if any threads were woken up */
-        if (woken_threads == TRUE)
-        {
-            /**
-             * Only call the scheduler if we are in thread context, otherwise
-             * it will be called on exiting the ISR by atomIntExit().
-             */
-            if (atomCurrentContext())
-                atomSched (FALSE);
-        }
-    }
+      /* Call scheduler if any threads were woken up */
+      if (woken_threads == TRUE)
+      {
+          /**
+           * Only call the scheduler if we are in thread context, otherwise
+           * it will be called on exiting the ISR by atomIntExit().
+           */
+          if (atomCurrentContext())
+              atomSched (FALSE);
+      }
+  }
 
-    return (status);
+  return (status);
 }
 
 

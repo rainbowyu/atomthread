@@ -13,6 +13,9 @@
 
 #include "mainthread.h"
 #include "uartrxthread.h"
+#ifdef GPS
+  #include "gpsprocessthread.h"
+#endif
 //#include "cmdshellthread.h"
 //#include "cmdshell.h"
 //#include "filethread.h"
@@ -25,6 +28,7 @@ taskStateStruct taskState;
 //NEAR static uint8_t file_thread_stack[FILE_STACK_SIZE_BYTES];
 
 NEAR static uint8_t uartProcess_thread_stack[UARTPROCESS_STACK_SIZE_BYTES];
+NEAR static uint8_t gpsProcess_thread_stack[GPSPROCESS_STACK_SIZE_BYTES];
 //NEAR static uint8_t cmdshell_thread_stack[CMDSHELL_STACK_SIZE_BYTES];
 
 /* Idle thread's stack area (large so place outside of the small page0 area on STM8) */
@@ -48,7 +52,6 @@ NO_REG_SAVE void main ( void )
         /* Enable the system tick timer */
         archInitSystemTickTimer();
 
-
         /* Create an application thread */
 //        status += atomThreadCreate(&display_tcb,
 //                     20, display_thread_func, 0,
@@ -61,7 +64,13 @@ NO_REG_SAVE void main ( void )
                      &uartProcess_thread_stack[0],
                      UARTPROCESS_STACK_SIZE_BYTES,
                      TRUE,"UART_PRC");
-
+#ifdef GPS        
+        status += atomThreadCreate(&gpsProcess_tcb,
+                     9, gpsProcess_thread_func, 0,
+                     &gpsProcess_thread_stack[0],
+                     GPSPROCESS_STACK_SIZE_BYTES,
+                     TRUE,"GPS_PRC");
+#endif
 //        status += atomThreadCreate(&cmdshell_tcb,
 //                     10, cmdshell_thread_func, 0,
 //                     &cmdshell_thread_stack[0],
@@ -74,10 +83,11 @@ NO_REG_SAVE void main ( void )
 //                     FILE_STACK_SIZE_BYTES,
 //                     TRUE,"FILE_SYS");
 
-        if (atomSemCreate (&uartRxsem, 0) != ATOM_OK)
-        {
-
-        }
+        status += atomSemCreate (&uart3Rxsem, 0);
+#ifdef GPS
+        status += atomSemCreate (&gpsDatasem, 0);
+        status += atomMutexCreate (&gpsDatamutex);
+#endif
 //        if (atomSemCreate (&cmdShellsem, 0) != ATOM_OK)
 //        {
 //

@@ -182,6 +182,7 @@
           <name>CCDefines</name>
           <state>ATOM_STACK_CHECKING</state>
           <state>STM8S207</state>
+          <state>GPS</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -1782,6 +1783,12 @@
       <excluded>
         <configuration>Debug</configuration>
       </excluded>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\threads\gpsprocessthread.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\threads\gpsprocessthread.h</name>
     </file>
     <file>
       <name>$PROJ_DIR$\threads\uartrxthread.c</name>
