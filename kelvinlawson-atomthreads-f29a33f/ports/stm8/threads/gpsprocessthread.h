@@ -9,8 +9,24 @@
 #define GPSBUFFLEN RXBUFFLEN
 
 typedef struct GpsDatas{
-  uint8_t buff[GPSBUFFLEN];
+  uint8_t buff[GPSBUFFLEN];         //数据缓存
+  char gpsCut[15][11];              //gps数据分割
+  double UTC;                       //UTC时间
+  double lat;                       //纬度
+  double lon;                       //经度
+  uint8_t sateNum;                  //卫星数量 0-12
+  uint8_t GPSQuality;               //卫星质量 
+  double Horiprc;                   //水平精度因子
+  double AntAlt;                    //天线海拔
 }GPSdata;
+
+typedef struct centre{
+  double lat;                       //纬度
+  double lon;                       //经度
+  double distance;
+}forbidCentre;
+
+
 extern GPSdata GPSData;
 extern ATOM_TCB gpsProcess_tcb;
 extern ATOM_SEM gpsDatasem;

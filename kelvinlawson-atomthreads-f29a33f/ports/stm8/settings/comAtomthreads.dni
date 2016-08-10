@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=1170132792
+Checksum=-41763506
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -50,10 +50,14 @@ ActionState=1
 [Trace1]
 Enabled=0
 ShowSource=1
+[struct_types]
+Fmt0=GPSdata-GPSQuality	3	0
+Fmt1=GPSdata-sateNum	3	0
 [array_types]
 Fmt0=u8[20]	5	0
 [watch_formats]
 Fmt0={W}0:FlashID	4	0
+Fmt1={W}0:kk	0	8
 [DataSample]
 LogEnabled=0
 GraphEnabled=0

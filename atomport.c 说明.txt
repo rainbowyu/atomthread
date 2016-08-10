@@ -1,0 +1,47 @@
+/**
+ * \b thread_shell
+ *
+ * Shell routine which is used to call all thread entry points.
+ * 线程入口函数.
+
+ * This routine is called whenever a new thread is starting, and is
+ * responsible for taking the entry point parameter off the TCB
+ * and passing this into the thread entry point, as well as enabling
+ * interrupts.
+ * 程序在任意线程初始化的时候都会被调用.它的功能是初始化TCB的入口参数,并将其
+ * 传入线程入口,同时使能中断.
+
+ * This is an optional function for a port, because interrupts could
+ * be enabled by the first-thread and normal context restore routines,
+ * but that would require special handling in the normal context
+ * switch routine (archContextSwitch()) that is only needed the first
+ * time a thread is started. A much neater method is to direct all
+ * threads through this shell routine first, so that interrupts will
+ * always be enabled at thread startup, and no special first-time-run
+ * handling is required in the context restore routines (i.e. we
+ * don't affect normal context switch times just for the benefit of
+ * the first time a thread is restored by adding extra complication
+ * to the thread restore routines).
+ * 这是port种的一个可选函数,因为中断同样可以被第一个线程和普通的上下文恢复程序
+ * 使能(并没有这样做).但是需要在archContextSwitch()进行特别的操作,使得启动线
+ * 程的时候被运行.更加简洁的方法是在每个线程启动的时候都先运行这个shell程序,这
+ * 样就不需要在archContextSwitch()中加入线程第一次运行时的特殊操作.
+
+ * Other ports are free to implement whatever scheme they wish. In
+ * particular if you save all necessary registers (including the
+ * interrupt enable register) on a context switch then you need not
+ * worry about any special requirements for starting threads for the
+ * first time because you can preinitialise the stack context with
+ * a suitable register value that will enable interrupts.
+ *
+
+ * If the compiler supports it, stack space can be saved by preventing
+ * the function from saving registers on entry. This is because we
+ * are called directly by the context-switch assembler, and know that
+ * threads cannot return from here. The NO_REG_SAVE macro is used to
+ * denote such functions in a compiler-agnostic way, though not all
+ * compilers support it.
+ *
+ * @return None
+ */
+ static NO_REG_SAVE void thread_shell (void);

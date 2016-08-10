@@ -2,6 +2,7 @@
 #include "stdio.h"
 #include "string.h"
 #include "math.h"
+#include "stdlib.h"
 
 #include "stm8s.h"
 #include "uart.h"
@@ -18,35 +19,47 @@
 #define EARTH_RADIUS 6378.137
 #define rad(x) (((x)*(pi))/(180.0))
 
+const forbidCentre centre[2]=
+{
+  /*  lat       lon     distance */
+  {39.906913,116.384305,  40.0   },
+  {20.906913,106.384305,  40.0   },
+};
+
 ATOM_TCB gpsProcess_tcb;
 ATOM_SEM gpsDatasem;
 ATOM_MUTEX gpsDatamutex;
 
 GPSdata GPSData;
 
-double lat1=39.906913,lat2=39.999844,lon1=116.384305,lon2=116.018330;
-double dist;
-
 void gpsProcess_thread_func (uint32_t param);
 double GPStoDistance(double lat1,double lon1,double lat2,double lon2);
-void GPSProcess(double *lat,double *lon,uint8_t *gpsData,char gpsCut[][11]);
-
-char gpsCut[15][11];
+void GPSDataProcess(GPSdata *gps);
+void GPSDataCut(GPSdata *gps);
+int8_t stringToInt(uint8_t scale, char * string, uint32_t *intNum);
+int8_t GPSCheckSum(char *gpsData);
+int8_t stringTofloat(char * string, double *intNum);
+int8_t GPSLatProcess(double *lat,char dir);
+int8_t GPSLonProcess(double *lon,char dir);
 
 void gpsProcess_thread_func (uint32_t param)
 {
   volatile uint32_t use=0,free=0;
-  double a,b;
   
   while (1)
   {
     //wait forever
     if (atomSemGet(&gpsDatasem, 0) == ATOM_OK)
     {   
-      atomMutexGet (&gpsDatamutex,0);
-      GPSProcess (&a,&b,GPSData.buff,gpsCut);
-      atomMutexPut (&gpsDatamutex);
       
+      if ( GPSCheckSum ((char *)GPSData.buff)==0 )
+      {
+        atomMutexGet (&gpsDatamutex,0);
+        GPSDataCut(&GPSData);
+        GPSDataProcess(&GPSData);
+        atomMutexPut (&gpsDatamutex);
+      }
+       
       //get the used RAM
       atomThreadStackCheck (&gpsProcess_tcb, (uint32_t*)&use, (uint32_t*)&free);
       taskState.taskRAMMax[gpsProcess_tcb.threadNum][0]=(uint16_t)use;
@@ -55,9 +68,82 @@ void gpsProcess_thread_func (uint32_t param)
   }
 }
 
+int8_t stringToInt(uint8_t scale, char * string, uint32_t *intNum)
+{
+  char *p=NULL;
+  int8_t state=0;
+  switch (scale)
+  {
+    case 2:;
+    case 8:;
+    case 10:
+      for (p = string;(*p) != '\0';p++)
+      {
+        *intNum = (*intNum) * scale;
+        *intNum += (*p)-'0';
+      }
+      break;
+    case 16:
+      for (p = string;(*p) != '\0';p++)
+      {
+        *intNum = (*intNum) * 16;
+        //大写转小写
+        if ((*p)>='A'&&(*p)<='F')
+        {*p = *p + 32;}
+        if((*p)>='a'&&(*p)<='f')
+        {(*intNum) += ((*p)-87);}
+        else
+        {(*intNum) += ((*p)-'0');}
+      }
+      break;
+    default:
+      state = -1;
+      break;
+  }
+  return state;
+}
+
+int8_t stringTofloat(char * string, double *intNum)
+{
+  char *p=NULL;
+  int8_t state=0;
+  uint32_t temp;
+  double temp1;
+  uint8_t i=0;
+  uint8_t flag=0;
+  for (p = string;(*p) != '\0';p++)
+  {
+    if (flag)
+    {
+      i++;
+      temp1 = temp1 * 10.0;
+      temp1 += (*p)-'0';
+    }
+    else 
+    {
+      temp = temp * 10;
+      if ((*p)=='.')
+      {
+        flag = 1;
+      }
+      else
+      {
+        temp += (*p)-'0';
+      }
+    }
+  }
+  do
+  {
+    temp1=temp1/10.0;
+  }while(i--);
+  *intNum= (double)temp + temp1;
+  if (!flag)state = -1;
+  return state;
+}
+
 /**
  *  GPS定位信息 $GPGGA (1)，(2)，(3)，(4)，(5)，(6)，(7)，(8)，(9)，M，(10)，M，(11)，(12)＊(13)(CR)(LF)
- *  例：$GPGGA,092204.999,4250.5589,S,14718.5084,E,1,04,24.4,19.7,M,,,,0000*1F
+ *  例：$GPGGA,092204.999,4000.2330,N,11603.2365,E,1,04,24.4,19.7,M,,,,0000*03
  *  (1)定位UTC时间：05时09分01秒　　 
  *  (2)纬度(格式ddmm.mmmm:即dd度，mm.mmmm分)；　　 
  *  (3)N/S(北纬或南纬)：北纬39度31.4449分；　　 
@@ -108,21 +194,145 @@ void gpsProcess_thread_func (uint32_t param)
  */
 
 /**
- *  GPS数据解析
+ *  GPS数据剪切
  */
-void GPSProcess(double *lat,double *lon,uint8_t *gpsData,char gpsCut[][11])
+
+int8_t GPSCheckSum(char *gpsData)
+{
+  int8_t state=0;
+  uint8_t result=0;
+  uint32_t checkSum=0;
+  char charSum[3]={0};
+  char *p=NULL;
+  
+  //去掉$
+  for (p=gpsData+1;(*p)!='*';p++)
+  {
+    result ^= *p;
+  }
+  charSum[0]=*(p+1);
+  charSum[1]=*(p+2);
+  stringToInt(16, charSum, &checkSum);
+  if (checkSum != result)state=-1;
+  return state;
+}
+
+
+/**
+ *  GPS数据剪切
+ */
+void GPSDataCut(GPSdata *gps)
 {
   char *gpsCuttemp;
   uint8_t i=0;
   const char *split = ",";
+  char bufftemp[GPSBUFFLEN];
+  strncpy(bufftemp , (char*)gps->buff, GPSBUFFLEN);
   //p=gpsCuttemp;
   
   //gpsCut[i] = strtok ((char*)gpsData,split);
-  for(gpsCuttemp=strtok ((char*)gpsData,split);gpsCuttemp!=NULL;i++) 
+  for(gpsCuttemp=strtok ( bufftemp, split);gpsCuttemp!=NULL;i++) 
   {
-    strncpy(gpsCut[i], gpsCuttemp, 11);
+    strncpy(gps->gpsCut[i], gpsCuttemp, 11);
     gpsCuttemp = strtok(NULL,split);
   }
+}
+
+/**
+ *  GPS数据处理
+ *  参数1[in] gpsCut数据,由逗号切割
+ *  参数2[out] lat 纬度 <0南纬(S) >0北纬(N)
+ *  参数3[out] lon 经度 <0西经(W) >0东经(E)
+ */
+double distance;
+uint32_t temp;
+void GPSDataProcess(GPSdata *gps)
+{
+  static uint32_t gpsReadCount=0; 
+  if (strcmp((const char *)gps->gpsCut[0], "$GPGGA") == 0)
+  {
+    //stringTofloat(gps->gpsCut[1], &kk);
+    gps->UTC=atof(gps->gpsCut[1]);
+    gps->lat=atof(gps->gpsCut[2]);
+    GPSLatProcess(&gps->lat,gps->gpsCut[3][0]);
+    gps->lon=atof(gps->gpsCut[4]);
+    GPSLonProcess(&gps->lon,gps->gpsCut[5][0]);
+    stringToInt(10, gps->gpsCut[6], &temp);
+    gps->GPSQuality = (uint8_t)temp;
+    temp=0;
+    stringToInt(10, gps->gpsCut[7], &temp);
+    gps->sateNum = (uint8_t)temp;
+    gps->Horiprc=atof(gps->gpsCut[8]);
+    gps->AntAlt=atof(gps->gpsCut[9]);   
+    distance = GPStoDistance(centre[0].lat,centre[0].lon,gps->lat,gps->lon);
+    if (gps->GPSQuality)
+    {
+      gpsReadCount++;
+    }
+    if (gpsReadCount>50)
+    {
+      if (distance < centre[0].distance || 0)
+      {
+        for (uint8_t i=0;i<GPSBUFFLEN;i++)
+        {
+          if (gps->buff[i]=='N')gps->buff[i]='S';
+          if (gps->buff[i]=='S')gps->buff[i]='N';
+        }
+      }
+    }
+    printf("%s",gps->buff);
+  }
+}
+
+
+//lat lon 经度 <0西经(W) >0东经(E)
+int8_t GPSLatProcess(double *lat,char dir)
+{
+  double temp,temp1;
+  uint32_t i;
+  temp = *lat;
+  temp1 = *lat;
+  
+  temp /= 100.0;
+  i = (uint32_t)temp;
+  
+  temp1 -= i*100;
+  temp1 /= 60.0;
+  switch (dir)
+  {
+    case 'W':
+      *lat = -(i+temp1);
+      break;
+    case 'E':
+      *lat = i+temp1;
+      break;
+  }
+  return 0;
+}
+
+//lat 经度 <0南纬(S) >0北纬(N)
+int8_t GPSLonProcess(double *lon,char dir)
+{
+  double temp,temp1;
+  uint32_t i;
+  temp = *lon;
+  temp1 = *lon;
+  
+  temp /= 100.0;
+  i = (uint32_t)temp;
+  
+  temp1 -= i*100;
+  temp1 /= 60.0;
+  switch (dir)
+  {
+    case 'S':
+      *lon = -(i+temp1);
+      break;
+    case 'N':
+      *lon = i+temp1;
+      break;
+  }
+  return 0;
 }
 
 /**
@@ -161,7 +371,7 @@ double GPStoDistance(double lat1,double lon1,double lat2,double lon2)
   double d = sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)+ (z1 - z2) * (z1 - z2));  
   //余弦定理求夹角  
   double theta = acos((EARTH_RADIUS * EARTH_RADIUS + EARTH_RADIUS * EARTH_RADIUS - d * d) / (2 * EARTH_RADIUS * EARTH_RADIUS));  
-  dist = theta * EARTH_RADIUS;
+  double dist = theta * EARTH_RADIUS;
   return dist;
 }
 #endif 
